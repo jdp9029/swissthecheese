@@ -35,10 +35,31 @@ public class ChangeRadiusButton : MonoBehaviour
         Debug.Log("radius too small: " + radiusTooSmall);
         Debug.Log("radius too large: " + radiusTooLarge);*/
 
-        if(mouseBeingHeld)
+        int multiplier = Increase ? 250 : -250;
+        
+        if (mouseBeingHeld)
         {
-            int multiplier = Increase ? 1 : -1;
-            holeManager.radius += Time.deltaTime * 250 * multiplier;
+            //moves the radius accordingly
+            holeManager.radius += Time.deltaTime * multiplier;
+        }
+
+        //handles getting too close to the center
+        if (centerCircle.GetComponent<CircleCollider2D>().bounds.Intersects(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds) && !Increase)
+        {
+            holeManager.radius -= Time.deltaTime * multiplier;
+            Debug.Log("Cannot move closer to the center");
+        }
+
+        //handles getting too close to the edge
+        bool boundsContain =
+            bigCircle.GetComponent<CircleCollider2D>().bounds.Contains(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.min) &&
+            bigCircle.GetComponent<CircleCollider2D>().bounds.Contains(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.max);
+        if (!boundsContain && Increase)
+        {
+            holeManager.radius -= Time.deltaTime * multiplier;
+            Debug.Log("Cannot move outside big circle");
+            Debug.Log("Max: " + holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.max + "\nMin:" +
+                holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.min);
         }
     }
 
