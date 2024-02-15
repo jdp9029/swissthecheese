@@ -21,7 +21,7 @@ public class HoleManager : MonoBehaviour
     [SerializeField] ColorManager colorManager;
 
     //radius of the swinging circle
-    [HideInInspector] public float radius = 1.0f;
+    [SerializeField] public float radius = 1.0f;
 
     //angle of the swinging circle from the center
     private float angle = 0;

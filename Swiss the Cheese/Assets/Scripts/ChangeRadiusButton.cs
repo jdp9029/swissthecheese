@@ -21,45 +21,25 @@ public class ChangeRadiusButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*Vector2 bigCircleCenter = new Vector2(bigCircle.transform.position.x + (.5f * bigCircle.GetComponent<RectTransform>().rect.width), 
-            bigCircle.transform.position.y + (.5f * bigCircle.GetComponent <RectTransform>().rect.height));
-        Vector2 rotatingCircleCenter = new Vector2(holeManager.cutterInstance.transform.position.x, holeManager.cutterInstance.transform.position.y);
-        Vector2 centerCircleCenter = bigCircleCenter;
-        float bigCircleRadius = bigCircle.GetComponent<RectTransform>().rect.width / 2;
-        float rotatingCircleRadius = holeManager.cutterInstance.GetComponent<RectTransform>().rect.width / 2;
-        float centerCircleRadius = centerCircle.GetComponent<RectTransform>().rect.width / 2;
-
-        bool radiusTooLarge = Distance(bigCircleCenter, rotatingCircleCenter) + rotatingCircleRadius + 10 >= bigCircleRadius;
-        bool radiusTooSmall = Distance(centerCircleCenter, rotatingCircleCenter) <= centerCircleRadius + rotatingCircleRadius + 10;
-
-        Debug.Log("radius too small: " + radiusTooSmall);
-        Debug.Log("radius too large: " + radiusTooLarge);*/
-
-        int multiplier = Increase ? 250 : -250;
+        float multiplier = Increase ? 250 * Time.deltaTime: -250 * Time.deltaTime;
         
         if (mouseBeingHeld)
         {
             //moves the radius accordingly
-            holeManager.radius += Time.deltaTime * multiplier;
-        }
+            holeManager.radius += multiplier;
 
-        //handles getting too close to the center
-        if (centerCircle.GetComponent<CircleCollider2D>().bounds.Intersects(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds) && !Increase)
-        {
-            holeManager.radius -= Time.deltaTime * multiplier;
-            Debug.Log("Cannot move closer to the center");
+            //handles getting too close to the center
+            if (RadiusTooSmall() && !Increase)
+            {
+                holeManager.radius -= multiplier;
+            }
         }
 
         //handles getting too close to the edge
-        bool boundsContain =
-            bigCircle.GetComponent<CircleCollider2D>().bounds.Contains(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.min) &&
-            bigCircle.GetComponent<CircleCollider2D>().bounds.Contains(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.max);
-        if (!boundsContain && Increase)
+        if (RadiusTooLarge() && Increase)
         {
-            holeManager.radius -= Time.deltaTime * multiplier;
-            Debug.Log("Cannot move outside big circle");
-            Debug.Log("Max: " + holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.max + "\nMin:" +
-                holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.min);
+            Debug.Log("too big");
+            holeManager.radius -= multiplier;
         }
     }
 
@@ -71,6 +51,20 @@ public class ChangeRadiusButton : MonoBehaviour
     public void OnRelease()
     {
         mouseBeingHeld=false;
+    }
+
+    private bool RadiusTooSmall()
+    {
+        return centerCircle.GetComponent<CircleCollider2D>().bounds.Intersects(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds);
+    }
+
+    private bool RadiusTooLarge()
+    {
+        /*return !bigCircle.GetComponent<CircleCollider2D>().bounds.Contains(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.min) ||
+            !bigCircle.GetComponent<CircleCollider2D>().bounds.Contains(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.max);*/
+        
+        return Distance((Vector2)Camera.main.ViewportToWorldPoint(holeManager.cutterInstance.transform.position), (Vector2)Camera.main.ViewportToWorldPoint(bigCircle.transform.position))
+            + holeManager.cutterInstance.GetComponent<CircleCollider2D>().radius >= bigCircle.GetComponent<CircleCollider2D>().radius;
     }
 
     private float Distance(Vector2 point1, Vector2 point2)
