@@ -29,12 +29,7 @@ public class ColorManager : MonoBehaviour
         CycleColor();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Change color to the next cycle through (at the moment, irrelevant)
     private void CycleColor()
     {
         Circle.color = colors[colorIndex % colors.Length];

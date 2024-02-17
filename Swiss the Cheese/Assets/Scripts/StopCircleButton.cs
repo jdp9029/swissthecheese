@@ -18,9 +18,6 @@ public class StopCircleButton : MonoBehaviour
     //bigCircle reference
     [SerializeField] private GameObject bigCircle;
 
-    //holes cut out of the cheese
-    private List<GameObject> holesMade = new List<GameObject>();
-
     //hole manager
     [SerializeField] HoleManager holeManager;
 
@@ -31,18 +28,19 @@ public class StopCircleButton : MonoBehaviour
         stopButton.onClick.AddListener(OnClick);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Occurs when the button is clicked
     private void OnClick()
     {
+        //Cut a new hole out of the big circle
         GameObject newHole = Instantiate(circlePrefab, holeManager.cutterInstance.transform.position, Quaternion.identity, bigCircle.transform);
-        newHole.GetComponent<Image>().color = background.GetComponent<Image>().color;
-        holesMade.Add(newHole);
 
+        //Set it up as the color of the background
+        newHole.GetComponent<Image>().color = background.GetComponent<Image>().color;
+
+        //check it against other holes cut
+        holeManager.CheckIntersections(newHole);
+
+        //Make the rotating circle the last sibling
         holeManager.cutterInstance.transform.SetAsLastSibling();
     }
 }

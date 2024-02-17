@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class ChangeRadiusButton : MonoBehaviour
 {
@@ -12,61 +13,61 @@ public class ChangeRadiusButton : MonoBehaviour
 
     private bool mouseBeingHeld;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
+        //a multiplier to change the radius by
         float multiplier = Increase ? 250 * Time.deltaTime: -250 * Time.deltaTime;
         
+        //if the mouse is being held
         if (mouseBeingHeld)
         {
-            //moves the radius accordingly
+            //change the value of the radius by the multiplier
             holeManager.radius += multiplier;
 
-            //handles getting too close to the center
-            if (RadiusTooSmall() && !Increase)
+            //update the position of the rotating circle
+            Physics.SyncTransforms();
+
+            //make the circle does not go outside the bounds of the outer circle
+            if ((RadiusTooSmall() && !Increase) || (RadiusTooLarge() && Increase))
             {
                 holeManager.radius -= multiplier;
             }
         }
-
-        //handles getting too close to the edge
-        if (RadiusTooLarge() && Increase)
-        {
-            Debug.Log("too big");
-            holeManager.radius -= multiplier;
-        }
     }
 
+    //gets called when the button is pressed
     public void OnPress()
     {
         mouseBeingHeld = true;
     }
 
+    //gets called when the button is released
     public void OnRelease()
     {
         mouseBeingHeld=false;
     }
-
+    
+    //determine if the radius of the rotating circle is too large
     private bool RadiusTooSmall()
     {
         return centerCircle.GetComponent<CircleCollider2D>().bounds.Intersects(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds);
     }
 
+    //determine if the radius of the rotating circle is too large
     private bool RadiusTooLarge()
     {
-        /*return !bigCircle.GetComponent<CircleCollider2D>().bounds.Contains(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.min) ||
-            !bigCircle.GetComponent<CircleCollider2D>().bounds.Contains(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.max);*/
-        
-        return Distance((Vector2)Camera.main.ViewportToWorldPoint(holeManager.cutterInstance.transform.position), (Vector2)Camera.main.ViewportToWorldPoint(bigCircle.transform.position))
-            + holeManager.cutterInstance.GetComponent<CircleCollider2D>().radius >= bigCircle.GetComponent<CircleCollider2D>().radius;
+        //the point on the circle of this angle
+        Vector2 pointOnCircle = 2 * bigCircle.GetComponent<CircleCollider2D>().radius * new Vector2(Mathf.Cos(holeManager.angle), Mathf.Sin(holeManager.angle));
+
+        //the point on the rotating circle at this angle
+        Vector2 pointOnRotator = holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.center - bigCircle.GetComponent<CircleCollider2D>().bounds.center;
+
+        return Distance(pointOnRotator, Vector2.zero) + holeManager.cutterInstance.GetComponent<CircleCollider2D>().radius > Distance(pointOnCircle, Vector2.zero);
     }
 
+
+    //return the distance between two points
     private float Distance(Vector2 point1, Vector2 point2)
     {
         return Mathf.Sqrt(Mathf.Pow(point1.x - point2.x, 2) + Mathf.Pow(point1.y - point2.y, 2));
