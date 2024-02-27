@@ -13,12 +13,16 @@ public class ZoomManager : MonoBehaviour
     [HideInInspector] private GameObject circleInstance;
     [HideInInspector] private float ZoomSpeed = 1;
     [HideInInspector] private Vector2 OriginalCircleScale = Vector2.one;
+    [HideInInspector] private float OriginalCircleWidth;
+    [HideInInspector] private float prefabCircleWidth;
 
 
     // Start is called before the first frame update
     void Start()
     {
         OriginalCircleScale = OuterCircle.transform.localScale;
+        OriginalCircleWidth = OuterCircle.GetComponent<RectTransform>().rect.width;
+        prefabCircleWidth = circlePrefab.GetComponent<RectTransform>().rect.width;
     }
 
     // Update is called once per frame
@@ -31,17 +35,21 @@ public class ZoomManager : MonoBehaviour
         if(IsZooming)
         {
             //shrink the sizes of the circles
-            OuterCircle.transform.localScale = new Vector3(OuterCircle.transform.localScale.x - speed, OuterCircle.transform.localScale.y - speed, OuterCircle.transform.localScale.z);
-            circleInstance.transform.localScale = new Vector3(circleInstance.transform.localScale.x - speed, circleInstance.transform.localScale.y - speed, circleInstance.transform.localScale.z);
+            OuterCircle.transform.localScale = new Vector3(DecreaseSpeed(OuterCircle.transform.localScale.x, speed), DecreaseSpeed(OuterCircle.transform.localScale.y, speed), OuterCircle.transform.localScale.z);
+            circleInstance.transform.localScale = new Vector3(DecreaseSpeed(circleInstance.transform.localScale.x, speed), DecreaseSpeed(circleInstance.transform.localScale.y, speed), circleInstance.transform.localScale.z);
             
+            //Don't let the outer circle get smaller than zero
             if(OuterCircle.transform.localScale.x <=0)
             {
                 OuterCircle.transform.localScale = Vector3.zero;
             }
 
+            //slowly turn the outer color to the appropriate color
+            GameObject.FindObjectOfType<ColorManager>().SlowBurn();
+
 
             //if we've zoomed far enough, end the zoom
-            if(circleInstance.transform.localScale.x <= OriginalCircleScale.x)
+            if(circleInstance.transform.localScale.x <= (OriginalCircleScale.x * OriginalCircleWidth / prefabCircleWidth))
             {
                 EndZoom();
             }
@@ -50,7 +58,7 @@ public class ZoomManager : MonoBehaviour
         //if we are not zooming out
         else
         {
-            if(int.Parse(FindObjectOfType<HoleManager>().scoreCounter.text) >= 10)
+            if(int.Parse(FindObjectOfType<HoleManager>().scoreCounter.text) >= 15)
             {
                 StartZoom();
             }
@@ -66,7 +74,7 @@ public class ZoomManager : MonoBehaviour
         //create and populate the larger circle object
         circleInstance = Instantiate(circlePrefab, Background.transform);
         circleInstance.transform.SetAsFirstSibling();
-        circleInstance.transform.localScale = 2 * OuterCircle.transform.localScale;
+        circleInstance.transform.localScale = OuterCircle.transform.localScale * OuterCircle.GetComponent<RectTransform>().rect.width / 25;
         circleInstance.transform.position = OuterCircle.transform.position;
         circleInstance.GetComponent<Image>().color = Background.GetComponent<Image>().color;
 
@@ -105,5 +113,11 @@ public class ZoomManager : MonoBehaviour
         OuterCircle.transform.GetChild(1).gameObject.SetActive(true);
         GameObject.FindObjectOfType<HoleManager>().cutterInstance = OuterCircle.transform.GetChild(1).gameObject;
         GameObject.FindObjectOfType<HoleManager>().cutterInstance.GetComponent<Image>().color = Color.white;
+        GameObject.FindObjectOfType<HoleManager>().holesCut.Clear();
+    }
+
+    private float DecreaseSpeed(float value, float speed)
+    {
+        return value - (speed * value);
     }
 }
