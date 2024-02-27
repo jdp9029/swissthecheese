@@ -26,16 +26,21 @@ public class ColorManager : MonoBehaviour
             new Color32(218, 244, 22, 255)
         };
 
-        CycleColor();
+        CycleBackground();
+        CycleForeground();
     }
 
     //Change color to the next cycle through (at the moment, irrelevant)
-    public void CycleColor()
+    public void CycleForeground()
     {
         Circle.color = colors[colorIndex % colors.Length];
-        Background.color = colors[(colorIndex + 1) % colors.Length];
         CircleCenter.color = colors[(colorIndex + 1) % colors.Length];
         colorIndex++;
+    }
+
+    public void CycleBackground()
+    {
+        Background.color = colors[(colorIndex + 1) % colors.Length];
     }
 
 }

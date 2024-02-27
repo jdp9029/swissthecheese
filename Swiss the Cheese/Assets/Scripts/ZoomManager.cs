@@ -34,6 +34,10 @@ public class ZoomManager : MonoBehaviour
             OuterCircle.transform.localScale = new Vector3(OuterCircle.transform.localScale.x - speed, OuterCircle.transform.localScale.y - speed, OuterCircle.transform.localScale.z);
             circleInstance.transform.localScale = new Vector3(circleInstance.transform.localScale.x - speed, circleInstance.transform.localScale.y - speed, circleInstance.transform.localScale.z);
             
+            if(OuterCircle.transform.localScale.x <=0)
+            {
+                OuterCircle.transform.localScale = Vector3.zero;
+            }
 
 
             //if we've zoomed far enough, end the zoom
@@ -65,9 +69,12 @@ public class ZoomManager : MonoBehaviour
         circleInstance.transform.localScale = 2 * OuterCircle.transform.localScale;
         circleInstance.transform.position = OuterCircle.transform.position;
         circleInstance.GetComponent<Image>().color = Background.GetComponent<Image>().color;
-        
+
+        //cycle the background
+        GameObject.FindObjectOfType<ColorManager>().CycleBackground();
+
         //destroy any holes that were cut
-        for(int i = 2; i < OuterCircle.transform.childCount; i++)
+        for (int i = 2; i < OuterCircle.transform.childCount; i++)
         {
             GameObject.Destroy(OuterCircle.transform.GetChild(i).gameObject);
         }
@@ -89,7 +96,7 @@ public class ZoomManager : MonoBehaviour
         OuterCircle.transform.localScale = OriginalCircleScale;
 
         //cycle the colors
-        GameObject.FindObjectOfType<ColorManager>().CycleColor();
+        GameObject.FindObjectOfType<ColorManager>().CycleForeground();
 
         //destroy big circle
         GameObject.Destroy(circleInstance);
