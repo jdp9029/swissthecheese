@@ -30,7 +30,7 @@ public class ColorManager : MonoBehaviour
     }
 
     //Change color to the next cycle through (at the moment, irrelevant)
-    private void CycleColor()
+    public void CycleColor()
     {
         Circle.color = colors[colorIndex % colors.Length];
         Background.color = colors[(colorIndex + 1) % colors.Length];

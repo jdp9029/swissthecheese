@@ -31,6 +31,12 @@ public class StopCircleButton : MonoBehaviour
     //Occurs when the button is clicked
     private void OnClick()
     {
+        //only work if we're not in the middle of zooming
+        if(GameObject.FindObjectOfType<ZoomManager>().IsZooming)
+        {
+            return;
+        }
+
         //Cut a new hole out of the big circle
         GameObject newHole = Instantiate(circlePrefab, holeManager.cutterInstance.transform.position, Quaternion.identity, bigCircle.transform);
 

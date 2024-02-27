@@ -39,13 +39,19 @@ public class ChangeRadiusButton : MonoBehaviour
     //gets called when the button is pressed
     public void OnPress()
     {
-        mouseBeingHeld = true;
+        if(!GameObject.FindObjectOfType<ZoomManager>().IsZooming)
+        {
+            mouseBeingHeld = true;
+        }
     }
 
     //gets called when the button is released
     public void OnRelease()
     {
-        mouseBeingHeld=false;
+        if (!GameObject.FindObjectOfType<ZoomManager>().IsZooming)
+        {
+            mouseBeingHeld = false;
+        }
     }
     
     //determine if the radius of the rotating circle is too large

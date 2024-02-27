@@ -10,7 +10,7 @@ public class HoleManager : MonoBehaviour
     [SerializeField] GameObject circularPrefab;
 
     //the instance of the swinging circle
-    [HideInInspector] public GameObject cutterInstance;
+    [SerializeField] public GameObject cutterInstance;
 
     //center of the big circle
     [SerializeField] GameObject centerOfCircle;
@@ -34,7 +34,7 @@ public class HoleManager : MonoBehaviour
     [HideInInspector] public List<GameObject> holesCut = new List<GameObject>();
 
     //Counter for how many holes have been cut
-    [SerializeField] TextMeshProUGUI textMeshProUGUI;
+    [SerializeField] public TextMeshProUGUI scoreCounter;
 
 
     // Start is called before the first frame update
@@ -56,6 +56,11 @@ public class HoleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameObject.FindObjectOfType<ZoomManager>().IsZooming)
+        {
+            return;
+        }
+
         //iterate the angle
         angle += Time.deltaTime * rotationSpeed;
         ReturnAngleToZero();
@@ -112,6 +117,6 @@ public class HoleManager : MonoBehaviour
         }
 
         //set up the counter
-        textMeshProUGUI.text = holesCut.Count.ToString();
+        scoreCounter.text = holesCut.Count.ToString();
     }
 }
