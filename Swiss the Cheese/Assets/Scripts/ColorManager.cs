@@ -28,6 +28,7 @@ public class ColorManager : MonoBehaviour
         };
         
         timePassed = 0;
+        colorIndex = 0;
 
         CycleBackground();
         CycleForeground();
@@ -53,15 +54,11 @@ public class ColorManager : MonoBehaviour
     }
 
     //Slowly shift the color of the regular circle midzoom
-    public void SlowBurn()
+    public void SlowBurn(Color32 baseColor, Color32 targetColor, GameObject targetObject)
     {
         //Only do it every .01 seconds
         if(timePassed < 0.01f) { return; }
         else { timePassed = 0; }
-
-        //We want the circle to proceed towards the background color
-        Color32 baseColor = Circle.color;
-        Color32 targetColor = Background.color;
 
         //math
         int r = baseColor.r;
@@ -78,7 +75,14 @@ public class ColorManager : MonoBehaviour
         if (targetColor.a > baseColor.a) { a = baseColor.a + 1; }
         else if (targetColor.a != baseColor.a) { a = baseColor.a - 1; }
 
-        Circle.color = new Color32((byte)r, (byte)g, (byte)b, (byte)a);
+        targetObject.GetComponent<UnityEngine.UI.Image>().color = new Color32((byte)r, (byte)g, (byte)b, (byte)a);
+    }
+
+    public void ResetColors()
+    {
+        colorIndex = 0;
+        CycleBackground();
+        CycleForeground();
     }
 
 }

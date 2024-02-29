@@ -108,15 +108,27 @@ public class HoleManager : MonoBehaviour
             
             //Clear holes cut
             holesCut.Clear();
+
+            //set up the counter
+            scoreCounter.text = "0";
+
+            //set up just zoomed
+            GameObject.FindObjectOfType<ZoomManager>().justZoomed = true;
+
+            //reset colors
+            //GameObject.FindObjectOfType<ColorManager>().ResetColors();
         }
 
         //If it doesn't intersect, simply add it to the holes cut list
         else
         {
             holesCut.Add(newHole);
-        }
+            
+            //set up the counter
+            scoreCounter.text = (int.Parse(scoreCounter.text) + 1).ToString();
 
-        //set up the counter
-        scoreCounter.text = holesCut.Count.ToString();
+            //set up just zoomed
+            GameObject.FindObjectOfType<ZoomManager>().justZoomed = false;
+        }
     }
 }
