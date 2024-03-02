@@ -6,11 +6,11 @@ using TMPro;
 
 public class HoleManager : MonoBehaviour
 {
-    //circle swinging
+    //holes being cut
     [SerializeField] GameObject circularPrefab;
 
     //the instance of the swinging circle
-    [SerializeField] public GameObject cutterInstance;
+    [SerializeField] public GameObject mouseInstance;
 
     //center of the big circle
     [SerializeField] GameObject centerOfCircle;
@@ -36,6 +36,8 @@ public class HoleManager : MonoBehaviour
     //Counter for how many holes have been cut
     [SerializeField] public TextMeshProUGUI scoreCounter;
 
+    [SerializeField] public GameObject mousePrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,10 +46,10 @@ public class HoleManager : MonoBehaviour
         Rect centerOfBackground = GameObject.FindGameObjectWithTag("Canvas").GetComponent<RectTransform>().rect;
 
         //set up the circling circle
-        cutterInstance = Instantiate(circularPrefab, Vector3.zero, Quaternion.identity, biggerCircle.transform);
+        mouseInstance = Instantiate(mousePrefab, Vector3.zero, Quaternion.identity, biggerCircle.transform);
 
         //make the color white, for now
-        cutterInstance.GetComponent<Image>().color = Color.white;
+        mouseInstance.GetComponent<Image>().color = Color.white;
 
         //set up the radius
         radius = biggerCircle.GetComponent<RectTransform>().rect.height - (3 * centerOfCircle.GetComponent<RectTransform>().rect.height);
@@ -66,7 +68,9 @@ public class HoleManager : MonoBehaviour
         ReturnAngleToZero();
 
         //move the circle around accordingly
-        cutterInstance.transform.position = new Vector3(centerOfCircle.transform.position.x + (radius * Mathf.Cos(angle)), centerOfCircle.transform.position.y + (radius * Mathf.Sin(angle)), 0.0f);
+        mouseInstance.transform.position = new Vector3(centerOfCircle.transform.position.x + (radius * Mathf.Cos(angle)), centerOfCircle.transform.position.y + (radius * Mathf.Sin(angle)), 0.0f);
+
+        mouseInstance.transform.rotation = Quaternion.Euler(0.0f, 0.0f, (angle * 180 / Mathf.PI) - 180);
         Physics.SyncTransforms();
     }
 

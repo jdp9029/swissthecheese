@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circularPrefab: {fileID: 7853289706153895434, guid: 3447d80c16d0e9e41b328754fe16aad7, type: 3}
-  cutterInstance: {fileID: 0}
+  mouseInstance: {fileID: 0}
   centerOfCircle: {fileID: 887517721}
   biggerCircle: {fileID: 1028842714}
   colorManager: {fileID: 1439400241}
@@ -295,6 +295,7 @@ MonoBehaviour:
   angle: 0
   holesCut: []
   scoreCounter: {fileID: 159283818}
+  mousePrefab: {fileID: 7853289706153895434, guid: 2d77e76a77409a94388c69b9a5ced47d, type: 3}
 --- !u!4 &239448605
 Transform:
   m_ObjectHideFlags: 0
@@ -869,13 +870,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1c49752e1f1a3b54099bf191e7da7fee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 387f89fe51e5978438b5e7ce3e467ada, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -910,7 +911,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 75, y: 75}
+  m_SizeDelta: {x: 72, y: 72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!58 &887517725
 CircleCollider2D:
@@ -944,9 +945,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10953861, y: 0.32023683}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 37.59294
+  m_Radius: 36
 --- !u!1 &1028842714
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +985,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 510}
-  m_SizeDelta: {x: 450, y: 450}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1028842716
 CanvasRenderer:
@@ -1008,13 +1009,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.88295376, b: 0.6367924, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1c49752e1f1a3b54099bf191e7da7fee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0396a9e2275f1d46b95cf8405281774, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1225,7 +1226,10 @@ MonoBehaviour:
   IsZooming: 0
   OuterCircle: {fileID: 1028842714}
   Background: {fileID: 771212208}
-  circlePrefab: {fileID: 7853289706153895434, guid: 3447d80c16d0e9e41b328754fe16aad7, type: 3}
+  circlePrefab: {fileID: 7853289706153895434, guid: d3b66f350b51aa349a6eb2d5bd3fdfab, type: 3}
+  justZoomed: 0
+  ZoomFrameLength: 0
+  ZoomCircleSpeed: 0
 --- !u!4 &1257816772
 Transform:
   m_ObjectHideFlags: 0

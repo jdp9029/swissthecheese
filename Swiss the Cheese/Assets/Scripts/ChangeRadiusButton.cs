@@ -57,7 +57,7 @@ public class ChangeRadiusButton : MonoBehaviour
     //determine if the radius of the rotating circle is too large
     private bool RadiusTooSmall()
     {
-        return centerCircle.GetComponent<CircleCollider2D>().bounds.Intersects(holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds);
+        return centerCircle.GetComponent<CircleCollider2D>().bounds.Intersects(holeManager.mouseInstance.GetComponent<CircleCollider2D>().bounds);
     }
 
     //determine if the radius of the rotating circle is too large
@@ -67,9 +67,9 @@ public class ChangeRadiusButton : MonoBehaviour
         Vector2 pointOnCircle = 2 * bigCircle.GetComponent<CircleCollider2D>().radius * new Vector2(Mathf.Cos(holeManager.angle), Mathf.Sin(holeManager.angle));
 
         //the point on the rotating circle at this angle
-        Vector2 pointOnRotator = holeManager.cutterInstance.GetComponent<CircleCollider2D>().bounds.center - bigCircle.GetComponent<CircleCollider2D>().bounds.center;
+        Vector2 pointOnRotator = holeManager.mouseInstance.GetComponent<CircleCollider2D>().bounds.center - bigCircle.GetComponent<CircleCollider2D>().bounds.center;
 
-        return Distance(pointOnRotator, Vector2.zero) + holeManager.cutterInstance.GetComponent<CircleCollider2D>().radius > Distance(pointOnCircle, Vector2.zero);
+        return Distance(pointOnRotator, Vector2.zero) + holeManager.mouseInstance.GetComponent<CircleCollider2D>().radius > Distance(pointOnCircle, Vector2.zero);
     }
 
 

@@ -38,7 +38,7 @@ public class StopCircleButton : MonoBehaviour
         }
 
         //Cut a new hole out of the big circle
-        GameObject newHole = Instantiate(circlePrefab, holeManager.cutterInstance.transform.position, Quaternion.identity, bigCircle.transform);
+        GameObject newHole = Instantiate(circlePrefab, holeManager.mouseInstance.transform.position, Quaternion.identity, bigCircle.transform);
 
         //Set it up as the color of the background
         newHole.GetComponent<Image>().color = background.GetComponent<Image>().color;
@@ -47,6 +47,6 @@ public class StopCircleButton : MonoBehaviour
         holeManager.CheckIntersections(newHole);
 
         //Make the rotating circle the last sibling
-        holeManager.cutterInstance.transform.SetAsLastSibling();
+        holeManager.mouseInstance.transform.SetAsLastSibling();
     }
 }

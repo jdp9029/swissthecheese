@@ -31,7 +31,7 @@ public class ZoomManager : MonoBehaviour
         prefabCircleWidth = circlePrefab.GetComponent<RectTransform>().rect.width;
         ColorManager = GameObject.FindObjectOfType<ColorManager>();
         justZoomed = true;
-        targetScore = 15;
+        targetScore = 5;
     }
 
     // Update is called once per frame
@@ -94,7 +94,7 @@ public class ZoomManager : MonoBehaviour
         GameObject.FindObjectOfType<ColorManager>().CycleBackground();
 
         //make the spinning object deactivated
-        OuterCircle.transform.GetChild(1).gameObject.SetActive(false);
+        OuterCircle.transform.GetChild(OuterCircle.transform.childCount - 1).gameObject.SetActive(false);
 
         //make the center transparent
         ColorManager.CircleCenter.color = new Color32((byte)ColorManager.CircleCenter.color.r, (byte)ColorManager.CircleCenter.color.g, (byte)ColorManager.CircleCenter.color.b, 0);
@@ -124,13 +124,13 @@ public class ZoomManager : MonoBehaviour
         GameObject.Destroy(circleInstance);
 
         //make the spinning object active
-        OuterCircle.transform.GetChild(1).gameObject.SetActive(true);
-        GameObject.FindObjectOfType<HoleManager>().cutterInstance = OuterCircle.transform.GetChild(1).gameObject;
-        GameObject.FindObjectOfType<HoleManager>().cutterInstance.GetComponent<Image>().color = Color.white;
+        OuterCircle.transform.GetChild(OuterCircle.transform.childCount - 1).gameObject.SetActive(true);
+        GameObject.FindObjectOfType<HoleManager>().mouseInstance = OuterCircle.transform.GetChild(OuterCircle.transform.childCount - 1).gameObject;
+        GameObject.FindObjectOfType<HoleManager>().mouseInstance.GetComponent<Image>().color = Color.white;
         GameObject.FindObjectOfType<HoleManager>().holesCut.Clear();
 
         //destroy any former holes that were cut
-        for (int i = 2; i < OuterCircle.transform.childCount; i++)
+        for (int i = 1; i < OuterCircle.transform.childCount - 1; i++)
         {
             GameObject.Destroy(OuterCircle.transform.GetChild(i).gameObject);
         }
