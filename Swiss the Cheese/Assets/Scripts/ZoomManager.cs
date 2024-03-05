@@ -20,7 +20,7 @@ public class ZoomManager : MonoBehaviour
     [HideInInspector] private int targetScore;
     [HideInInspector] public bool justZoomed;
     [HideInInspector] public int ZoomFrameLength;
-    [HideInInspector] public int ZoomCircleSpeed;
+    [HideInInspector] public float ZoomCircleSpeed;
 
 
     // Start is called before the first frame update
@@ -47,8 +47,8 @@ public class ZoomManager : MonoBehaviour
             OuterCircle.transform.localScale = new Vector3(DecreaseSpeed(OuterCircle.transform.localScale.x, speed), DecreaseSpeed(OuterCircle.transform.localScale.y, speed), OuterCircle.transform.localScale.z);
             circleInstance.transform.localScale = new Vector3(DecreaseSpeed(circleInstance.transform.localScale.x, speed), DecreaseSpeed(circleInstance.transform.localScale.y, speed), circleInstance.transform.localScale.z);
 
-            /*OuterCircle.transform.localScale = new Vector3(OuterCircle.transform.localScale.x - ZoomCircleSpeed, OuterCircle.transform.localScale.y - ZoomCircleSpeed, OuterCircle.transform.localScale.z);
-            circleInstance.transform.localScale = new Vector3(circleInstance.transform.localScale.x - speed, circleInstance.transform.localScale.y - speed, circleInstance.transform.localScale.z);*/
+            //OuterCircle.transform.localScale = new Vector3(OuterCircle.transform.localScale.x - ZoomCircleSpeed, OuterCircle.transform.localScale.y - ZoomCircleSpeed, OuterCircle.transform.localScale.z);
+            //circleInstance.transform.localScale = new Vector3(circleInstance.transform.localScale.x - speed, circleInstance.transform.localScale.y - speed, circleInstance.transform.localScale.z);
 
             //Don't let the outer circle get smaller than zero
             if (OuterCircle.transform.localScale.x <=0)
@@ -150,8 +150,8 @@ public class ZoomManager : MonoBehaviour
     }
 
     //Get the amount we should decrease per frame
-    private int ApplyZoomFrameCount(float startScale, float targetScale, float timeAllotted)
+    private float ApplyZoomFrameCount(float startScale, float targetScale, float timeAllotted)
     {
-        return (int) ((startScale - targetScale) / timeAllotted);
+        return (startScale - targetScale) / timeAllotted;
     }
 }
