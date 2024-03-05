@@ -7,7 +7,7 @@ public class BitingManager : MonoBehaviour
 {
     [HideInInspector] public bool IsBiting = false;
     [HideInInspector] private float timer;
-    [HideInInspector] const int fps = 30;
+    [HideInInspector] const int fps = 50;
     [HideInInspector] private int mouseNumber = 0;
     [SerializeField] private Sprite normalMouseSprite;
     [SerializeField] private List<Sprite> mouseSprites;
