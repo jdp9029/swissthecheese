@@ -39,7 +39,7 @@ public class ChangeRadiusButton : MonoBehaviour
     //gets called when the button is pressed
     public void OnPress()
     {
-        if(!GameObject.FindObjectOfType<ZoomManager>().IsZooming)
+        if(!GameObject.FindObjectOfType<ZoomManager>().IsZooming && !GameObject.FindObjectOfType<BitingManager>().IsBiting)
         {
             mouseBeingHeld = true;
         }
@@ -48,7 +48,7 @@ public class ChangeRadiusButton : MonoBehaviour
     //gets called when the button is released
     public void OnRelease()
     {
-        if (!GameObject.FindObjectOfType<ZoomManager>().IsZooming)
+        if (!GameObject.FindObjectOfType<ZoomManager>().IsZooming && !GameObject.FindObjectOfType<BitingManager>().IsBiting)
         {
             mouseBeingHeld = false;
         }

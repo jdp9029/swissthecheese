@@ -32,7 +32,7 @@ public class StopCircleButton : MonoBehaviour
     private void OnClick()
     {
         //only work if we're not in the middle of zooming
-        if(GameObject.FindObjectOfType<ZoomManager>().IsZooming)
+        if(GameObject.FindObjectOfType<ZoomManager>().IsZooming || GameObject.FindObjectOfType<BitingManager>().IsBiting)
         {
             return;
         }
@@ -43,10 +43,8 @@ public class StopCircleButton : MonoBehaviour
         //Set it up as the color of the background
         newHole.GetComponent<Image>().color = background.GetComponent<Image>().color;
 
-        //check it against other holes cut
-        holeManager.CheckIntersections(newHole);
-
-        //Make the rotating circle the last sibling
         holeManager.mouseInstance.transform.SetAsLastSibling();
+
+        GameObject.FindObjectOfType<BitingManager>().StartBite(newHole);
     }
 }

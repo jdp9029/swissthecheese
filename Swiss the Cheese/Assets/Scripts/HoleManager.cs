@@ -58,7 +58,7 @@ public class HoleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.FindObjectOfType<ZoomManager>().IsZooming)
+        if(GameObject.FindObjectOfType<ZoomManager>().IsZooming || GameObject.FindObjectOfType<BitingManager>().IsBiting)
         {
             return;
         }
@@ -118,9 +118,6 @@ public class HoleManager : MonoBehaviour
 
             //set up just zoomed
             GameObject.FindObjectOfType<ZoomManager>().justZoomed = true;
-
-            //reset colors
-            //GameObject.FindObjectOfType<ColorManager>().ResetColors();
         }
 
         //If it doesn't intersect, simply add it to the holes cut list
@@ -134,5 +131,8 @@ public class HoleManager : MonoBehaviour
             //set up just zoomed
             GameObject.FindObjectOfType<ZoomManager>().justZoomed = false;
         }
+
+        //move the mouse to the back
+        mouseInstance.transform.SetAsLastSibling();
     }
 }

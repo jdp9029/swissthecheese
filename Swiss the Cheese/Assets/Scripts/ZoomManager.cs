@@ -69,7 +69,9 @@ public class ZoomManager : MonoBehaviour
         //if we are not zooming out
         else
         {
-            if(int.Parse(FindObjectOfType<HoleManager>().scoreCounter.text) % targetScore == 0 && !justZoomed)
+            //if we need to zoom out, do so once we finish biting
+            if(int.Parse(FindObjectOfType<HoleManager>().scoreCounter.text) % targetScore == 0 && !justZoomed &&
+                 !GameObject.FindObjectOfType<BitingManager>().IsBiting)
             {
                 justZoomed = true;
                 StartZoom();
