@@ -18,7 +18,7 @@ public class ZoomManager : MonoBehaviour
     [HideInInspector] private float OriginalCircleWidth;
     [HideInInspector] private float prefabCircleWidth;
     [HideInInspector] private ColorManager ColorManager;
-    [HideInInspector] private int targetScore;
+    [HideInInspector] public int targetScore;
     [HideInInspector] public bool justZoomed;
     [HideInInspector] private float OuterCircleSpeed;
     [HideInInspector] private float InnerCircleSpeed;
@@ -32,7 +32,7 @@ public class ZoomManager : MonoBehaviour
         prefabCircleWidth = circlePrefab.GetComponent<RectTransform>().rect.width;
         ColorManager = GameObject.FindObjectOfType<ColorManager>();
         justZoomed = true;
-        targetScore = 12;
+        targetScore = 5;
         ZoomSpeed = 10;
     }
 
@@ -66,8 +66,7 @@ public class ZoomManager : MonoBehaviour
         else
         {
             //if we need to zoom out, do so once we finish biting
-            if(int.Parse(FindObjectOfType<HoleManager>().scoreCounter.text) % targetScore == 0 && !justZoomed &&
-                 !GameObject.FindObjectOfType<BitingManager>().IsBiting)
+            if(GameObject.FindObjectOfType<LevelManager>().ChosenCondition && !justZoomed && !GameObject.FindObjectOfType<BitingManager>().IsBiting)
             {
                 justZoomed = true;
                 StartZoom();
@@ -128,6 +127,9 @@ public class ZoomManager : MonoBehaviour
         {
             GameObject.Destroy(OuterCircle.transform.GetChild(i).gameObject);
         }
+
+        //find the new level type
+        GameObject.FindObjectOfType<LevelManager>().SetCondition();
     }
 
     //return the total number of frames that will occur over the duration of the program
