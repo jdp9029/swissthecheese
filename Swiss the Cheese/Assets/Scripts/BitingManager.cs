@@ -69,6 +69,7 @@ public class BitingManager : MonoBehaviour
     //gets the correct frame the mouse should be at
     private int FrameNumber(float currentTime, float timePerFrame, int iterationsThrough = 0)
     {
+        //loop throught recursive function until we're at the right frame
         if (currentTime > timePerFrame)
         {
             return FrameNumber(currentTime - timePerFrame, timePerFrame, iterationsThrough + 1);
