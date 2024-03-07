@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
 
 public class HoleManager : MonoBehaviour
 {
@@ -93,8 +94,11 @@ public class HoleManager : MonoBehaviour
         for (int i = 0; i < holesCut.Count; i++)
         {
             GameObject hole = holesCut[i];
-            if (hole.GetComponent<CircleCollider2D>().bounds.Intersects(newHole.GetComponent<CircleCollider2D>().bounds))
+            //if (hole.GetComponent<CircleCollider2D>().bounds.Intersects(newHole.GetComponent<CircleCollider2D>().bounds))
+            if(IsOverlapping(hole,newHole))
             {
+                EditorApplication.isPaused = true;
+                return;
                 foundIntersection = true;
                 break;
             }
@@ -134,5 +138,14 @@ public class HoleManager : MonoBehaviour
 
         //move the mouse to the back
         mouseInstance.transform.SetAsLastSibling();
+    }
+
+    private bool IsOverlapping(GameObject obj1, GameObject obj2)
+    {
+        Vector2 angle = (obj2.transform.position - obj1.transform.position).normalized;
+        Debug.Log(angle);
+        Vector2 obj1PointOnAngle = (Vector2)obj1.transform.position + new Vector2(obj1.GetComponent<CircleCollider2D>().radius * angle.x, obj1.GetComponent<CircleCollider2D>().radius * angle.y);
+        Debug.Log(obj1PointOnAngle);
+        return Vector2.Distance(obj1.transform.position, obj1PointOnAngle) < Vector2.Distance(obj2.transform.position, obj1PointOnAngle);
     }
 }

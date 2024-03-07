@@ -20,8 +20,8 @@ public class ZoomManager : MonoBehaviour
     [HideInInspector] private ColorManager ColorManager;
     [HideInInspector] private int targetScore;
     [HideInInspector] public bool justZoomed;
-    [HideInInspector] public int ZoomFrameLength;
-    [HideInInspector] public float ZoomCircleSpeed;
+    [HideInInspector] private float OuterCircleSpeed;
+    [HideInInspector] private float InnerCircleSpeed;
 
 
     // Start is called before the first frame update
@@ -32,24 +32,19 @@ public class ZoomManager : MonoBehaviour
         prefabCircleWidth = circlePrefab.GetComponent<RectTransform>().rect.width;
         ColorManager = GameObject.FindObjectOfType<ColorManager>();
         justZoomed = true;
-        targetScore = 5;
+        targetScore = 12;
+        ZoomSpeed = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //set zoom speed to be dependent on time.deltatime
-        float speed = Time.deltaTime * ZoomSpeed * 500;
-
         //if we are zooming out
         if(IsZooming)
         {
-            //shrink the sizes of the circles
-            //OuterCircle.transform.localScale = new Vector3(DecreaseSpeed(OuterCircle.transform.localScale.x, speed), DecreaseSpeed(OuterCircle.transform.localScale.y, speed), OuterCircle.transform.localScale.z);
-            //circleInstance.transform.localScale = new Vector3(DecreaseSpeed(circleInstance.transform.localScale.x, speed), DecreaseSpeed(circleInstance.transform.localScale.y, speed), circleInstance.transform.localScale.z);
-
-            OuterCircle.transform.localScale = new Vector3(OuterCircle.transform.localScale.x * DecreaseScale(ZoomCircleSpeed, OuterCircle), OuterCircle.transform.localScale.y * DecreaseScale(ZoomCircleSpeed, OuterCircle), OuterCircle.transform.localScale.z);
-            circleInstance.transform.localScale = new Vector3(circleInstance.transform.localScale.x * DecreaseScale(ZoomCircleSpeed,circleInstance), circleInstance.transform.localScale.y * DecreaseScale(ZoomCircleSpeed, circleInstance), circleInstance.transform.localScale.z);
+            //Decrease the scale of the outer circle and the inner circle
+            OuterCircle.transform.localScale = DecreaseScale(InnerCircleSpeed, OuterCircle);
+            circleInstance.transform.localScale = DecreaseScale(OuterCircleSpeed, circleInstance);
 
             //Don't let the outer circle get smaller than zero
             if (OuterCircle.transform.localScale.x <=0)
@@ -102,16 +97,9 @@ public class ZoomManager : MonoBehaviour
         //make the center transparent
         ColorManager.CircleCenter.color = new Color32((byte)ColorManager.CircleCenter.color.r, (byte)ColorManager.CircleCenter.color.g, (byte)ColorManager.CircleCenter.color.b, 0);
 
-        //set zoom frame length
-        ZoomFrameLength = ZoomFrameCount(circleInstance.transform.localScale.x * circleInstance.GetComponent<RectTransform>().rect.width,
-            OriginalCircleScale.x * OriginalCircleWidth, Time.deltaTime * ZoomSpeed);
-
-        //set zoom circle speed
-        ZoomCircleSpeed = ApplyZoomFrameCount((OriginalCircleScale.x * OriginalCircleWidth),
-            ColorManager.CircleCenter.transform.localScale.x * ColorManager.CircleCenter.GetComponent<RectTransform>().rect.width,
-            ZoomFrameLength);
-
-        EditorApplication.isPaused = true;
+        //set the speed at which the two circles have to decrease so that they reach their endpoints at the same time
+        InnerCircleSpeed = Speed(OriginalCircleScale.x * OriginalCircleWidth, ColorManager.CircleCenter.GetComponent<RectTransform>().rect.width, TotalFrames(3 / ZoomSpeed,Time.deltaTime));
+        OuterCircleSpeed = Speed(circleInstance.GetComponent<RectTransform>().rect.width * circleInstance.transform.localScale.x,OriginalCircleScale.x * OriginalCircleWidth, TotalFrames(3 / ZoomSpeed,Time.deltaTime));
     }
 
     //To end the zoom
@@ -142,28 +130,23 @@ public class ZoomManager : MonoBehaviour
         }
     }
 
-    private float DecreaseSpeed(float value, float speed)
+    //return the total number of frames that will occur over the duration of the program
+    private float TotalFrames(float totalTime, float timePerFrame)
     {
-        return value - (speed * value);
+        return totalTime / timePerFrame;
     }
 
-    private float DecreaseScale(float value, GameObject scale)
+    //return the size that is needed to decrease per frame
+    private float Speed(float startSize, float targetSize, float numFrames)
+    {
+        return (startSize - targetSize) / numFrames;
+    }
+
+    //actually decrease the scale
+    private Vector3 DecreaseScale(float value, GameObject scale)
     {
         float initialWidth = scale.GetComponent<RectTransform>().rect.width * scale.transform.localScale.x;
         float newWidth = initialWidth - value;
-        return newWidth / initialWidth;
-    }
-
-    //Get the number of frames it will take to zoom
-    private int ZoomFrameCount(float startScale, float targetScale, float time)
-    {
-        time *= 500;
-        return (int)((startScale - targetScale) * time);
-    }
-
-    //Get the amount we should decrease per frame
-    private float ApplyZoomFrameCount(float startScale, float targetScale, float framesAllotted)
-    {
-        return (startScale - targetScale) / framesAllotted;
+        return new Vector3(scale.transform.localScale.x * (newWidth/initialWidth), scale.transform.localScale.y * (newWidth/initialWidth),1);
     }
 }
