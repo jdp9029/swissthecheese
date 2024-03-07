@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     [HideInInspector] public bool ChosenCondition;
 
     [HideInInspector] private int chosenConditionNumber;
+    [SerializeField] GameObject bigCircle;
+    [SerializeField] GameObject voronoiPrefab;
 
     //FOR INTS, MIN INCLUSIVE AND MAX EXCLUSIVE
 
@@ -22,15 +24,32 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         //occurs if we are choosing the "target score" condition
-        if(chosenConditionNumber == 1)
+        if (chosenConditionNumber == 1)
         {
-            ChosenCondition = int.Parse(FindObjectOfType<HoleManager>().scoreCounter.text) % FindObjectOfType<ZoomManager>().targetScore == 0;
+            ChosenCondition = FindObjectOfType<HoleManager>().holesCut.Count % FindObjectOfType<ZoomManager>().targetScore == 0;
+        }
+        //fake condition for testing, occurs if we are choosing target score and subtracting 3
+        else if (chosenConditionNumber == 2)
+        {
+            ChosenCondition = FindObjectOfType<HoleManager>().holesCut.Count % (FindObjectOfType<ZoomManager>().targetScore - 3) == 0;
         }
     }
 
     public void SetCondition()
     {
-        chosenConditionNumber = 1;
-        //chosenConditionNumber = Random.Range(1, 4);
+        int totalConditions = 2;
+
+        chosenConditionNumber = Random.Range(1, totalConditions + 1);
+    }
+
+    private bool Voronoi()
+    {
+        //does there exist a point
+        //that is > two radius's length away from every other circle
+        //and > one radius length away from the nearest edge of the big circle and the center
+        
+
+
+        return false;
     }
 }

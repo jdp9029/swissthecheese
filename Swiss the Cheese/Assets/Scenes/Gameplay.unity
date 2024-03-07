@@ -258,6 +258,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159283816}
   m_CullTransparentMesh: 1
+--- !u!1 &180690070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 180690072}
+  - component: {fileID: 180690071}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &180690071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180690070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ddd6e96091757468e729e3264d659a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChosenCondition: 0
+  bigCircle: {fileID: 1028842714}
+  voronoiPrefab: {fileID: 7853289706153895434, guid: 9c54d1b12816c1f4b9d2e7f819d2ada0, type: 3}
+--- !u!4 &180690072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180690070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 382.02756, y: 1341.9878, z: -3.09943}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &239448603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,6 +1207,7 @@ MonoBehaviour:
   OuterCircle: {fileID: 1028842714}
   Background: {fileID: 771212208}
   circlePrefab: {fileID: 7853289706153895434, guid: d3b66f350b51aa349a6eb2d5bd3fdfab, type: 3}
+  targetScore: 0
   justZoomed: 0
 --- !u!4 &1257816772
 Transform:
