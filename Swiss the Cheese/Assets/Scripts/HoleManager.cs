@@ -14,7 +14,7 @@ public class HoleManager : MonoBehaviour
     [SerializeField] public GameObject mouseInstance;
 
     //center of the big circle
-    [SerializeField] GameObject centerOfCircle;
+    [SerializeField] public GameObject centerOfCircle;
 
     //big circle
     [SerializeField] GameObject biggerCircle;
