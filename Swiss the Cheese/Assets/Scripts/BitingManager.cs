@@ -65,13 +65,11 @@ public class BitingManager : MonoBehaviour
         //check it against the other intersections in hole manager
         GameObject.FindObjectOfType<HoleManager>().CheckIntersections(holeBeingEaten);
 
-        //clear the test prefab list
-        if(GameObject.FindObjectOfType<LevelManager>().testPointsPrefabList.Count > 0)
+        foreach(GameObject obj in GameObject.FindObjectOfType<LevelManager>().testPointsPrefabList)
         {
-            Destroy(GameObject.FindObjectOfType<LevelManager>().testPointsPrefabList[0]);
-            GameObject.FindObjectOfType<LevelManager>().testPointsPrefabList.Clear();
-            //Debug.Log("test prefab list count: " + GameObject.FindObjectOfType<LevelManager>().testPointsPrefabList.Count);
+            Destroy(obj);
         }
+        GameObject.FindObjectOfType<LevelManager>().testPointsPrefabList.Clear();
     }
 
     //gets the correct frame the mouse should be at
