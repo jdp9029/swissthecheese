@@ -77,7 +77,7 @@ public class LevelManager : MonoBehaviour
         };
     }
 
-    private float GetRadius(GameObject circle)
+    public float GetRadius(GameObject circle)
     {
         Vector2 center = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center);
         Vector2 edgePoint = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center + 

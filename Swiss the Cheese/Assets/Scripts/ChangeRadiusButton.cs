@@ -57,25 +57,19 @@ public class ChangeRadiusButton : MonoBehaviour
     //determine if the radius of the rotating circle is too large
     private bool RadiusTooSmall()
     {
-        return centerCircle.GetComponent<CircleCollider2D>().bounds.Intersects(holeManager.mouseInstance.GetComponent<CircleCollider2D>().bounds);
+        Vector2 centerCirclePoint = centerCircle.GetComponent<RectTransform>().TransformPoint(centerCircle.GetComponent<RectTransform>().rect.center);
+        Vector2 mousePoint = holeManager.mouseInstance.GetComponent<RectTransform>().TransformPoint(holeManager.mouseInstance.GetComponent<RectTransform>().rect.center);
+
+        return Vector2.Distance(centerCirclePoint, mousePoint) <= 2 * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
     }
 
     //determine if the radius of the rotating circle is too large
     private bool RadiusTooLarge()
     {
-        //the point on the circle of this angle
-        Vector2 pointOnCircle = 2 * bigCircle.GetComponent<CircleCollider2D>().radius * new Vector2(Mathf.Cos(holeManager.angle), Mathf.Sin(holeManager.angle));
+        Vector2 edgePoint = bigCircle.GetComponent<RectTransform>().TransformPoint(bigCircle.GetComponent<RectTransform>().rect.center +
+            (bigCircle.GetComponent<CircleCollider2D>().radius * new Vector2(Mathf.Cos(holeManager.angle), Mathf.Sin(holeManager.angle))));
+        Vector2 mousePoint = holeManager.mouseInstance.GetComponent<RectTransform>().TransformPoint(holeManager.mouseInstance.GetComponent<RectTransform>().rect.center);
 
-        //the point on the rotating circle at this angle
-        Vector2 pointOnRotator = holeManager.mouseInstance.GetComponent<CircleCollider2D>().bounds.center - bigCircle.GetComponent<CircleCollider2D>().bounds.center;
-
-        return Distance(pointOnRotator, Vector2.zero) + holeManager.mouseInstance.GetComponent<CircleCollider2D>().radius > Distance(pointOnCircle, Vector2.zero);
-    }
-
-
-    //return the distance between two points
-    private float Distance(Vector2 point1, Vector2 point2)
-    {
-        return Mathf.Sqrt(Mathf.Pow(point1.x - point2.x, 2) + Mathf.Pow(point1.y - point2.y, 2));
+        return Vector2.Distance(edgePoint, mousePoint) <= 1.25f * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
     }
 }
