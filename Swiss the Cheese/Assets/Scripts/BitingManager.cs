@@ -7,7 +7,7 @@ public class BitingManager : MonoBehaviour
 {
     [HideInInspector] public bool IsBiting = false;
     [HideInInspector] private float timer;
-    [HideInInspector] const int fps = 50;
+    [HideInInspector] const int fps = 60;
     [HideInInspector] private int mouseNumber = 0;
     [SerializeField] private Sprite normalMouseSprite;
     [SerializeField] private List<Sprite> mouseSprites;
@@ -64,12 +64,6 @@ public class BitingManager : MonoBehaviour
 
         //check it against the other intersections in hole manager
         GameObject.FindObjectOfType<HoleManager>().CheckIntersections(holeBeingEaten);
-
-        foreach(GameObject obj in GameObject.FindObjectOfType<LevelManager>().testPointsPrefabList)
-        {
-            Destroy(obj);
-        }
-        GameObject.FindObjectOfType<LevelManager>().testPointsPrefabList.Clear();
     }
 
     //gets the correct frame the mouse should be at

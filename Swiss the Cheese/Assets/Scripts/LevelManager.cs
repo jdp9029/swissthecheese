@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class LevelManager : MonoBehaviour
 {
@@ -14,8 +15,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject centerCircle;
     [HideInInspector] private List<Vector2> testPoints;
     [SerializeField] TextMeshProUGUI chosenNumberText;
-    [SerializeField] GameObject testPointPrefab;
-    [HideInInspector] public List<GameObject> testPointsPrefabList;
 
     //FOR INTS, MIN INCLUSIVE AND MAX EXCLUSIVE
 
@@ -25,23 +24,7 @@ public class LevelManager : MonoBehaviour
         ChosenCondition = false;
         SetCondition();
 
-        testPoints = new List<Vector2>()
-        {
-            (Vector2)bigCircle.transform.position + (centerCircle.GetComponent<CircleCollider2D>().radius * 8f * new Vector2(1, 0).normalized),
-            (Vector2)bigCircle.transform.position + (centerCircle.GetComponent<CircleCollider2D>().radius * 8f * new Vector2(1, 1).normalized),
-            (Vector2)bigCircle.transform.position + (centerCircle.GetComponent<CircleCollider2D>().radius * 8f * new Vector2(0, 1).normalized),
-            (Vector2)bigCircle.transform.position + (centerCircle.GetComponent<CircleCollider2D>().radius * 8f * new Vector2(-1, 1).normalized),
-            (Vector2)bigCircle.transform.position + (centerCircle.GetComponent<CircleCollider2D>().radius * 8f * new Vector2(-1, 0).normalized),
-            (Vector2)bigCircle.transform.position + (centerCircle.GetComponent<CircleCollider2D>().radius * 8f * new Vector2(-1, -1).normalized),
-            (Vector2)bigCircle.transform.position + (centerCircle.GetComponent<CircleCollider2D>().radius * 8f * new Vector2(0, -1).normalized),
-            (Vector2)bigCircle.transform.position + (centerCircle.GetComponent<CircleCollider2D>().radius * 8f * new Vector2(1, -1).normalized)
-        };
-
-        /*foreach(Vector2 point in testPoints)
-        {
-            GameObject obj = Instantiate(testPointPrefab, point, Quaternion.identity, bigCircle.transform);
-            obj.GetComponent<Image>().color = Color.blue;
-        }*/
+        SetTestPoints();
     }
 
     // Update is called once per frame
@@ -51,13 +34,13 @@ public class LevelManager : MonoBehaviour
         if (chosenConditionNumber == 1)
         {
             ChosenCondition = FindObjectOfType<HoleManager>().holesCut.Count % FindObjectOfType<ZoomManager>().targetScore == 0;
-            chosenNumberText.text = "Target Score";
+            chosenNumberText.text = (FindObjectOfType<ZoomManager>().targetScore - FindObjectOfType<HoleManager>().holesCut.Count).ToString() + " bites left!";
         }
-        //fake condition for testing, occurs if we are choosing target score and subtracting 3
+        //occurs if we are choosing the "full slots" condition
         else if (chosenConditionNumber == 2)
         {
             ChosenCondition = NoAvailableSlots(testPoints);
-            chosenNumberText.text = "Full Slots";
+            SetTestPoints();
         }
     }
 
@@ -66,21 +49,44 @@ public class LevelManager : MonoBehaviour
         int totalConditions = 2;
 
         chosenConditionNumber = Random.Range(1, totalConditions + 1);
+
+        if(chosenConditionNumber == 1)
+        {
+            FindObjectOfType<ZoomManager>().targetScore = Random.Range(12, 16);
+        }
+        else if(chosenConditionNumber == 2)
+        {
+            chosenNumberText.text = "Full Fill!";
+        }
+    }
+
+    private void SetTestPoints()
+    {
+        RectTransform rectTransform = bigCircle.GetComponent<RectTransform>();
+
+        testPoints = new List<Vector2>()
+        {
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(1, 0).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(1, 1).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(0, 1).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(-1, 1).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(-1, 0).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(-1, -1).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(0, -1).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(1, -1).normalized)
+        };
+    }
+
+    private float GetRadius(GameObject circle)
+    {
+        Vector2 center = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center);
+        Vector2 edgePoint = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center + 
+            new Vector2(circle.GetComponent<CircleCollider2D>().radius, 0f));
+        return Vector2.Distance(center, edgePoint);
     }
 
     private bool NoAvailableSlots(List<Vector2> testPoints, int numIterations = 0)
     {
-        //Copy list so we don't accidentally edit testPoints
-        List<Vector2> updatedPoints = new List<Vector2>();
-
-        foreach (Vector2 point in testPoints)
-        {
-            updatedPoints.Add(point);
-        }
-
-        //TEMP BOOL
-        bool returnFalse = false;
-
         //if there are less than eight current cuts, don't even bother
         if(GameObject.FindObjectOfType<HoleManager>().holesCut.Count < 3) { return false; }
 
@@ -88,20 +94,14 @@ public class LevelManager : MonoBehaviour
         if(numIterations >= 8) { return true; }
 
         //set up the radius converted from ugui to gameobject space
-        GameObject hole = GameObject.FindObjectOfType<HoleManager>().holesCut[0];
-        RectTransform rect = hole.GetComponent<RectTransform>();
-        CircleCollider2D collider = hole.GetComponent<CircleCollider2D>();
-        Vector2 point1 = rect.TransformPoint(rect.rect.center + new Vector2(collider.radius, 0f));
-        Vector2 point2 = rect.TransformPoint(rect.rect.center);
-
-
-        float radius = 2 * Vector2.Distance(point1, point2);
+        float radius = GetRadius(GameObject.FindObjectOfType<HoleManager>().holesCut[0]);
+        float minDistanceBetweenCircles = 2.25f * radius;
 
         //for each of the existing test points
-        for (int i = 0; i < updatedPoints.Count; i++)
+        for (int i = 0; i < testPoints.Count; i++)
         {
             //current test point
-            Vector2 testPoint = updatedPoints[i];
+            Vector2 testPoint = testPoints[i];
 
             //number of circles within radius
             int nearbyCircles = 0;
@@ -117,55 +117,46 @@ public class LevelManager : MonoBehaviour
                 float distance = Vector2.Distance(testPoint, circlePos);
 
                 //if we are neaby another circle
-                if (distance <= radius)
+                if (distance <= minDistanceBetweenCircles)
                 {
                     //change the point accordingly and increment nearby circles
-                    Vector2 pointChange = (((2 * circle.GetComponent<CircleCollider2D>().radius) - distance) / circle.GetComponent<CircleCollider2D>().radius) *
-                        (updatedPoints[i] - (Vector2)circle.transform.position).normalized;
+                    Vector2 pointChange = 1.5f * (minDistanceBetweenCircles - distance) * (testPoints[i] - circlePos).normalized;
                     distanceTraveled += pointChange;
-                    updatedPoints[i] += pointChange;
+                    testPoints[i] += pointChange;
                     nearbyCircles++;
                 }
             }
 
             //if there are no nearby circles, return false
-            if(nearbyCircles == 0)
-            {
-                if(testPointsPrefabList.Count < updatedPoints.Count)
-                {
-                    testPointsPrefabList.Add(Instantiate(testPointPrefab, updatedPoints[i], Quaternion.identity, bigCircle.transform));
-                    GameObject.FindGameObjectWithTag("Mouse").transform.SetAsLastSibling();
-                }
-
-                returnFalse = true;
-                //return false;
-            }
+            if(nearbyCircles == 0) { return false; }
 
             //take care of edge case when distance traveled equals zero
-            if(distanceTraveled == Vector2.zero)
+            else if(distanceTraveled == Vector2.zero)
             {
                 Debug.Log("rare call that distance traveled is zero");
-                updatedPoints[i] += new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized;
+                testPoints[i] += new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized * minDistanceBetweenCircles;
             }
 
+
+            //get the position and the radius of the big circle
+            Vector2 bigCirclePos = bigCircle.GetComponent<RectTransform>().TransformPoint(bigCircle.GetComponent<RectTransform>().rect.center);
+            float bigCircleRadius = GetRadius(bigCircle);
+
             //make the object move away from the center
-            if (Vector2.Distance(updatedPoints[i],bigCircle.transform.position) <= centerCircle.GetComponent<CircleCollider2D>().radius * 2)
+            if (Vector2.Distance(testPoints[i], bigCirclePos) <= minDistanceBetweenCircles)
             {
                 //adjust position accordingly
-                updatedPoints[i] = (Vector2)bigCircle.transform.position + centerCircle.GetComponent<CircleCollider2D>().radius * 2 * (updatedPoints[i] - (Vector2)bigCircle.transform.position).normalized;
+                testPoints[i] = bigCirclePos + minDistanceBetweenCircles * 2 * (testPoints[i] - bigCirclePos).normalized;
             }
 
             //make the object move away from the perimeter
-            if (Vector2.Distance(updatedPoints[i], bigCircle.transform.position) >= centerCircle.GetComponent<CircleCollider2D>().radius +
-                bigCircle.GetComponent<CircleCollider2D>().radius)
+            if (Vector2.Distance(testPoints[i], bigCirclePos) >= bigCircleRadius - (minDistanceBetweenCircles / 2))
             {
-                updatedPoints[i] = (Vector2)bigCircle.transform.position + bigCircle.GetComponent<CircleCollider2D>().radius * 0.75f * (updatedPoints[i] - (Vector2)bigCircle.transform.position).normalized;
+                testPoints[i] = bigCirclePos + bigCircleRadius * 0.75f * (testPoints[i] - bigCirclePos).normalized;
             }
         }
 
-        if(returnFalse) { return false; }
-
         //if we've looped through all tested points and they've all been close, keep looking
-        return NoAvailableSlots(updatedPoints, numIterations + 1);
+        return NoAvailableSlots(testPoints, numIterations + 1);
     }
 }

@@ -290,8 +290,6 @@ MonoBehaviour:
   bigCircle: {fileID: 1028842714}
   centerCircle: {fileID: 887517721}
   chosenNumberText: {fileID: 700816563}
-  testPointPrefab: {fileID: 7853289706153895434, guid: 9c54d1b12816c1f4b9d2e7f819d2ada0, type: 3}
-  testPointsPrefabList: []
 --- !u!4 &180690072
 Transform:
   m_ObjectHideFlags: 0
@@ -804,8 +802,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -870,8 +868,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 226}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -8.4646, y: 212.4435}
+  m_SizeDelta: {x: 406.35, y: 77.113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &765568855
 GameObject:

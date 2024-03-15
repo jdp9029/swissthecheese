@@ -32,7 +32,7 @@ public class ZoomManager : MonoBehaviour
         prefabCircleWidth = circlePrefab.GetComponent<RectTransform>().rect.width;
         ColorManager = GameObject.FindObjectOfType<ColorManager>();
         justZoomed = true;
-        targetScore = 5;
+        targetScore = UnityEngine.Random.Range(12,16);
         ZoomSpeed = 10;
     }
 
