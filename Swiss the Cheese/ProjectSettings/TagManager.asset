@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Canvas
   - Mouse
+  - MasterVolSlider
+  - FXVolSlider
+  - MusicVolSlider
   layers:
   - Default
   - TransparentFX

@@ -9,24 +9,40 @@ public class MenuMouse : MonoBehaviour
 {
     private float timePerAngle = 0;
     public float angle;
-    private float radius;
     private float speed = 50f;
     private bool beenInViewRecently = false;
     [SerializeField] Button playButton;
+    [SerializeField] Button optionsButton;
     [SerializeField] GameObject holePrefab;
+    [SerializeField] GameObject soundManager;
     [SerializeField] BitingManager bitingManager;
     private List<GameObject> bitesMade;
 
     // Start is called before the first frame update
     void Start()
     {
+        //set up the necessary variables
         angle = 0f;
-        radius = speed * Time.deltaTime;
+        speed = 1f;
+        timePerAngle = 0;
+        beenInViewRecently = false;
         bitesMade = new List<GameObject>();
+
+        //set up the play button and options button
         playButton.onClick.AddListener(delegate
         {
             SceneManager.LoadScene("UpdatedGameplay");
         });
+        optionsButton.onClick.AddListener(delegate
+        {
+            SceneManager.LoadScene("Options");
+        });
+
+        //set up the sound manager
+        if(GameObject.FindObjectsOfType<SoundManager>().Length == 0)
+        {
+            Instantiate(soundManager);
+        }
     }
 
     // Update is called once per frame
@@ -36,7 +52,7 @@ public class MenuMouse : MonoBehaviour
         if (bitingManager.IsBiting) { return; }
 
         //set the new position based on the current angle
-        transform.position = new Vector3(transform.position.x + (radius * Mathf.Cos(angle - (Mathf.PI / 2))), transform.position.y + (radius * Mathf.Sin(angle - (Mathf.PI / 2))), 0.0f);
+        transform.position = new Vector3(transform.position.x + (speed * Mathf.Cos(angle - (Mathf.PI / 2))), transform.position.y + (speed * Mathf.Sin(angle - (Mathf.PI / 2))), 0.0f);
 
         //increment time per angle
         timePerAngle += Time.deltaTime;
@@ -82,6 +98,7 @@ public class MenuMouse : MonoBehaviour
         }
     }
 
+    //checks if a new bite that we are making overlaps a current bite
     private bool OverlapsCurrentBites()
     {
         foreach(GameObject bite in bitesMade)
@@ -94,6 +111,7 @@ public class MenuMouse : MonoBehaviour
         return false;
     }
 
+    //Get the radius of an object in transform.position form
     private float GetRadius(GameObject circle)
     {
         Vector2 center = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center);
