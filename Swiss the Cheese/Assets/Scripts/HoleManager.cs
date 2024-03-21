@@ -94,8 +94,7 @@ public class HoleManager : MonoBehaviour
         for (int i = 0; i < holesCut.Count; i++)
         {
             GameObject hole = holesCut[i];
-            //if (hole.GetComponent<CircleCollider2D>().bounds.Intersects(newHole.GetComponent<CircleCollider2D>().bounds))
-            if(IsOverlapping(hole,newHole))
+            if(Vector2.Distance(hole.transform.position, newHole.transform.position) <= GameObject.FindObjectOfType<LevelManager>().GetRadius(hole) * 2)
             {
                 foundIntersection = true;
                 break;
@@ -136,23 +135,5 @@ public class HoleManager : MonoBehaviour
 
         //move the mouse to the back
         mouseInstance.transform.SetAsLastSibling();
-    }
-
-    private bool IsOverlapping(GameObject obj1, GameObject obj2)
-    {
-        Vector2 angle = 2.25f * (obj2.transform.position - obj1.transform.position).normalized;
-        //Debug.Log(angle);
-        Vector2 obj1PointOnAngle = (Vector2)obj1.transform.position + new Vector2(obj1.GetComponent<CircleCollider2D>().radius * angle.x, obj1.GetComponent<CircleCollider2D>().radius * angle.y);
-        /*Debug.Log(obj1PointOnAngle);
-        Debug.Log(obj1.transform.position + "..." + obj2.transform.position);*/
-        /*GameObject fakePoint = GameObject.Instantiate(circularPrefab, obj1PointOnAngle, Quaternion.identity, biggerCircle.transform);
-        fakePoint.transform.localScale /= 10;*/
-
-        Vector2 obj2PointOnAngle = (Vector2)obj2.transform.position - new Vector2(obj2.GetComponent<CircleCollider2D>().radius * angle.x, obj2.GetComponent<CircleCollider2D>().radius * angle.y);
-        /*fakePoint = GameObject.Instantiate(circularPrefab, obj2PointOnAngle, Quaternion.identity, biggerCircle.transform);
-        fakePoint.transform.localScale /= 10;*/
-
-        return Vector2.Distance(obj1.transform.position, obj1PointOnAngle) >= Vector2.Distance(obj2.transform.position, obj1PointOnAngle)
-         || Vector2.Distance(obj2.transform.position, obj2PointOnAngle) >= Vector2.Distance(obj1.transform.position, obj2PointOnAngle);
     }
 }

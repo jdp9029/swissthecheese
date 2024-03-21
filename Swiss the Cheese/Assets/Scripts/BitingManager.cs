@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BitingManager : MonoBehaviour
@@ -62,6 +63,9 @@ public class BitingManager : MonoBehaviour
         GameObject.FindGameObjectWithTag("Mouse").transform.localScale /= .75f;
         GameObject.FindGameObjectWithTag("Mouse").GetComponent<Image>().sprite = normalMouseSprite;
 
+        //if this bite is in the menu, we don't need to check it against other holes
+        if(SceneManager.GetActiveScene().name == "Menu") { return; }
+
         //check it against the other intersections in hole manager
         GameObject.FindObjectOfType<HoleManager>().CheckIntersections(holeBeingEaten);
     }
@@ -86,8 +90,19 @@ public class BitingManager : MonoBehaviour
     //sets the fill angle start, depending on where the mouse is
     private void SetFillAngle(GameObject hole)
     {
-        float angle = GameObject.FindObjectOfType<HoleManager>().angle;
+        //set up the angle we need to be filling
+        float angle;
 
+        //if we are in the menu, we use the menu mouse angle
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            angle = GameObject.FindObjectOfType<MenuMouse>().angle;
+        }
+
+        //if we are in gameplay, we use the hole manager angle
+        else { angle = GameObject.FindObjectOfType<HoleManager>().angle; }
+
+        //determine direction of fill
         if(angle >= .25 * Mathf.PI && angle < .75 * Mathf.PI)
         {
             hole.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
