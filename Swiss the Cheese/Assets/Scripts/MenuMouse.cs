@@ -15,12 +15,14 @@ public class MenuMouse : MonoBehaviour
     [SerializeField] Button playButton;
     [SerializeField] GameObject holePrefab;
     [SerializeField] BitingManager bitingManager;
+    private List<GameObject> bitesMade;
 
     // Start is called before the first frame update
     void Start()
     {
         angle = 0f;
         radius = speed * Time.deltaTime;
+        bitesMade = new List<GameObject>();
         playButton.onClick.AddListener(delegate
         {
             SceneManager.LoadScene("UpdatedGameplay");
@@ -70,12 +72,33 @@ public class MenuMouse : MonoBehaviour
         }
 
         //randomly make bites
-        if(Random.Range(0,1000) == 1)
+        if(Random.Range(0,800) == 1 && !OverlapsCurrentBites())
         {
             GameObject hole = Instantiate(holePrefab, transform.position, Quaternion.identity, transform.parent);
             hole.GetComponent<Image>().color = new Color32(198, 197, 84, 255);
             hole.transform.SetAsFirstSibling();
+            bitesMade.Add(hole);
             bitingManager.StartBite(hole);
         }
+    }
+
+    private bool OverlapsCurrentBites()
+    {
+        foreach(GameObject bite in bitesMade)
+        {
+            if(Vector2.Distance(transform.position, bite.transform.position) <= GetRadius(bite) * 2)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private float GetRadius(GameObject circle)
+    {
+        Vector2 center = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center);
+        Vector2 edgePoint = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center +
+            new Vector2(circle.GetComponent<CircleCollider2D>().radius, 0f));
+        return Vector2.Distance(center, edgePoint);
     }
 }
