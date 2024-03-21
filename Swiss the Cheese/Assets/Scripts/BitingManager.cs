@@ -13,6 +13,8 @@ public class BitingManager : MonoBehaviour
     [SerializeField] private Sprite normalMouseSprite;
     [SerializeField] private List<Sprite> mouseSprites;
     [HideInInspector] private GameObject holeBeingEaten;
+    [SerializeField] private AudioClip[] bitingSoundClips;
+    [HideInInspector] private AudioSource bitingSoundPlaying;
 
     // Update is called once per frame
     void Update()
@@ -53,6 +55,8 @@ public class BitingManager : MonoBehaviour
         holeBeingEaten = hole;
         timer = 0;
         GameObject.FindGameObjectWithTag("Mouse").transform.localScale *= .75f;
+
+        bitingSoundPlaying = GameObject.FindObjectOfType<SoundManager>().PlayRandomSoundFX(bitingSoundClips, transform, 1, bitingSoundClips[0].length / 5);
     }
 
     public void EndBite()
@@ -62,6 +66,9 @@ public class BitingManager : MonoBehaviour
         timer = 0;
         GameObject.FindGameObjectWithTag("Mouse").transform.localScale /= .75f;
         GameObject.FindGameObjectWithTag("Mouse").GetComponent<Image>().sprite = normalMouseSprite;
+
+        //destroy the audio source
+        Destroy(bitingSoundPlaying.gameObject);
 
         //if this bite is in the menu, we don't need to check it against other holes
         if(SceneManager.GetActiveScene().name == "Menu") { return; }
