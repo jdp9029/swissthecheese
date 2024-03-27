@@ -14,7 +14,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject bigCircle;
     [SerializeField] GameObject centerCircle;
     [HideInInspector] private List<Vector2> testPoints;
-    [SerializeField] TextMeshProUGUI chosenNumberText;
 
     //FOR INTS, MIN INCLUSIVE AND MAX EXCLUSIVE
 
@@ -34,7 +33,7 @@ public class LevelManager : MonoBehaviour
         if (chosenConditionNumber == 1)
         {
             ChosenCondition = FindObjectOfType<HoleManager>().holesCut.Count % FindObjectOfType<ZoomManager>().targetScore == 0;
-            chosenNumberText.text = (FindObjectOfType<ZoomManager>().targetScore - FindObjectOfType<HoleManager>().holesCut.Count).ToString() + " bites left!";
+            //chosenNumberText.text = (FindObjectOfType<ZoomManager>().targetScore - FindObjectOfType<HoleManager>().holesCut.Count).ToString() + " bites left!";
         }
         //occurs if we are choosing the "full slots" condition
         else if (chosenConditionNumber == 2)
@@ -46,9 +45,11 @@ public class LevelManager : MonoBehaviour
 
     public void SetCondition()
     {
-        int totalConditions = 2;
+        /*int totalConditions = 2;
 
-        chosenConditionNumber = Random.Range(1, totalConditions + 1);
+        chosenConditionNumber = Random.Range(1, totalConditions + 1);*/
+
+        chosenConditionNumber = HardModeManager.HardMode ? 2 : 1;
 
         if(chosenConditionNumber == 1)
         {
@@ -56,7 +57,7 @@ public class LevelManager : MonoBehaviour
         }
         else if(chosenConditionNumber == 2)
         {
-            chosenNumberText.text = "Full Fill!";
+            //chosenNumberText.text = "Full Fill!";
         }
     }
 

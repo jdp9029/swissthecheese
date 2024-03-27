@@ -56,7 +56,7 @@ public class BitingManager : MonoBehaviour
         timer = 0;
         GameObject.FindGameObjectWithTag("Mouse").transform.localScale *= .75f;
 
-        bitingSoundPlaying = GameObject.FindObjectOfType<SoundManager>().PlayRandomSoundFX(bitingSoundClips, transform, 1, bitingSoundClips[0].length / 5);
+        bitingSoundPlaying = GameObject.FindObjectOfType<SoundManager>().PlayRandomSoundFX(bitingSoundClips, transform, 1, .5f);
     }
 
     public void EndBite()

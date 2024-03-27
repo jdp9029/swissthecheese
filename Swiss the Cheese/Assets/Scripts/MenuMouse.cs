@@ -13,9 +13,12 @@ public class MenuMouse : MonoBehaviour
     private bool beenInViewRecently = false;
     [SerializeField] Button playButton;
     [SerializeField] Button optionsButton;
+    [SerializeField] Button instructionsButton;
+    [SerializeField] Button hardModeButton;
     [SerializeField] GameObject holePrefab;
     [SerializeField] GameObject soundManager;
     [SerializeField] BitingManager bitingManager;
+    [SerializeField] HardModeManager hardModeManager;
     private List<GameObject> bitesMade;
 
     // Start is called before the first frame update
@@ -28,21 +31,35 @@ public class MenuMouse : MonoBehaviour
         beenInViewRecently = false;
         bitesMade = new List<GameObject>();
 
+        //set up the sound and hard mode managers
+        if (GameObject.FindObjectsOfType<SoundManager>().Length == 0)
+        {
+            Instantiate(soundManager);
+        }
+        if (GameObject.FindObjectsOfType<HardModeManager>().Length == 0)
+        {
+            Instantiate(hardModeManager);
+        }
+
         //set up the play button and options button
         playButton.onClick.AddListener(delegate
         {
+            HardModeManager.HardMode = false;
             SceneManager.LoadScene("UpdatedGameplay");
         });
         optionsButton.onClick.AddListener(delegate
         {
             SceneManager.LoadScene("Options");
         });
-
-        //set up the sound manager
-        if(GameObject.FindObjectsOfType<SoundManager>().Length == 0)
+        instructionsButton.onClick.AddListener(delegate
         {
-            Instantiate(soundManager);
-        }
+            SceneManager.LoadScene("Instructions");
+        });
+        hardModeButton.onClick.AddListener(delegate
+        {
+            HardModeManager.HardMode = true;
+            SceneManager.LoadScene("UpdatedGameplay");
+        });
     }
 
     // Update is called once per frame

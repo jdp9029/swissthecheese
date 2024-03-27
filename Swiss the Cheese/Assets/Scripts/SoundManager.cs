@@ -20,13 +20,13 @@ public class SoundManager : MonoBehaviour
     }
 
     //Play a random sound effect from a list
-    public AudioSource PlayRandomSoundFX(AudioClip[] audioClips, Transform spawnTransform, float volume, float clipLength)
+    public AudioSource PlayRandomSoundFX(AudioClip[] audioClips, Transform spawnTransform, float volume, float startTime = 0)
     {
-        return PlaySoundFXClip(audioClips[Random.Range(0, audioClips.Length)], spawnTransform, volume, clipLength);
+        return PlaySoundFXClip(audioClips[Random.Range(0, audioClips.Length)], spawnTransform, volume, startTime);
     }
 
     //Play a specific sound effect clip
-    public AudioSource PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume, float clipLength)
+    public AudioSource PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume, float startTime = 0)
     {
         //spawn in gameobject
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
@@ -36,6 +36,9 @@ public class SoundManager : MonoBehaviour
 
         //assign volume
         audioSource.volume = volume;
+
+        //assign start time
+        audioSource.time = startTime;
 
         //play sound
         audioSource.Play();

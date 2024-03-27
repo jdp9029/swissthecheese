@@ -39,6 +39,9 @@ public class HoleManager : MonoBehaviour
 
     [SerializeField] public GameObject mousePrefab;
 
+    [SerializeField] AudioClip failClip;
+    [HideInInspector] AudioSource failSource;
+
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +65,15 @@ public class HoleManager : MonoBehaviour
         if(GameObject.FindObjectOfType<ZoomManager>().IsZooming || GameObject.FindObjectOfType<BitingManager>().IsBiting)
         {
             return;
+        }
+
+        if(HardModeManager.HardMode)
+        {
+            rotationSpeed = 4f  + (.5f * int.Parse(scoreCounter.text));
+        }
+        else
+        {
+            rotationSpeed = 4f;
         }
 
         //iterate the angle
@@ -119,6 +131,9 @@ public class HoleManager : MonoBehaviour
 
             //set up just zoomed
             GameObject.FindObjectOfType<ZoomManager>().justZoomed = true;
+
+            failSource = GameObject.FindObjectOfType<SoundManager>().PlaySoundFXClip(failClip, transform, .8f);
+            StartCoroutine(DestroyFailClip());
         }
 
         //If it doesn't intersect, simply add it to the holes cut list
@@ -135,5 +150,12 @@ public class HoleManager : MonoBehaviour
 
         //move the mouse to the back
         mouseInstance.transform.SetAsLastSibling();
+    }
+
+    private IEnumerator DestroyFailClip()
+    {
+        yield return new WaitForSeconds(failSource.clip.length);
+
+        Destroy(failSource.gameObject);
     }
 }

@@ -23,6 +23,9 @@ public class ZoomManager : MonoBehaviour
     [HideInInspector] private float OuterCircleSpeed;
     [HideInInspector] private float InnerCircleSpeed;
 
+    [SerializeField] AudioClip zoomSound;
+    [HideInInspector] AudioSource zoomInstance;
+
 
     // Start is called before the first frame update
     void Start()
@@ -99,6 +102,9 @@ public class ZoomManager : MonoBehaviour
         //set the speed at which the two circles have to decrease so that they reach their endpoints at the same time
         InnerCircleSpeed = Speed(OriginalCircleScale.x * OriginalCircleWidth, ColorManager.CircleCenter.GetComponent<RectTransform>().rect.width, TotalFrames(3 / ZoomSpeed,Time.deltaTime));
         OuterCircleSpeed = Speed(circleInstance.GetComponent<RectTransform>().rect.width * circleInstance.transform.localScale.x,OriginalCircleScale.x * OriginalCircleWidth, TotalFrames(3 / ZoomSpeed,Time.deltaTime));
+
+        //play our sound effect
+        zoomInstance = GameObject.FindObjectOfType<SoundManager>().PlaySoundFXClip(zoomSound, transform, 1, 0.5f);
     }
 
     //To end the zoom
@@ -130,6 +136,9 @@ public class ZoomManager : MonoBehaviour
 
         //find the new level type
         GameObject.FindObjectOfType<LevelManager>().SetCondition();
+
+        //delete our sound effect
+        Destroy(zoomInstance.gameObject);
     }
 
     //return the total number of frames that will occur over the duration of the program
