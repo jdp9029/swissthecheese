@@ -17,6 +17,13 @@ public class SoundManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         Instantiate(musicObject, transform);
+
+        if(PlayerPrefs.HasKey("masterVolume"))
+        {
+            audioMixer.SetFloat("masterVolume", PlayerPrefs.GetFloat("masterVolume"));
+            audioMixer.SetFloat("soundFXVolume", PlayerPrefs.GetFloat("soundFXVolume"));
+            audioMixer.SetFloat("musicVolume", PlayerPrefs.GetFloat("musicVolume"));
+        }
     }
 
     //Play a random sound effect from a list

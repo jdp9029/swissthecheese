@@ -20,6 +20,7 @@ public class MenuMouse : MonoBehaviour
     [SerializeField] BitingManager bitingManager;
     [SerializeField] HardModeManager hardModeManager;
     private List<GameObject> bitesMade;
+    private bool firstFrame;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class MenuMouse : MonoBehaviour
         timePerAngle = 0;
         beenInViewRecently = false;
         bitesMade = new List<GameObject>();
+        firstFrame = true;
 
         //set up the sound and hard mode managers
         if (GameObject.FindObjectsOfType<SoundManager>().Length == 0)
@@ -70,6 +72,12 @@ public class MenuMouse : MonoBehaviour
 
         //set the new position based on the current angle
         transform.position = new Vector3(transform.position.x + (speed * Mathf.Cos(angle - (Mathf.PI / 2))), transform.position.y + (speed * Mathf.Sin(angle - (Mathf.PI / 2))), 0.0f);
+
+        if (firstFrame)
+        {
+            firstFrame = false;
+            speed = 100 * Time.deltaTime;
+        }
 
         //increment time per angle
         timePerAngle += Time.deltaTime;

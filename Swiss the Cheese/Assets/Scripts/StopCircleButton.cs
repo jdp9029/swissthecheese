@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class StopCircleButton : MonoBehaviour
 {
-    //button getting clicked
-    private Button stopButton;
-
     //prefab to spawn the circle
     [SerializeField] private GameObject circlePrefab;
 
@@ -20,16 +17,9 @@ public class StopCircleButton : MonoBehaviour
 
     //hole manager
     [SerializeField] HoleManager holeManager;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        stopButton = GetComponent<Button>();
-        stopButton.onClick.AddListener(OnClick);
-    }
-
+    
     //Occurs when the button is clicked
-    private void OnClick()
+    public void OnClick()
     {
         //only work if we're not in the middle of zooming
         if(GameObject.FindObjectOfType<ZoomManager>().IsZooming || GameObject.FindObjectOfType<BitingManager>().IsBiting)

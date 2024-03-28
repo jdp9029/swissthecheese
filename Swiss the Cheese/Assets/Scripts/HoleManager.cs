@@ -42,6 +42,8 @@ public class HoleManager : MonoBehaviour
     [SerializeField] AudioClip failClip;
     [HideInInspector] AudioSource failSource;
 
+    [SerializeField] HighScoreKeeper highScoreKeeper;
+
 
     // Start is called before the first frame update
     void Start()
@@ -146,6 +148,16 @@ public class HoleManager : MonoBehaviour
 
             //set up just zoomed
             GameObject.FindObjectOfType<ZoomManager>().justZoomed = false;
+
+            //set up high score
+            string highScore = !HardModeManager.HardMode ? "highscore" : "hard_highscore";
+
+            Debug.Log("High score: " + PlayerPrefs.GetInt(highScore).ToString() + ", Regular Score: " + scoreCounter.text); 
+
+            if(PlayerPrefs.GetInt(highScore) < int.Parse(scoreCounter.text))
+            {
+                highScoreKeeper.SetHighScore(int.Parse(scoreCounter.text));
+            }
         }
 
         //move the mouse to the back
