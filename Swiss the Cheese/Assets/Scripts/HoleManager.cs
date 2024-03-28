@@ -152,8 +152,6 @@ public class HoleManager : MonoBehaviour
             //set up high score
             string highScore = !HardModeManager.HardMode ? "highscore" : "hard_highscore";
 
-            Debug.Log("High score: " + PlayerPrefs.GetInt(highScore).ToString() + ", Regular Score: " + scoreCounter.text); 
-
             if(PlayerPrefs.GetInt(highScore) < int.Parse(scoreCounter.text))
             {
                 highScoreKeeper.SetHighScore(int.Parse(scoreCounter.text));

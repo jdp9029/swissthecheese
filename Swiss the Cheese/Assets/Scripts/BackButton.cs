@@ -43,13 +43,10 @@ public class BackButton : MonoBehaviour
                 PlayerPrefs.SetFloat("musicVolume", 20f * Mathf.Log10(musicSlider.value));
             });
         }
+    }
 
-        //Regardless of whether or not we're in options
-        //Add the listener to return to menu
-        GetComponent<Button>().onClick.RemoveAllListeners();
-        GetComponent<Button>().onClick.AddListener(delegate
-        {
-            SceneManager.LoadScene("Menu");
-        });
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
