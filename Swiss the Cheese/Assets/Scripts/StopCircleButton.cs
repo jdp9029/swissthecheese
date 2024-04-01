@@ -27,13 +27,6 @@ public class StopCircleButton : MonoBehaviour
             return;
         }
 
-        StartCoroutine(ValidClick());
-    }
-
-    private IEnumerator ValidClick()
-    {
-        yield return new WaitForNextFrameUnit();
-
         //Cut a new hole out of the big circle
         GameObject newHole = Instantiate(circlePrefab, holeManager.mouseInstance.transform.position, Quaternion.identity, bigCircle.transform);
 
