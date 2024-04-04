@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 572963001587198892}
   - component: {fileID: 4972976753957660697}
+  - component: {fileID: 9222165230705751208}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4972976753957660697
 MonoBehaviour:
@@ -47,3 +48,11 @@ MonoBehaviour:
   soundFXObject: {fileID: 7389534484309851261, guid: b866bc1bf64d6644982337aa69a796b6, type: 3}
   musicObject: {fileID: 7389534484309851261, guid: a412dd50c4ee3d84180ee3e24c888200, type: 3}
   audioMixer: {fileID: 24100000, guid: e2717434d460c6f4d8f5af3cf43eb3ae, type: 2}
+--- !u!81 &9222165230705751208
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2167918614853556716}
+  m_Enabled: 1

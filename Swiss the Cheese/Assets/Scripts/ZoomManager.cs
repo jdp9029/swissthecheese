@@ -13,10 +13,7 @@ public class ZoomManager : MonoBehaviour
     [SerializeField] private GameObject Background;
     [SerializeField] private GameObject circlePrefab;
     [HideInInspector] private GameObject circleInstance;
-    [HideInInspector] private float ZoomSpeed = 1;
-    [HideInInspector] private Vector2 OriginalCircleScale = Vector2.one;
-    [HideInInspector] private float OriginalCircleWidth;
-    [HideInInspector] private float prefabCircleWidth;
+    [HideInInspector] private Vector2 targetCircleInstanceSize = Vector2.one;
     [HideInInspector] private ColorManager ColorManager;
     [HideInInspector] public int targetScore;
     [HideInInspector] public bool justZoomed;
@@ -30,13 +27,9 @@ public class ZoomManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        OriginalCircleScale = OuterCircle.transform.localScale;
-        OriginalCircleWidth = OuterCircle.GetComponent<RectTransform>().rect.width;
-        prefabCircleWidth = circlePrefab.GetComponent<RectTransform>().rect.width;
         ColorManager = GameObject.FindObjectOfType<ColorManager>();
         justZoomed = true;
-        targetScore = UnityEngine.Random.Range(12,16);
-        ZoomSpeed = 10;
+        targetScore = 15;
     }
 
     // Update is called once per frame
@@ -59,7 +52,7 @@ public class ZoomManager : MonoBehaviour
             ColorManager.SlowBurn(OuterCircle.GetComponent<Image>().color,Background.GetComponent<Image>().color, OuterCircle);
 
             //if we've zoomed far enough, end the zoom
-            if(circleInstance.transform.localScale.x <= (OriginalCircleScale.x * OriginalCircleWidth / prefabCircleWidth))
+            if(circleInstance.transform.localScale.x * circleInstance.GetComponent<RectTransform>().rect.width <= targetCircleInstanceSize.x)
             {
                 EndZoom();
             }
@@ -83,10 +76,14 @@ public class ZoomManager : MonoBehaviour
         //set isZooming to be true
         IsZooming = true;
 
+        //set up the expected final size
+        targetCircleInstanceSize = OuterCircle.transform.localScale * OuterCircle.GetComponent<RectTransform>().rect.width;
+
         //create and populate the larger circle object
         circleInstance = Instantiate(circlePrefab, Background.transform);
         circleInstance.transform.SetAsFirstSibling();
-        circleInstance.transform.localScale = OuterCircle.transform.localScale * OuterCircle.GetComponent<RectTransform>().rect.width / 25;
+        circleInstance.transform.localScale = OuterCircle.transform.localScale * OuterCircle.GetComponent<RectTransform>().rect.width * 5 /
+            circleInstance.GetComponent<RectTransform>().rect.width;
         circleInstance.transform.position = OuterCircle.transform.position;
         circleInstance.GetComponent<Image>().color = Background.GetComponent<Image>().color;
 
@@ -100,8 +97,8 @@ public class ZoomManager : MonoBehaviour
         ColorManager.CircleCenter.color = new Color32((byte)ColorManager.CircleCenter.color.r, (byte)ColorManager.CircleCenter.color.g, (byte)ColorManager.CircleCenter.color.b, 0);
 
         //set the speed at which the two circles have to decrease so that they reach their endpoints at the same time
-        InnerCircleSpeed = Speed(OriginalCircleScale.x * OriginalCircleWidth, ColorManager.CircleCenter.GetComponent<RectTransform>().rect.width, TotalFrames(3 / ZoomSpeed,Time.deltaTime));
-        OuterCircleSpeed = Speed(circleInstance.GetComponent<RectTransform>().rect.width * circleInstance.transform.localScale.x,OriginalCircleScale.x * OriginalCircleWidth, TotalFrames(3 / ZoomSpeed,Time.deltaTime));
+        InnerCircleSpeed = Speed(targetCircleInstanceSize.x, ColorManager.CircleCenter.GetComponent<RectTransform>().rect.width, TotalFrames(.3f,Time.deltaTime));
+        OuterCircleSpeed = Speed(circleInstance.GetComponent<RectTransform>().rect.width * circleInstance.transform.localScale.x, targetCircleInstanceSize.x, TotalFrames(.3f,Time.deltaTime));
 
         //play our sound effect
         zoomInstance = GameObject.FindObjectOfType<SoundManager>().PlaySoundFXClip(zoomSound, transform, 1, 0.5f);
@@ -114,7 +111,7 @@ public class ZoomManager : MonoBehaviour
         IsZooming = false;
 
         //reset the big circle size
-        OuterCircle.transform.localScale = OriginalCircleScale;
+        OuterCircle.transform.localScale = Vector3.one;
 
         //cycle the colors
         GameObject.FindObjectOfType<ColorManager>().CycleForeground();

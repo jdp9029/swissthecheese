@@ -37,15 +37,20 @@ public class HoleManager : MonoBehaviour
     //Counter for how many holes have been cut
     [SerializeField] public TextMeshProUGUI scoreCounter;
 
+    //the mouse prefab
     [SerializeField] public GameObject mousePrefab;
 
+    //the clip and source for the audio fail sound effect
     [SerializeField] AudioClip failClip;
     [HideInInspector] AudioSource failSource;
 
+    //keeps the high score
     [SerializeField] HighScoreKeeper highScoreKeeper;
 
+    //the size of the center circle
     [HideInInspector] private Rect centerCircleSize;
 
+    //the positions of each cut as you make them
     [HideInInspector] private List<(float radius, float angle)> initialHolePositions = new List<(float radius, float angle)>();
 
 
@@ -73,22 +78,32 @@ public class HoleManager : MonoBehaviour
             return;
         }
 
+        //set the rotation speed of the mouse
         if(HardModeManager.HardMode)
         {
-            rotationSpeed = 4f  + (.5f * int.Parse(scoreCounter.text));
+            rotationSpeed = 4f  + (.4f * int.Parse(scoreCounter.text));
+
+            //set 15 as the max speed
+            if(rotationSpeed >= 15f) { rotationSpeed = 15f; }
         }
         else
         {
             rotationSpeed = 4f;
         }
 
+        //if the center of the circle has changed sizes
         if(centerOfCircle.GetComponent<RectTransform>().rect.width != centerCircleSize.width || centerOfCircle.GetComponent<RectTransform>().rect.height != centerCircleSize.height)
         {
+            //reset the radius
             radius = 3 * GetRadius(centerOfCircle);
+
+            //update the size of the circle
             centerCircleSize = centerOfCircle.GetComponent<RectTransform>().rect;
 
+            //if we are up to height controls width
             if(biggerCircle.GetComponent<AspectRatioFitter>().aspectMode == AspectRatioFitter.AspectMode.HeightControlsWidth)
             {
+                //adjust the local position of the holes cut
                 for(int i = 0; i < holesCut.Count; i++)
                 {
                     holesCut[i].GetComponent<RectTransform>().localPosition = (radius / initialHolePositions[i].radius) * new Vector2(Mathf.Cos(initialHolePositions[i].angle), Mathf.Sin(initialHolePositions[i].angle));

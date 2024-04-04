@@ -34,19 +34,23 @@ public class ResponsiveCircle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //update the canvas attributes
         canvasHeight = canvasRect.rect.height * canvasRect.localScale.y;
         canvasWidth = canvasRect.rect.width * canvasRect.localScale.x;
 
+        //update the aspect ratio
         if(updateAspectRatio)
         {
             UpdateCircleAspect(GetComponent<RectTransform>());
         }
 
+        //keep the x the same
         if(stationaryOnX)
         {
             GetComponent<RectTransform>().localPosition = new Vector2(initialPosition.x, GetComponent<RectTransform>().localPosition.y);
         }
 
+        //update collider
         if(updateCollider)
         {
             GetComponent<CircleCollider2D>().radius = GetComponent<RectTransform>().rect.width / 2.005f;

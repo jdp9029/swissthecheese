@@ -33,7 +33,6 @@ public class LevelManager : MonoBehaviour
         if (chosenConditionNumber == 1)
         {
             ChosenCondition = FindObjectOfType<HoleManager>().holesCut.Count % FindObjectOfType<ZoomManager>().targetScore == 0;
-            //chosenNumberText.text = (FindObjectOfType<ZoomManager>().targetScore - FindObjectOfType<HoleManager>().holesCut.Count).ToString() + " bites left!";
         }
         //occurs if we are choosing the "full slots" condition
         else if (chosenConditionNumber == 2)
@@ -45,20 +44,7 @@ public class LevelManager : MonoBehaviour
 
     public void SetCondition()
     {
-        /*int totalConditions = 2;
-
-        chosenConditionNumber = Random.Range(1, totalConditions + 1);*/
-
         chosenConditionNumber = HardModeManager.HardMode ? 2 : 1;
-
-        if(chosenConditionNumber == 1)
-        {
-            FindObjectOfType<ZoomManager>().targetScore = Random.Range(12, 16);
-        }
-        else if(chosenConditionNumber == 2)
-        {
-            //chosenNumberText.text = "Full Fill!";
-        }
     }
 
     private void SetTestPoints()
