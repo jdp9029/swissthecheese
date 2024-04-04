@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3358785609453905410}
   - component: {fileID: 818931359695520877}
   - component: {fileID: 7417259858269618271}
+  - component: {fileID: 3763562158922890244}
+  - component: {fileID: 6527278837543147695}
   m_Layer: 0
   m_Name: Circles_Holes
   m_TagString: Untagged
@@ -111,4 +113,31 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 32.5
+  m_Radius: 37
+--- !u!114 &3763562158922890244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7853289706153895434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 1
+  m_AspectRatio: 1
+--- !u!114 &6527278837543147695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7853289706153895434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01137a6c7863cd147893c193284920be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationaryOnX: 1

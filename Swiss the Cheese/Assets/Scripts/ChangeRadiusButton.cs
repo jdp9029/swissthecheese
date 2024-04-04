@@ -17,7 +17,7 @@ public class ChangeRadiusButton : MonoBehaviour
     void Update()
     {
         //a multiplier to change the radius by
-        float multiplier = Increase ? 250 * Time.deltaTime: -250 * Time.deltaTime;
+        float multiplier = Increase ? bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / 3: bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / -3;
         
         //if the mouse is being held
         if (mouseBeingHeld)

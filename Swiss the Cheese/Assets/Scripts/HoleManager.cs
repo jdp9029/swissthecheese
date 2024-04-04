@@ -58,7 +58,7 @@ public class HoleManager : MonoBehaviour
         mouseInstance.GetComponent<Image>().color = Color.white;
 
         //set up the radius
-        radius = biggerCircle.GetComponent<RectTransform>().rect.height - (3 * centerOfCircle.GetComponent<RectTransform>().rect.height);
+        radius = 3 * GetRadius(centerOfCircle);
     }
 
     // Update is called once per frame
@@ -160,6 +160,14 @@ public class HoleManager : MonoBehaviour
 
         //move the mouse to the back
         mouseInstance.transform.SetAsLastSibling();
+    }
+
+    private float GetRadius(GameObject circle)
+    {
+        Vector2 center = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center);
+        Vector2 edgePoint = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center +
+            new Vector2(circle.GetComponent<CircleCollider2D>().radius, 0f));
+        return Vector2.Distance(center, edgePoint);
     }
 
     private IEnumerator DestroyFailClip()
