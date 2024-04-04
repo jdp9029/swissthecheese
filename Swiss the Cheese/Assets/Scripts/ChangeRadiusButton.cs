@@ -17,7 +17,7 @@ public class ChangeRadiusButton : MonoBehaviour
     void Update()
     {
         //a multiplier to change the radius by
-        float multiplier = Increase ? bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / 3: bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / -3;
+        float multiplier = Increase ? bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / 2: bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / -2;
         
         //if the mouse is being held
         if (mouseBeingHeld)
@@ -60,7 +60,9 @@ public class ChangeRadiusButton : MonoBehaviour
         Vector2 centerCirclePoint = centerCircle.GetComponent<RectTransform>().TransformPoint(centerCircle.GetComponent<RectTransform>().rect.center);
         Vector2 mousePoint = holeManager.mouseInstance.GetComponent<RectTransform>().TransformPoint(holeManager.mouseInstance.GetComponent<RectTransform>().rect.center);
 
-        return Vector2.Distance(centerCirclePoint, mousePoint) <= 2 * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
+        bool tooSmall = Vector2.Distance(centerCirclePoint, mousePoint) <= 2 * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
+        if(tooSmall) { Debug.Log("too small"); }
+        return tooSmall;
     }
 
     //determine if the radius of the rotating circle is too large
@@ -70,6 +72,8 @@ public class ChangeRadiusButton : MonoBehaviour
             (bigCircle.GetComponent<CircleCollider2D>().radius * new Vector2(Mathf.Cos(holeManager.angle), Mathf.Sin(holeManager.angle))));
         Vector2 mousePoint = holeManager.mouseInstance.GetComponent<RectTransform>().TransformPoint(holeManager.mouseInstance.GetComponent<RectTransform>().rect.center);
 
-        return Vector2.Distance(edgePoint, mousePoint) <= 1.25f * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
+        bool tooLarge = Vector2.Distance(edgePoint, mousePoint) <= 1.25f * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
+        if (tooLarge) { Debug.Log("too large"); }
+        return tooLarge;
     }
 }

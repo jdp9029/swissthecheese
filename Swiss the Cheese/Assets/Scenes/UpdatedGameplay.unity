@@ -188,7 +188,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 225
+  m_fontSize: 179.85
   m_fontSizeBase: 225
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -669,6 +669,8 @@ MonoBehaviour:
   stationaryOnX: 1
   updateAspectRatio: 1
   updateCollider: 1
+  leadByHeight: 0
+  minimumSizeOfChoice: 0
 --- !u!1 &810994067
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,6 +815,8 @@ MonoBehaviour:
   stationaryOnX: 1
   updateAspectRatio: 1
   updateCollider: 1
+  leadByHeight: 0
+  minimumSizeOfChoice: 450
 --- !u!1 &876795664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,7 +1348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AspectMode: 1
+  m_AspectMode: 2
   m_AspectRatio: 1
 --- !u!114 &1183016916
 MonoBehaviour:
@@ -1361,6 +1365,8 @@ MonoBehaviour:
   stationaryOnX: 1
   updateAspectRatio: 1
   updateCollider: 0
+  leadByHeight: 1
+  minimumSizeOfChoice: 100
 --- !u!1 &1344745062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,7 +1453,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 85.65
+  m_fontSize: 60.4
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1754,7 +1760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AspectMode: 1
+  m_AspectMode: 2
   m_AspectRatio: 1
 --- !u!114 &1533469492
 MonoBehaviour:
@@ -1771,6 +1777,8 @@ MonoBehaviour:
   stationaryOnX: 1
   updateAspectRatio: 1
   updateCollider: 0
+  leadByHeight: 1
+  minimumSizeOfChoice: 100
 --- !u!1 &1545745142
 GameObject:
   m_ObjectHideFlags: 0

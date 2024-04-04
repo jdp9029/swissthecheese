@@ -44,12 +44,16 @@ public class HoleManager : MonoBehaviour
 
     [SerializeField] HighScoreKeeper highScoreKeeper;
 
+    [HideInInspector] private Rect centerCircleSize;
+
+    [HideInInspector] private List<(float radius, float angle)> initialHolePositions = new List<(float radius, float angle)>();
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //find the center of the canvas
-        Rect centerOfBackground = GameObject.FindGameObjectWithTag("Canvas").GetComponent<RectTransform>().rect;
+        //find the size of the canvas
+        centerCircleSize = centerOfCircle.GetComponent<RectTransform>().rect;
 
         //set up the circling circle
         mouseInstance = Instantiate(mousePrefab, Vector3.zero, Quaternion.identity, biggerCircle.transform);
@@ -76,6 +80,20 @@ public class HoleManager : MonoBehaviour
         else
         {
             rotationSpeed = 4f;
+        }
+
+        if(centerOfCircle.GetComponent<RectTransform>().rect.width != centerCircleSize.width || centerOfCircle.GetComponent<RectTransform>().rect.height != centerCircleSize.height)
+        {
+            radius = 3 * GetRadius(centerOfCircle);
+            centerCircleSize = centerOfCircle.GetComponent<RectTransform>().rect;
+
+            if(biggerCircle.GetComponent<AspectRatioFitter>().aspectMode == AspectRatioFitter.AspectMode.HeightControlsWidth)
+            {
+                for(int i = 0; i < holesCut.Count; i++)
+                {
+                    holesCut[i].GetComponent<RectTransform>().localPosition = (radius / initialHolePositions[i].radius) * new Vector2(Mathf.Cos(initialHolePositions[i].angle), Mathf.Sin(initialHolePositions[i].angle));
+                }
+            }
         }
 
         //iterate the angle
@@ -128,6 +146,9 @@ public class HoleManager : MonoBehaviour
             //Clear holes cut
             holesCut.Clear();
 
+            //Clear initial hole positions
+            initialHolePositions.Clear();
+
             //set up the counter
             scoreCounter.text = "0";
 
@@ -142,6 +163,7 @@ public class HoleManager : MonoBehaviour
         else
         {
             holesCut.Add(newHole);
+            initialHolePositions.Add((radius / GetRadius(biggerCircle), angle));
             
             //set up the counter
             scoreCounter.text = (int.Parse(scoreCounter.text) + 1).ToString();

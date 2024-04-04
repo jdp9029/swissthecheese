@@ -6,17 +6,24 @@ using UnityEngine.UI;
 
 public class ResponsiveCircle : MonoBehaviour
 {
+    //the rect of the canvas
     RectTransform canvasRect;
+
+    //some bool's determining what we want to do to this object
     [SerializeField] bool stationaryOnX;
     [SerializeField] bool updateAspectRatio;
     [SerializeField] bool updateCollider;
+    [SerializeField] bool leadByHeight;
 
+    //the height and width of the canvas
     private float canvasHeight;
     private float canvasWidth;
 
+    //the initial position of this object
     private Vector2 initialPosition;
 
-    private float optimalWidth = 450;
+    //the minimum height we'd like or the minimum width we'd like, depending on leadByHeight
+    [SerializeField] private float minimumSizeOfChoice;
 
     private void Start()
     {
@@ -48,21 +55,35 @@ public class ResponsiveCircle : MonoBehaviour
 
     void UpdateCircleAspect(RectTransform rectTransform)
     {
-        //float wantedWidth = canvasWidth * (rectTransform.anchorMax.x - rectTransform.anchorMin.x);
-        //float wantedHeight = canvasHeight * (rectTransform.anchorMax.y - rectTransform.anchorMin.y);
-
+        //get the recommended width and height that we want
         float wantedWidth = canvasWidth * (rectTransform.anchorMax.x - rectTransform.anchorMin.x);
         float wantedHeight = canvasHeight * (rectTransform.anchorMax.y - rectTransform.anchorMin.y);
-        
-        if (wantedHeight < rectTransform.rect.height && wantedWidth >= optimalWidth)
+
+        //decide orientation based on whether height or width gets priority
+        if(leadByHeight)
         {
-            rectTransform.gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
+            if (wantedWidth < rectTransform.rect.width && wantedHeight >= minimumSizeOfChoice)
+            {
+                rectTransform.gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
+            }
+            if (wantedHeight < rectTransform.rect.height)
+            {
+                rectTransform.gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
+            }
         }
-        if(wantedWidth < rectTransform.rect.width)
+        else
         {
-            rectTransform.gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
+            if (wantedHeight < rectTransform.rect.height && wantedWidth >= minimumSizeOfChoice)
+            {
+                rectTransform.gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
+            }
+            if (wantedWidth < rectTransform.rect.width)
+            {
+                rectTransform.gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
+            }
         }
 
+        //set the aspect ratio to be one and zero the offset
         rectTransform.gameObject.GetComponent<AspectRatioFitter>().aspectRatio = 1;
         ZeroOffset(rectTransform);
     }    
