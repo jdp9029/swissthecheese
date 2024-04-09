@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01137a6c7863cd147893c193284920be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationaryOnX: 1
+  stationaryOnX: 0
   updateAspectRatio: 0
   updateCollider: 1
   leadByHeight: 0

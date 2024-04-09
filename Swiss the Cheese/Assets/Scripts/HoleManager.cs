@@ -50,10 +50,6 @@ public class HoleManager : MonoBehaviour
     //the size of the center circle
     [HideInInspector] private Rect centerCircleSize;
 
-    //the positions of each cut as you make them
-    [HideInInspector] private List<Vector2> initialHolePositions = new List<Vector2>();
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -83,12 +79,8 @@ public class HoleManager : MonoBehaviour
         {
             RectTransform holeRect = holesCut[i].GetComponent<RectTransform>();
             RectTransform circleRect = biggerCircle.GetComponent<RectTransform>();
-            /*float posX = circleRect.rect.width * ((holeRect.anchorMax.x + holeRect.anchorMin.x) / 2);
-            float posY = circleRect.rect.height * ((holeRect.anchorMax.y + holeRect.anchorMin.y) / 2);
-            holesCut[i].GetComponent<RectTransform>().localPosition = new Vector2(posX - circleRect.pivot.x, posY - circleRect.pivot.y);*/
             AdjustHoleToAnchor(holeRect, circleRect);
         }
-
 
         //set the rotation speed of the mouse
         if (HardModeManager.HardMode)
@@ -110,22 +102,7 @@ public class HoleManager : MonoBehaviour
             radius = 3 * GetRadius(centerOfCircle);
 
             //update the size of the circle
-            centerCircleSize = centerOfCircle.GetComponent<RectTransform>().rect;/*
-
-            //if we are up to height controls width
-            if(biggerCircle.GetComponent<AspectRatioFitter>().aspectMode == AspectRatioFitter.AspectMode.HeightControlsWidth)
-            {
-                //adjust the local position of the holes cut
-                for(int i = 0; i < holesCut.Count; i++)
-                {
-                    RectTransform holeRect = holesCut[i].GetComponent<RectTransform>();
-                    RectTransform circleRect = biggerCircle.GetComponent<RectTransform>();
-                    *//*float posX = circleRect.rect.width * ((holeRect.anchorMax.x + holeRect.anchorMin.x) / 2);
-                    float posY = circleRect.rect.height * ((holeRect.anchorMax.y + holeRect.anchorMin.y) / 2);
-                    holesCut[i].GetComponent<RectTransform>().localPosition = new Vector2(posX - circleRect.pivot.x, posY - circleRect.pivot.y);*//*
-                    AdjustHoleToAnchor(holeRect, circleRect);
-                }
-            }*/
+            centerCircleSize = centerOfCircle.GetComponent<RectTransform>().rect;
         }
 
         //iterate the angle
@@ -177,9 +154,6 @@ public class HoleManager : MonoBehaviour
             
             //Clear holes cut
             holesCut.Clear();
-
-            //Clear initial hole positions
-            initialHolePositions.Clear();
 
             //set up the counter
             scoreCounter.text = "0";
@@ -237,10 +211,11 @@ public class HoleManager : MonoBehaviour
 
     private static void AdjustHoleToAnchor(RectTransform rectTransform, RectTransform parentRect)
     {
-        Vector2 minCorner = rectTransform.anchorMin - parentRect.pivot;
-        rectTransform.localPosition = (parentRect.rect.width * minCorner) + (rectTransform.rect.size / 2);
-        //rectTransform.localPosition -= (Vector3)rectTransform.offsetMin;
-        Debug.Log(rectTransform.offsetMin + " and max is " + rectTransform.offsetMax);
+        Vector2 minCorner = parentRect.rect.height * (rectTransform.anchorMin - parentRect.pivot);
+        Vector2 maxCorner = parentRect.rect.height * (rectTransform.anchorMax - parentRect.pivot);
+        Vector2 position = (minCorner + maxCorner) / 2;
+
+        rectTransform.localPosition = position;
     }
 
     private float GetRadius(GameObject circle)
