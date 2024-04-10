@@ -402,7 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationaryonX: 0
+  maxWidthRatio: 3
+  maxHeightRatio: 1
 --- !u!1 &465361881 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7853289706153895434, guid: 2d77e76a77409a94388c69b9a5ced47d, type: 3}
@@ -756,7 +757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationaryonX: 0
+  maxWidthRatio: 3
+  maxHeightRatio: 1
 --- !u!1 &1266396501
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +893,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationaryonX: 0
+  maxWidthRatio: 3
+  maxHeightRatio: 1
 --- !u!1 &1345274249
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,7 +984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationaryonX: 0
+  maxWidthRatio: 3
+  maxHeightRatio: 1
 --- !u!1 &1388156028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,7 +1120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationaryonX: 0
+  maxWidthRatio: 3
+  maxHeightRatio: 1
 --- !u!1 &1437765108
 GameObject:
   m_ObjectHideFlags: 0

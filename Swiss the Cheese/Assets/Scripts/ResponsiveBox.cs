@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class ResponsiveBox : MonoBehaviour
 {
-    Rect canvas;
+    [SerializeField] float maxWidthRatio;
+    [SerializeField] float maxHeightRatio;
 
     // Start is called before the first frame update
     void Start()
     {
-        canvas = GameObject.FindObjectOfType<Canvas>().GetComponent<RectTransform>().rect;
         if(GetComponent<AspectRatioFitter>() == null )
         {
             transform.AddComponent<AspectRatioFitter>();
@@ -22,17 +22,18 @@ public class ResponsiveBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canvas = GameObject.FindObjectOfType<Canvas>().GetComponent<RectTransform>().rect;
+        float width = (GetComponent<RectTransform>().anchorMax.x - GetComponent<RectTransform>().anchorMin.x) * transform.parent.GetComponent<RectTransform>().rect.width;
+        float height = (GetComponent<RectTransform>().anchorMax.y - GetComponent<RectTransform>().anchorMin.y) * transform.parent.GetComponent<RectTransform>().rect.height;
 
-        if (canvas.width > canvas.height)
+        if (width / maxWidthRatio > height)
         {
             GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
-            GetComponent<AspectRatioFitter>().aspectRatio = 3f;
+            GetComponent<AspectRatioFitter>().aspectRatio = maxWidthRatio;
         }
-        else if(canvas.height / 2 > canvas.width)
+        else if(height / maxHeightRatio > width)
         {
             GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
-            GetComponent<AspectRatioFitter>().aspectRatio = 2.0f;
+            GetComponent<AspectRatioFitter>().aspectRatio = maxHeightRatio;
         }
         else
         {
@@ -41,10 +42,11 @@ public class ResponsiveBox : MonoBehaviour
 
         ZeroOffset();
 
-        if(stationaryonX)
-        {
-
-        }
+        float posX = transform.parent.GetComponent<RectTransform>().rect.width * .5f * 
+            (GetComponent<RectTransform>().anchorMin.x + GetComponent<RectTransform>().anchorMax.x - (2 * transform.parent.GetComponent<RectTransform>().pivot.x));
+        float posY = transform.parent.GetComponent<RectTransform>().rect.height * .5f * 
+            (GetComponent<RectTransform>().anchorMin.y + GetComponent<RectTransform>().anchorMax.y - (2 * transform.parent.GetComponent<RectTransform>().pivot.y));
+        GetComponent<RectTransform>().localPosition = new Vector3(posX, posY);
     }
 
     void ZeroOffset()
