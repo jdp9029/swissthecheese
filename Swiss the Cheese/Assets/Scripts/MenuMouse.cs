@@ -21,6 +21,8 @@ public class MenuMouse : MonoBehaviour
     [SerializeField] HardModeManager hardModeManager;
     private List<GameObject> bitesMade;
 
+    private Rect canvasRect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -114,6 +116,13 @@ public class MenuMouse : MonoBehaviour
             hole.transform.SetAsFirstSibling();
             bitesMade.Add(hole);
             bitingManager.StartBite(hole);
+        }
+
+        //reset mouse position if canvas size changes
+        if(canvas.rect.width != canvasRect.width || canvas.rect.height != canvasRect.height)
+        {
+            GetComponent<RectTransform>().localPosition = Vector2.zero;
+            canvasRect = canvas.rect;
         }
     }
 
