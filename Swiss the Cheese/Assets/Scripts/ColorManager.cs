@@ -10,13 +10,14 @@ public class ColorManager : MonoBehaviour
     public UnityEngine.UI.Image Circle;
     public UnityEngine.UI.Image CircleCenter;
     private int colorIndex;
-    private Color32[] colors;
+    private Color32[] backgroundColors;
+    private Color32[] foregroundColors;
     private float timePassed;
 
     // Start is called before the first frame update
     void Start()
     {
-        colors = new Color32[]
+        backgroundColors = new Color32[]
         {
             new Color32(167, 165, 19, 255),
             new Color32(198, 197, 84, 255),
@@ -25,6 +26,17 @@ public class ColorManager : MonoBehaviour
             new Color32(221, 175, 82, 255),
             new Color32(168, 113, 2, 255),
             new Color32(218, 244, 22, 255)
+        };
+
+        foregroundColors = new Color32[]
+        {
+            new Color32(241,176,55,255),
+            new Color32(203,110,16,255),
+            new Color32(252,152,24,255),
+            new Color32(201,87,0,255),
+            new Color32(237,121,28,255),
+            new Color32(190,74,16,255),
+            new Color32(223,173,87,255),
         };
         
         timePassed = 0;
@@ -42,15 +54,15 @@ public class ColorManager : MonoBehaviour
     //Change the color of foreground components
     public void CycleForeground()
     {
-        Circle.color = colors[colorIndex % colors.Length];
-        CircleCenter.color = colors[(colorIndex + 1) % colors.Length];
+        Circle.color = backgroundColors[colorIndex % backgroundColors.Length];
+        CircleCenter.color = backgroundColors[(colorIndex + 1) % backgroundColors.Length];
         colorIndex++;
     }
 
     //Change the color of background components
     public void CycleBackground()
     {
-        Background.color = colors[(colorIndex + 1) % colors.Length];
+        Background.color = backgroundColors[(colorIndex + 1) % backgroundColors.Length];
     }
 
     //Slowly shift the color of the regular circle midzoom
