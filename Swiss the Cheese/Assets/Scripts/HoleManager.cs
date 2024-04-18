@@ -228,7 +228,7 @@ public class HoleManager : MonoBehaviour
 
     private IEnumerator DestroyFailClip()
     {
-        yield return new WaitForSeconds(failSource.clip.length);
+        yield return new WaitForSeconds(failSource.clip.length / 2);
 
         Destroy(failSource.gameObject);
     }
