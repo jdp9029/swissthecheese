@@ -11,24 +11,12 @@ public class ColorManager : MonoBehaviour
     public UnityEngine.UI.Image CircleCenter;
     private int colorIndex;
     private Color32[] backgroundColors;
-    private Color32[] foregroundColors;
     private float timePassed;
 
     // Start is called before the first frame update
     void Start()
     {
         backgroundColors = new Color32[]
-        {
-            new Color32(167, 165, 19, 255),
-            new Color32(198, 197, 84, 255),
-            new Color32(204, 158, 29, 255),
-            new Color32(216, 200, 3, 255), 
-            new Color32(221, 175, 82, 255),
-            new Color32(168, 113, 2, 255),
-            new Color32(218, 244, 22, 255)
-        };
-
-        foregroundColors = new Color32[]
         {
             new Color32(241,176,55,255),
             new Color32(203,110,16,255),
