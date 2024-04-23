@@ -230,6 +230,9 @@ public class HoleManager : MonoBehaviour
     {
         yield return new WaitForSeconds(failSource.clip.length / 2);
 
-        Destroy(failSource.gameObject);
+        if(failSource != null)
+        {
+            Destroy(failSource.gameObject);
+        }
     }
 }

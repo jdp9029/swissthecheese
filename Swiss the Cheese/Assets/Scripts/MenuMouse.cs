@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class MenuMouse : MonoBehaviour
 {
-    private float timePerAngle = 0;
+    private float timeSinceLastAngleChange = 0;
     public float angle;
     private float speed = 50f;
     private bool beenInViewRecently = false;
@@ -29,7 +29,7 @@ public class MenuMouse : MonoBehaviour
         //set up the necessary variables
         angle = 0f;
         speed = 1f;
-        timePerAngle = 0;
+        timeSinceLastAngleChange = 0;
         beenInViewRecently = false;
         bitesMade = new List<GameObject>();
 
@@ -76,17 +76,17 @@ public class MenuMouse : MonoBehaviour
         speed = 300 * Time.deltaTime;
 
         //increment time per angle
-        timePerAngle += Time.deltaTime;
+        timeSinceLastAngleChange += Time.deltaTime;
 
         //reset time per angle every half second
-        if(timePerAngle >= .5f)
+        if(timeSinceLastAngleChange >= .5f)
         {
             //change the angle if we're in view
             if(beenInViewRecently)
             {
                 angle = Random.Range(angle - (Mathf.PI / 2), angle + (Mathf.PI / 2));
             }
-            timePerAngle = 0;
+            timeSinceLastAngleChange = 0;
         }
 
         //update rotation accordingly
@@ -101,7 +101,8 @@ public class MenuMouse : MonoBehaviour
             transform.position.y > canvas.TransformPoint(canvas.rect.center).y * 2.05f)
         {
             beenInViewRecently = false;
-            angle -= Mathf.PI;
+            angle = SendAngleBackToCenter(canvas);
+            timeSinceLastAngleChange = 0;
         }
         else
         {
@@ -124,6 +125,26 @@ public class MenuMouse : MonoBehaviour
             GetComponent<RectTransform>().localPosition = Vector2.zero;
             canvasRect = canvas.rect;
         }
+    }
+
+    private float SendAngleBackToCenter(RectTransform canvas)
+    {
+        /*if (transform.position.x < canvas.TransformPoint(canvas.rect.center).x * .05f ||
+            transform.position.x > canvas.TransformPoint(canvas.rect.center).x * 2.05f ||
+            transform.position.y < canvas.TransformPoint(canvas.rect.center).y * .05f ||
+            transform.position.y > canvas.TransformPoint(canvas.rect.center).y * 2.05f)*/
+
+        //if we are on the left
+        if (transform.position.x < canvas.TransformPoint(canvas.rect.center).x * .05f) { return Mathf.PI / 2; }
+
+        //if we are on the right
+        if(transform.position.x > canvas.TransformPoint(canvas.rect.center).x * 2.05f) { return 3 * Mathf.PI / 2; }
+
+        //if we are on the bottom
+        if(transform.position.y < canvas.TransformPoint(canvas.rect.center).y * .05f) { return Mathf.PI; }
+
+        //if we are on the right
+        return 0;
     }
 
     //checks if a new bite that we are making overlaps a current bite

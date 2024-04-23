@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class ColorManager : MonoBehaviour
 {
-    public UnityEngine.UI.Image Background;
-    public UnityEngine.UI.Image Circle;
-    public UnityEngine.UI.Image CircleCenter;
+    public Image Background;
+    public Image Circle;
+    public Image CircleCenter;
     private int colorIndex;
     private Color32[] backgroundColors;
     private float timePassed;
@@ -75,7 +74,7 @@ public class ColorManager : MonoBehaviour
         if (targetColor.a > baseColor.a) { a = baseColor.a + 1; }
         else if (targetColor.a != baseColor.a) { a = baseColor.a - 1; }
 
-        targetObject.GetComponent<UnityEngine.UI.Image>().color = new Color32((byte)r, (byte)g, (byte)b, (byte)a);
+        targetObject.GetComponent<Image>().color = new Color32((byte)r, (byte)g, (byte)b, (byte)a);
     }
 
     public void ResetColors()
