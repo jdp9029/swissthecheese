@@ -120,7 +120,6 @@ public class LevelManager : MonoBehaviour
             //take care of edge case when distance traveled equals zero
             else if(distanceTraveled == Vector2.zero)
             {
-                Debug.Log("rare call that distance traveled is zero");
                 testPoints[i] += new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized * minDistanceBetweenCircles;
             }
 
