@@ -14,9 +14,7 @@ public class PlayScreenMouse : MonoBehaviour
     [SerializeField] Button normalButton;
     [SerializeField] Button hardModeButton;
     [SerializeField] GameObject holePrefab;
-    [SerializeField] GameObject soundManager;
     [SerializeField] BitingManager bitingManager;
-    [SerializeField] HardModeManager hardModeManager;
     private List<GameObject> bitesMade;
 
     private Rect canvasRect;
@@ -30,16 +28,6 @@ public class PlayScreenMouse : MonoBehaviour
         timeSinceLastAngleChange = 0;
         beenInViewRecently = false;
         bitesMade = new List<GameObject>();
-
-        //set up the sound and hard mode managers
-        if (GameObject.FindObjectsOfType<SoundManager>().Length == 0)
-        {
-            Instantiate(soundManager);
-        }
-        if (GameObject.FindObjectsOfType<HardModeManager>().Length == 0)
-        {
-            Instantiate(hardModeManager);
-        }
 
         //set up the play button and options button
         normalButton.onClick.AddListener(delegate

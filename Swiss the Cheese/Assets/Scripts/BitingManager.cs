@@ -71,7 +71,7 @@ public class BitingManager : MonoBehaviour
         Destroy(bitingSoundPlaying.gameObject);
 
         //if this bite is in the menu, we don't need to check it against other holes
-        if(SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "TitleReel") { return; }
+        if(SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "PlayScreen") { return; }
 
         //check it against the other intersections in hole manager
         GameObject.FindObjectOfType<HoleManager>().CheckIntersections(holeBeingEaten);
@@ -108,6 +108,10 @@ public class BitingManager : MonoBehaviour
         else if(SceneManager.GetActiveScene().name == "TitleReel")
         {
             angle = GameObject.FindObjectOfType<TitleReel>().angle;
+        }
+        else if(SceneManager.GetActiveScene().name == "PlayScreen")
+        {
+            angle = FindObjectOfType<PlayScreenMouse>().angle;
         }
 
         //if we are in gameplay, we use the hole manager angle
