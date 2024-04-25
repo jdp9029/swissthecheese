@@ -5,15 +5,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MenuMouse : MonoBehaviour
+public class PlayScreenMouse : MonoBehaviour
 {
     private float timeSinceLastAngleChange = 0;
     public float angle;
     private float speed = 50f;
     private bool beenInViewRecently = false;
-    [SerializeField] Button playButton;
-    [SerializeField] Button optionsButton;
-    [SerializeField] Button instructionsButton;
+    [SerializeField] Button normalButton;
+    [SerializeField] Button hardModeButton;
     [SerializeField] GameObject holePrefab;
     [SerializeField] GameObject soundManager;
     [SerializeField] BitingManager bitingManager;
@@ -43,17 +42,15 @@ public class MenuMouse : MonoBehaviour
         }
 
         //set up the play button and options button
-        playButton.onClick.AddListener(delegate
+        normalButton.onClick.AddListener(delegate
         {
-            SceneManager.LoadScene("PlayScreen");
+            HardModeManager.HardMode = false;
+            SceneManager.LoadScene("UpdatedGameplay");
         });
-        optionsButton.onClick.AddListener(delegate
+        hardModeButton.onClick.AddListener(delegate
         {
-            SceneManager.LoadScene("Options");
-        });
-        instructionsButton.onClick.AddListener(delegate
-        {
-            SceneManager.LoadScene("Instructions");
+            HardModeManager.HardMode = true;
+            SceneManager.LoadScene("UpdatedGameplay");
         });
     }
 

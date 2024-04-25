@@ -71,6 +71,6 @@ public class ChangeRadiusButton : MonoBehaviour
             (bigCircle.GetComponent<CircleCollider2D>().radius * new Vector2(Mathf.Cos(holeManager.angle), Mathf.Sin(holeManager.angle))));
         Vector2 mousePoint = holeManager.mouseInstance.GetComponent<RectTransform>().TransformPoint(holeManager.mouseInstance.GetComponent<RectTransform>().rect.center);
 
-        return Vector2.Distance(edgePoint, mousePoint) <= 1.25f * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
+        return Vector2.Distance(edgePoint, mousePoint) <= 1.5f * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
     }
 }

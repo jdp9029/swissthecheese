@@ -14,6 +14,7 @@ public class ResponsiveCircle : MonoBehaviour
     [SerializeField] bool updateAspectRatio;
     [SerializeField] bool updateCollider;
     [SerializeField] bool leadByHeight;
+    [SerializeField] bool colliderHasShader;
 
     //the height and width of the canvas
     private float canvasHeight;
@@ -54,6 +55,11 @@ public class ResponsiveCircle : MonoBehaviour
         if(updateCollider)
         {
             GetComponent<CircleCollider2D>().radius = GetComponent<RectTransform>().rect.width / 2.005f;
+
+            if(colliderHasShader)
+            {
+                GetComponent<CircleCollider2D>().radius = GetComponent<RectTransform>().rect.width / 2.75f;
+            }
         }
     }
 
