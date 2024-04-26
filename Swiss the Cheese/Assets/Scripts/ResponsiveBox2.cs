@@ -24,8 +24,8 @@ public class ResponsiveBox2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float maxWidth = (GetComponent<RectTransform>().anchorMax.x - GetComponent<RectTransform>().anchorMin.x) * transform.parent.GetComponent<RectTransform>().rect.width;
-        float maxHeight = (GetComponent<RectTransform>().anchorMax.y - GetComponent<RectTransform>().anchorMin.y) * transform.parent.GetComponent<RectTransform>().rect.height;
+        float maxWidth = (expectedMax.x - expectedMin.x) * transform.parent.GetComponent<RectTransform>().rect.width;
+        float maxHeight = (expectedMax.y - expectedMin.y) * transform.parent.GetComponent<RectTransform>().rect.height;
 
         float percentWidthFilledOut = rawWidth / maxWidth;
         float percentHeightFilledOut = rawHeight / maxHeight;
@@ -51,7 +51,7 @@ public class ResponsiveBox2 : MonoBehaviour
             transform.localScale = new Vector2(1 / biggerDimension, 1 / biggerDimension);
         }
 
-        GetComponent<RectTransform>().localPosition = Vector2.zero;
+        //GetComponent<RectTransform>().localPosition = Vector2.zero;
 
 
 
@@ -77,11 +77,5 @@ public class ResponsiveBox2 : MonoBehaviour
         float posY = transform.parent.GetComponent<RectTransform>().rect.height * .5f *
             (GetComponent<RectTransform>().anchorMin.y + GetComponent<RectTransform>().anchorMax.y - (2 * transform.parent.GetComponent<RectTransform>().pivot.y));
         GetComponent<RectTransform>().localPosition = new Vector3(posX, posY);*/
-    }
-
-    void ZeroOffset()
-    {
-        GetComponent<RectTransform>().offsetMin = Vector2.zero;
-        GetComponent<RectTransform>().offsetMax = Vector2.zero;
     }
 }

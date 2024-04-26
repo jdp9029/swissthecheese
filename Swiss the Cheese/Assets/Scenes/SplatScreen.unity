@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 2006081874}
   - component: {fileID: 2006081873}
   - component: {fileID: 2006081872}
+  - component: {fileID: 2006081875}
   m_Layer: 5
   m_Name: splat screen
   m_TagString: Untagged
@@ -576,3 +577,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006081870}
   m_CullTransparentMesh: 1
+--- !u!114 &2006081875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006081870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493d281e0555fb1439d65e9a763e9cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawWidth: 500
+  rawHeight: 500
+  expectedMin: {x: 0.1, y: 0.1}
+  expectedMax: {x: 0.9, y: 0.9}

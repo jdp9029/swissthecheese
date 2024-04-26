@@ -188,7 +188,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 196.9
+  m_fontSize: 222.05
   m_fontSizeBase: 225
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1086,6 +1086,7 @@ GameObject:
   - component: {fileID: 1183016910}
   - component: {fileID: 1183016914}
   - component: {fileID: 1183016915}
+  - component: {fileID: 1183016916}
   m_Layer: 5
   m_Name: Increase Radius Button
   m_TagString: Untagged
@@ -1102,16 +1103,16 @@ RectTransform:
   m_GameObject: {fileID: 1183016908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 557087524}
   m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.552, y: 0.034}
-  m_AnchorMax: {x: 0.89, y: 0.15}
+  m_AnchorMin: {x: 0.721, y: 0.092}
+  m_AnchorMax: {x: 0.721, y: 0.092}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 369, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1183016910
 MonoBehaviour:
@@ -1263,13 +1264,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183016908}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxWidthRatio: 2.25
   maxHeightRatio: 1
+--- !u!114 &1183016916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183016908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493d281e0555fb1439d65e9a763e9cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawWidth: 369
+  rawHeight: 230
+  expectedMin: {x: 0.552, y: 0.034}
+  expectedMax: {x: 0.89, y: 0.15}
 --- !u!1 &1344745062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,7 +1373,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.15
+  m_fontSize: 74.6
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1479,6 +1496,7 @@ GameObject:
   - component: {fileID: 1523138239}
   - component: {fileID: 1523138238}
   - component: {fileID: 1523138237}
+  - component: {fileID: 1523138242}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -1495,16 +1513,16 @@ RectTransform:
   m_GameObject: {fileID: 1523138235}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 557087524}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.04, y: 0.864}
-  m_AnchorMax: {x: 0.2, y: 0.937}
+  m_AnchorMin: {x: 0.12, y: 0.9}
+  m_AnchorMax: {x: 0.12, y: 0.9}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 499, y: 293}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1523138237
 MonoBehaviour:
@@ -1513,7 +1531,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523138235}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
   m_Name: 
@@ -1599,6 +1617,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523138235}
   m_CullTransparentMesh: 1
+--- !u!114 &1523138242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523138235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493d281e0555fb1439d65e9a763e9cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawWidth: 499
+  rawHeight: 293
+  expectedMin: {x: 0.04, y: 0.864}
+  expectedMax: {x: 0.2, y: 0.937}
 --- !u!1 &1533469484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,6 +1648,7 @@ GameObject:
   - component: {fileID: 1533469486}
   - component: {fileID: 1533469490}
   - component: {fileID: 1533469491}
+  - component: {fileID: 1533469492}
   m_Layer: 5
   m_Name: Decrease Radius Button
   m_TagString: Untagged
@@ -1630,16 +1665,16 @@ RectTransform:
   m_GameObject: {fileID: 1533469484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 557087524}
   m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.11, y: 0.034}
-  m_AnchorMax: {x: 0.45, y: 0.15}
+  m_AnchorMin: {x: 0.28, y: 0.092}
+  m_AnchorMax: {x: 0.28, y: 0.092}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 365, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1533469486
 MonoBehaviour:
@@ -1791,13 +1826,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533469484}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxWidthRatio: 2.25
   maxHeightRatio: 1
+--- !u!114 &1533469492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533469484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493d281e0555fb1439d65e9a763e9cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawWidth: 365
+  rawHeight: 230
+  expectedMin: {x: 0.11, y: 0.034}
+  expectedMax: {x: 0.45, y: 0.15}
 --- !u!1 &1545745142
 GameObject:
   m_ObjectHideFlags: 0
