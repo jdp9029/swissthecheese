@@ -55,7 +55,7 @@ public class ResponsiveBox2 : MonoBehaviour
 
 
 
-        if (maxWidth / maxWidthRatio > maxHeight)
+        /*if (maxWidth / maxWidthRatio > maxHeight)
         {
             GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
             GetComponent<AspectRatioFitter>().aspectRatio = maxWidthRatio;
@@ -76,7 +76,7 @@ public class ResponsiveBox2 : MonoBehaviour
             (GetComponent<RectTransform>().anchorMin.x + GetComponent<RectTransform>().anchorMax.x - (2 * transform.parent.GetComponent<RectTransform>().pivot.x));
         float posY = transform.parent.GetComponent<RectTransform>().rect.height * .5f *
             (GetComponent<RectTransform>().anchorMin.y + GetComponent<RectTransform>().anchorMax.y - (2 * transform.parent.GetComponent<RectTransform>().pivot.y));
-        GetComponent<RectTransform>().localPosition = new Vector3(posX, posY);
+        GetComponent<RectTransform>().localPosition = new Vector3(posX, posY);*/
     }
 
     void ZeroOffset()
