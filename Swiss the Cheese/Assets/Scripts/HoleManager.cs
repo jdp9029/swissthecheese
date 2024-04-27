@@ -41,8 +41,9 @@ public class HoleManager : MonoBehaviour
     [SerializeField] public GameObject mousePrefab;
 
     //the clip and source for the audio fail sound effect
-    [SerializeField] AudioClip failClip;
+    [SerializeField] List<AudioClip> failClips;
     [HideInInspector] AudioSource failSource;
+    [HideInInspector] int clipIndex;
 
     //keeps the high score
     [SerializeField] HighScoreKeeper highScoreKeeper;
@@ -161,6 +162,10 @@ public class HoleManager : MonoBehaviour
             //set up just zoomed
             GameObject.FindObjectOfType<ZoomManager>().justZoomed = true;
 
+            //70% chance of the quiet fail clip, 30% chance of the loud
+            clipIndex = Random.Range(0, 10) > 6 ? 0 : 1;
+
+            AudioClip failClip = failClips[clipIndex];
             failSource = GameObject.FindObjectOfType<SoundManager>().PlaySoundFXClip(failClip, transform, .8f);
             StartCoroutine(DestroyFailClip());
         }
@@ -228,7 +233,8 @@ public class HoleManager : MonoBehaviour
 
     private IEnumerator DestroyFailClip()
     {
-        yield return new WaitForSeconds(failSource.clip.length / 2);
+        float length = clipIndex == 0 ? failSource.clip.length / 2 : failSource.clip.length;
+        yield return new WaitForSeconds(length);
 
         if(failSource != null)
         {
