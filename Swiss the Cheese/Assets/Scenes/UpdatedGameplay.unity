@@ -859,7 +859,7 @@ MonoBehaviour:
   scoreCounter: {fileID: 8634220}
   mousePrefab: {fileID: 7853289706153895434, guid: 2d77e76a77409a94388c69b9a5ced47d, type: 3}
   failClips:
-  - {fileID: 8300000, guid: 7d58722148e9f4840bb3889dac16090a, type: 3}
+  - {fileID: 8300000, guid: cfb806ff158127343be00dcd43349c7f, type: 3}
   - {fileID: 8300000, guid: 5b74d389379f9d84eb5bf523811df9f9, type: 3}
   highScoreKeeper: {fileID: 1344745066}
 --- !u!4 &1007619378
@@ -1375,7 +1375,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 85.2
+  m_fontSize: 85.65
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
