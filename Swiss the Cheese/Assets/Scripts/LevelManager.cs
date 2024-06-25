@@ -64,11 +64,16 @@ public class LevelManager : MonoBehaviour
         };
     }
 
-    public float GetRadius(GameObject circle)
+    public float GetRadius(GameObject circle, bool debug = false)
     {
         Vector2 center = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center);
         Vector2 edgePoint = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center + 
             new Vector2(circle.GetComponent<CircleCollider2D>().radius, 0f));
+
+        if (debug)
+        {
+            Debug.Log("Path Info: center - " + center + ", edge point - " + edgePoint);
+        }
         return Vector2.Distance(center, edgePoint);
     }
 
