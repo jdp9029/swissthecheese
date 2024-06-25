@@ -955,7 +955,6 @@ GameObject:
   - component: {fileID: 1345274250}
   - component: {fileID: 1345274252}
   - component: {fileID: 1345274251}
-  - component: {fileID: 1345274253}
   - component: {fileID: 1345274254}
   m_Layer: 5
   m_Name: Title
@@ -973,7 +972,7 @@ RectTransform:
   m_GameObject: {fileID: 1345274249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 49373203}
@@ -982,7 +981,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.795}
   m_AnchorMax: {x: 0.5, y: 0.795}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 407, y: 261}
+  m_SizeDelta: {x: 292, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345274251
 MonoBehaviour:
@@ -1004,7 +1003,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 28b46254b9198fe479092384b0be74e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a384ff8e20461c041bb0c6724a18fe66, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1022,20 +1021,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345274249}
   m_CullTransparentMesh: 1
---- !u!114 &1345274253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345274249}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxWidthRatio: 2.5
-  maxHeightRatio: 1.5
 --- !u!114 &1345274254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,8 +1033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493d281e0555fb1439d65e9a763e9cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawWidth: 407
-  rawHeight: 261
+  rawWidth: 292
+  rawHeight: 190
   expectedMin: {x: 0.1, y: 0.64}
   expectedMax: {x: 0.9, y: 0.95}
 --- !u!1 &1437765108
