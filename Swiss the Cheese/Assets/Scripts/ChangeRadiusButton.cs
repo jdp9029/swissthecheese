@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -10,6 +11,7 @@ public class ChangeRadiusButton : MonoBehaviour
     [SerializeField] HoleManager holeManager;
     [SerializeField] GameObject bigCircle;
     [SerializeField] GameObject centerCircle;
+    [SerializeField] GameObject pathObject;
 
     private bool mouseBeingHeld;
 
@@ -67,10 +69,14 @@ public class ChangeRadiusButton : MonoBehaviour
     //determine if the radius of the rotating circle is too large
     private bool RadiusTooLarge()
     {
-        Vector2 edgePoint = bigCircle.GetComponent<RectTransform>().TransformPoint(bigCircle.GetComponent<RectTransform>().rect.center +
-            (bigCircle.GetComponent<CircleCollider2D>().radius * new Vector2(Mathf.Cos(holeManager.angle), Mathf.Sin(holeManager.angle))));
+        Vector2 edgePoint = pathObject.GetComponent<RectTransform>().TransformPoint(pathObject.GetComponent<RectTransform>().rect.center +
+            (pathObject.GetComponent<CircleCollider2D>().radius * new Vector2(Mathf.Cos(holeManager.angle), Mathf.Sin(holeManager.angle))));
         Vector2 mousePoint = holeManager.mouseInstance.GetComponent<RectTransform>().TransformPoint(holeManager.mouseInstance.GetComponent<RectTransform>().rect.center);
 
-        return Vector2.Distance(edgePoint, mousePoint) <= 1.5f * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
+        //Debug.Log(String.Format("{0}, {1}", Vector2.Distance(edgePoint, mousePoint), GameObject.FindObjectOfType<LevelManager>().GetRadius(pathObject)));
+        Debug.Log(String.Format("{0}, {1}", GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle), GameObject.FindObjectOfType<LevelManager>().GetRadius(pathObject)));
+
+        //return Vector2.Distance(edgePoint, mousePoint) <= 1.5f * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
+        return Vector2.Distance(edgePoint, mousePoint) <= GameObject.FindObjectOfType<LevelManager>().GetRadius(pathObject);
     }
 }
