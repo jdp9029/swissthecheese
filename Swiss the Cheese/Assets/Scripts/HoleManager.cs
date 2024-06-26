@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
+using System.Linq;
 
 public class HoleManager : MonoBehaviour
 {
@@ -16,14 +17,20 @@ public class HoleManager : MonoBehaviour
     //center of the big circle
     [SerializeField] public GameObject centerOfCircle;
 
+    //path object
+    [SerializeField] GameObject pathObject;
+
+    //closest point object
+    [SerializeField] GameObject closestPointObject;
+
     //big circle
     [SerializeField] GameObject biggerCircle;
 
     //color manager
-    [SerializeField] ColorManager colorManager;
+    [SerializeField] CheeseImageManager colorManager;
 
     //radius of the swinging circle
-    [HideInInspector] public float radius = 1.0f;
+    [SerializeField] public float radius = 1.0f;
 
     //angle of the swinging circle from the center
     [HideInInspector] public float angle = 0;
@@ -86,10 +93,10 @@ public class HoleManager : MonoBehaviour
         //set the rotation speed of the mouse
         if (HardModeManager.HardMode)
         {
-            rotationSpeed = 4f  + (.4f * int.Parse(scoreCounter.text));
+            rotationSpeed = 7f  + (.4f * int.Parse(scoreCounter.text));
 
-            //set 15 as the max speed
-            if(rotationSpeed >= 15f) { rotationSpeed = 15f; }
+            //set 18 as the max speed
+            if(rotationSpeed >= 18f) { rotationSpeed = 18f; }
         }
         else
         {
@@ -111,9 +118,14 @@ public class HoleManager : MonoBehaviour
         ReturnAngleToZero();
 
         //move the circle around accordingly
-        mouseInstance.transform.position = new Vector3(centerOfCircle.transform.position.x + (radius * Mathf.Cos(angle)), centerOfCircle.transform.position.y + (radius * Mathf.Sin(angle)), 0.0f);
+        mouseInstance.GetComponent<RectTransform>().position = new Vector3(centerOfCircle.transform.position.x + (radius * Mathf.Cos(angle)), centerOfCircle.transform.position.y + (radius * Mathf.Sin(angle)), 0.0f);
 
-        mouseInstance.transform.rotation = Quaternion.Euler(0.0f, 0.0f, (angle * 180 / Mathf.PI) - 180);
+        mouseInstance.GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, (angle * 180 / Mathf.PI) - 180);
+
+        Vector2 pos = (Vector2)mouseInstance.GetComponent<RectTransform>().localPosition;
+
+        closestPointObject.GetComponent<RectTransform>().localPosition = ClosestPathPoint(pathObject.GetComponent<PolygonCollider2D>().points, pos);
+
         Physics.SyncTransforms();
     }
 
@@ -240,5 +252,21 @@ public class HoleManager : MonoBehaviour
         {
             Destroy(failSource.gameObject);
         }
+    }
+
+    private Vector2 ClosestPathPoint(Vector2[] points, Vector2 mousePos)
+    {
+        float shortestDistance = float.MaxValue;
+        Vector2 closestPoint = points.First();
+
+        foreach (Vector2 point in points)
+        {
+            if (Vector2.Distance(point, mousePos) < shortestDistance)
+            {
+                shortestDistance = Vector2.Distance(point, mousePos);
+                closestPoint = point;
+            }
+        }
+        return closestPoint;
     }
 }

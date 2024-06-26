@@ -11,8 +11,8 @@ public class LevelManager : MonoBehaviour
     [HideInInspector] public bool ChosenCondition;
 
     [HideInInspector] private int chosenConditionNumber;
-    [SerializeField] GameObject bigCircle;
     [SerializeField] GameObject centerCircle;
+    [SerializeField] GameObject closestPathPoint;
     [HideInInspector] private List<Vector2> testPoints;
 
     //FOR INTS, MIN INCLUSIVE AND MAX EXCLUSIVE
@@ -49,40 +49,36 @@ public class LevelManager : MonoBehaviour
 
     private void SetTestPoints()
     {
-        RectTransform rectTransform = bigCircle.GetComponent<RectTransform>();
+        RectTransform rectTransform = centerCircle.GetComponent<RectTransform>();
 
         testPoints = new List<Vector2>()
         {
-            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(1, 0).normalized),
-            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(1, 1).normalized),
-            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(0, 1).normalized),
-            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(-1, 1).normalized),
-            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(-1, 0).normalized),
-            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(-1, -1).normalized),
-            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(0, -1).normalized),
-            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (3 * GetRadius(centerCircle) * new Vector2(1, -1).normalized)
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (2 * GetRadius(centerCircle) * new Vector2(1, 0).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (2 * GetRadius(centerCircle) * new Vector2(1, 1).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (2 * GetRadius(centerCircle) * new Vector2(0, 1).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (2 * GetRadius(centerCircle) * new Vector2(-1, 1).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (2 * GetRadius(centerCircle) * new Vector2(-1, 0).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (2 * GetRadius(centerCircle) * new Vector2(-1, -1).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (2 * GetRadius(centerCircle) * new Vector2(0, -1).normalized),
+            (Vector2)rectTransform.TransformPoint(rectTransform.rect.center) + (2 * GetRadius(centerCircle) * new Vector2(1, -1).normalized)
         };
     }
 
-    public float GetRadius(GameObject circle, bool debug = false)
+    public float GetRadius(GameObject circle)
     {
         Vector2 center = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center);
         Vector2 edgePoint = circle.GetComponent<RectTransform>().TransformPoint(circle.GetComponent<RectTransform>().rect.center + 
             new Vector2(circle.GetComponent<CircleCollider2D>().radius, 0f));
 
-        if (debug)
-        {
-            Debug.Log("Path Info: center - " + center + ", edge point - " + edgePoint);
-        }
         return Vector2.Distance(center, edgePoint);
     }
 
     private bool NoAvailableSlots(List<Vector2> testPoints, int numIterations = 0)
     {
-        //if there are less than eight current cuts, don't even bother
+        //if there are less than three current cuts, don't even bother
         if(GameObject.FindObjectOfType<HoleManager>().holesCut.Count < 3) { return false; }
 
-        //if we've looped through five times, there are no available slots
+        //if we've looped through eight times, there are no available slots
         if(numIterations >= 8) { return true; }
 
         //set up the radius converted from ugui to gameobject space
@@ -130,15 +126,16 @@ public class LevelManager : MonoBehaviour
 
 
             //get the position and the radius of the big circle
-            Vector2 bigCirclePos = bigCircle.GetComponent<RectTransform>().TransformPoint(bigCircle.GetComponent<RectTransform>().rect.center);
-            float bigCircleRadius = GetRadius(bigCircle);
+            Vector2 bigCirclePos = centerCircle.GetComponent<RectTransform>().TransformPoint(centerCircle.GetComponent<RectTransform>().rect.center);
+            //float bigCircleRadius = GetRadius(bigCircle);
+            float bigCircleRadius = Vector2.Distance(closestPathPoint.GetComponent<RectTransform>().position, bigCirclePos);
 
             //make the object move away from the center
-            if (Vector2.Distance(testPoints[i], bigCirclePos) <= minDistanceBetweenCircles)
+            /*if (Vector2.Distance(testPoints[i], bigCirclePos) <= GetRadius(centerCircle) * 1.5f)
             {
                 //adjust position accordingly
-                testPoints[i] = bigCirclePos + minDistanceBetweenCircles * 2 * (testPoints[i] - bigCirclePos).normalized;
-            }
+                testPoints[i] = bigCirclePos + GetRadius(centerCircle) * 1.5f * (testPoints[i] - bigCirclePos).normalized;
+            }*/
 
             //make the object move away from the perimeter
             if (Vector2.Distance(testPoints[i], bigCirclePos) >= bigCircleRadius - (minDistanceBetweenCircles / 2))

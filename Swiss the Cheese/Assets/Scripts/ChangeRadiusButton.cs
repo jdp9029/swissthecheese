@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using UnityEditor;
 
 public class ChangeRadiusButton : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ChangeRadiusButton : MonoBehaviour
     [SerializeField] GameObject bigCircle;
     [SerializeField] GameObject centerCircle;
     [SerializeField] GameObject pathObject;
+    [SerializeField] GameObject closestPointObject;
 
     private bool mouseBeingHeld;
 
@@ -21,7 +23,13 @@ public class ChangeRadiusButton : MonoBehaviour
         //a multiplier to change the radius by
         float multiplier = Increase ? bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / 1.25f:
             bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / -1.25f;
-        
+
+        //make the circle does not go outside the bounds of the outer circle
+        if ((RadiusTooSmall() && !Increase) || (RadiusTooLarge() && Increase))
+        {
+            holeManager.radius -= multiplier;
+        }
+
         //if the mouse is being held
         if (mouseBeingHeld)
         {
@@ -30,12 +38,6 @@ public class ChangeRadiusButton : MonoBehaviour
 
             //update the position of the rotating circle
             Physics.SyncTransforms();
-
-            //make the circle does not go outside the bounds of the outer circle
-            if ((RadiusTooSmall() && !Increase) || (RadiusTooLarge() && Increase))
-            {
-                holeManager.radius -= multiplier;
-            }
         }
     }
 
@@ -63,20 +65,13 @@ public class ChangeRadiusButton : MonoBehaviour
         Vector2 centerCirclePoint = centerCircle.GetComponent<RectTransform>().TransformPoint(centerCircle.GetComponent<RectTransform>().rect.center);
         Vector2 mousePoint = holeManager.mouseInstance.GetComponent<RectTransform>().TransformPoint(holeManager.mouseInstance.GetComponent<RectTransform>().rect.center);
 
-        return Vector2.Distance(centerCirclePoint, mousePoint) <= 2 * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
+        return Vector2.Distance(centerCirclePoint, mousePoint) <= 1.25 * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
     }
 
     //determine if the radius of the rotating circle is too large
     private bool RadiusTooLarge()
     {
-        Vector2 edgePoint = pathObject.GetComponent<RectTransform>().TransformPoint(pathObject.GetComponent<RectTransform>().rect.center +
-            (pathObject.GetComponent<CircleCollider2D>().radius * new Vector2(Mathf.Cos(holeManager.angle), Mathf.Sin(holeManager.angle))));
-        Vector2 mousePoint = holeManager.mouseInstance.GetComponent<RectTransform>().TransformPoint(holeManager.mouseInstance.GetComponent<RectTransform>().rect.center);
-
-        Debug.Log(String.Format("{0}, {1}", Vector2.Distance(edgePoint, mousePoint), GameObject.FindObjectOfType<LevelManager>().GetRadius(pathObject, true)));
-        //Debug.Log(String.Format("{0}, {1}", GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle), GameObject.FindObjectOfType<LevelManager>().GetRadius(pathObject)));
-
-        //return Vector2.Distance(edgePoint, mousePoint) <= 1.5f * GameObject.FindObjectOfType<LevelManager>().GetRadius(centerCircle);
-        return Vector2.Distance(edgePoint, mousePoint) >= GameObject.FindObjectOfType<LevelManager>().GetRadius(pathObject);
+        return Vector2.Distance(holeManager.mouseInstance.GetComponent<RectTransform>().localPosition, Vector2.zero) > 
+            .85f * Vector2.Distance(closestPointObject.GetComponent<RectTransform>().localPosition, Vector2.zero);
     }
 }

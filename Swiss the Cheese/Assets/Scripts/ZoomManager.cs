@@ -14,7 +14,7 @@ public class ZoomManager : MonoBehaviour
     [SerializeField] private GameObject circlePrefab;
     [HideInInspector] private GameObject circleInstance;
     [HideInInspector] private Vector2 targetCircleInstanceSize = Vector2.one;
-    [HideInInspector] private ColorManager ColorManager;
+    [HideInInspector] private CheeseImageManager ColorManager;
     [HideInInspector] public int targetScore;
     [HideInInspector] public bool justZoomed;
     [HideInInspector] private float OuterCircleSpeed;
@@ -27,7 +27,7 @@ public class ZoomManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ColorManager = GameObject.FindObjectOfType<ColorManager>();
+        ColorManager = GameObject.FindObjectOfType<CheeseImageManager>();
         justZoomed = true;
         targetScore = 15;
     }
@@ -47,9 +47,6 @@ public class ZoomManager : MonoBehaviour
             {
                 OuterCircle.transform.localScale = Vector3.zero;
             }
-
-            //slowly turn the outer color to the appropriate color
-            ColorManager.SlowBurn(OuterCircle.GetComponent<Image>().color,Background.GetComponent<Image>().color, OuterCircle);
 
             //if we've zoomed far enough, end the zoom
             if(circleInstance.transform.localScale.x * circleInstance.GetComponent<RectTransform>().rect.width <= targetCircleInstanceSize.x)
@@ -85,10 +82,7 @@ public class ZoomManager : MonoBehaviour
         circleInstance.transform.localScale = OuterCircle.transform.localScale * OuterCircle.GetComponent<RectTransform>().rect.width * 5 /
             circleInstance.GetComponent<RectTransform>().rect.width;
         circleInstance.transform.position = OuterCircle.transform.position;
-        circleInstance.GetComponent<Image>().color = Background.GetComponent<Image>().color;
-
-        //cycle the background
-        GameObject.FindObjectOfType<ColorManager>().CycleBackground();
+        circleInstance.GetComponent<Image>().sprite = ColorManager.NextCheese();
 
         //make the spinning object deactivated
         OuterCircle.transform.GetChild(OuterCircle.transform.childCount - 1).gameObject.SetActive(false);
@@ -114,7 +108,7 @@ public class ZoomManager : MonoBehaviour
         OuterCircle.transform.localScale = Vector3.one;
 
         //cycle the colors
-        GameObject.FindObjectOfType<ColorManager>().CycleForeground();
+        GameObject.FindObjectOfType<CheeseImageManager>().CycleCheese();
 
         //destroy big circle
         GameObject.Destroy(circleInstance);
@@ -126,7 +120,7 @@ public class ZoomManager : MonoBehaviour
         GameObject.FindObjectOfType<HoleManager>().holesCut.Clear();
 
         //destroy any former holes that were cut
-        for (int i = 1; i < OuterCircle.transform.childCount - 1; i++)
+        for (int i = 2; i < OuterCircle.transform.childCount - 1; i++)
         {
             GameObject.Destroy(OuterCircle.transform.GetChild(i).gameObject);
         }
