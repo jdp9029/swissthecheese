@@ -10,7 +10,7 @@ public class ChangeRadiusButton : MonoBehaviour
 {
     [SerializeField] bool Increase;
     [SerializeField] HoleManager holeManager;
-    [SerializeField] GameObject bigCircle;
+    [SerializeField] RectTransform bigCircle;
     [SerializeField] GameObject centerCircle;
     [SerializeField] GameObject pathObject;
     [SerializeField] GameObject closestPointObject;
@@ -21,8 +21,11 @@ public class ChangeRadiusButton : MonoBehaviour
     void Update()
     {
         //a multiplier to change the radius by
-        float multiplier = Increase ? bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / 1.25f:
-            bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / -1.25f;
+        /* float multiplier = Increase ? bigCircle.GetComponent<RectTransform>(). * Time.deltaTime / 1.25f:
+             bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / -1.25f;*/
+
+        float multiplier = Increase ? bigCircle.localScale.x * bigCircle.rect.width * Time.deltaTime :
+            bigCircle.localScale.x * bigCircle.rect.width * Time.deltaTime * -1;
 
         //make the circle does not go outside the bounds of the outer circle
         if ((RadiusTooSmall() && !Increase) || (RadiusTooLarge() && Increase))

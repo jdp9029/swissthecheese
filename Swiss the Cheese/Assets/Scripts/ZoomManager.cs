@@ -29,7 +29,7 @@ public class ZoomManager : MonoBehaviour
     {
         ColorManager = GameObject.FindObjectOfType<CheeseImageManager>();
         justZoomed = true;
-        targetScore = 15;
+        targetScore = 12;
     }
 
     // Update is called once per frame
@@ -94,6 +94,9 @@ public class ZoomManager : MonoBehaviour
         InnerCircleSpeed = Speed(targetCircleInstanceSize.x, ColorManager.CircleCenter.GetComponent<RectTransform>().rect.width, TotalFrames(.3f,Time.deltaTime));
         OuterCircleSpeed = Speed(circleInstance.GetComponent<RectTransform>().rect.width * circleInstance.transform.localScale.x, targetCircleInstanceSize.x, TotalFrames(.3f,Time.deltaTime));
 
+        //disable responsive box
+        OuterCircle.GetComponent<ResponsiveBox2>().enabled = false;
+
         //play our sound effect
         zoomInstance = GameObject.FindObjectOfType<SoundManager>().PlaySoundFXClip(zoomSound, transform, 1, 0.5f);
     }
@@ -106,6 +109,9 @@ public class ZoomManager : MonoBehaviour
 
         //reset the big circle size
         OuterCircle.transform.localScale = Vector3.one;
+
+        //disable responsive box
+        OuterCircle.GetComponent<ResponsiveBox2>().enabled = true;
 
         //cycle the colors
         GameObject.FindObjectOfType<CheeseImageManager>().CycleCheese();

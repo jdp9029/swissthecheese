@@ -732,7 +732,6 @@ GameObject:
   - component: {fileID: 1698263994}
   - component: {fileID: 1698263993}
   - component: {fileID: 1698263992}
-  - component: {fileID: 1698263991}
   - component: {fileID: 1698263996}
   m_Layer: 5
   m_Name: Back
@@ -750,31 +749,17 @@ RectTransform:
   m_GameObject: {fileID: 1698263989}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 49373203}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.067, y: 0.882}
-  m_AnchorMax: {x: 0.172, y: 0.918}
+  m_AnchorMin: {x: 0.04, y: 0.874}
+  m_AnchorMax: {x: 0.202, y: 0.927}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -26, y: -18}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1698263991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1698263989}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxWidthRatio: 2
-  maxHeightRatio: 1
 --- !u!114 &1698263992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,5 +853,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawWidth: 50
   rawHeight: 36
-  expectedMin: {x: 0.067, y: 0.882}
-  expectedMax: {x: 0.172, y: 0.918}
+  expectedMin: {x: 0.06, y: 0.874}
+  expectedMax: {x: 0.222, y: 0.927}
