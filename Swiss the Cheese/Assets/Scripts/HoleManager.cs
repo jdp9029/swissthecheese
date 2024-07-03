@@ -83,12 +83,12 @@ public class HoleManager : MonoBehaviour
         }
 
         //adjust the local position of the holes cut
-        for (int i = 0; i < holesCut.Count; i++)
+        /*for (int i = 0; i < holesCut.Count; i++)
         {
             RectTransform holeRect = holesCut[i].GetComponent<RectTransform>();
             RectTransform circleRect = biggerCircle.GetComponent<RectTransform>();
             AdjustHoleToAnchor(holeRect, circleRect);
-        }
+        }*/
 
         //set the rotation speed of the mouse
         if (HardModeManager.HardMode)
@@ -187,9 +187,9 @@ public class HoleManager : MonoBehaviour
         {
             //initialHolePositions.Add(newHole.transform.position - centerOfCircle.transform.position);
 
-            RectTransform rectTransform = newHole.GetComponent<RectTransform>();
+            /*RectTransform rectTransform = newHole.GetComponent<RectTransform>();
             RectTransform parentRect = biggerCircle.GetComponent<RectTransform>();
-            AdjustAnchorToHole(rectTransform, parentRect);
+            AdjustAnchorToHole(rectTransform, parentRect);*/
 
             newHole.GetComponent<AspectRatioFitter>().enabled = true;
 

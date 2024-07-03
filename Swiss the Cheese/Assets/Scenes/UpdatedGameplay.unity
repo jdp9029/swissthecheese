@@ -188,7 +188,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 225
+  m_fontSize: 169.4
   m_fontSizeBase: 225
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -995,10 +995,10 @@ RectTransform:
   m_Father: {fileID: 1111522430}
   m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.024, y: 0.195}
-  m_AnchorMax: {x: 0.976, y: 0.635}
+  m_AnchorMin: {x: 0.5, y: 0.415}
+  m_AnchorMax: {x: 0.5, y: 0.415}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 0}
+  m_SizeDelta: {x: 360, y: 389}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &810994070
 CanvasRenderer:
@@ -1294,7 +1294,6 @@ GameObject:
   - component: {fileID: 1183016911}
   - component: {fileID: 1183016910}
   - component: {fileID: 1183016914}
-  - component: {fileID: 1183016915}
   - component: {fileID: 1183016916}
   m_Layer: 5
   m_Name: Increase Radius Button
@@ -1312,16 +1311,16 @@ RectTransform:
   m_GameObject: {fileID: 1183016908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 557087524}
   m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.721, y: 0.092}
-  m_AnchorMax: {x: 0.721, y: 0.092}
+  m_AnchorMin: {x: 0.763, y: 0.092}
+  m_AnchorMax: {x: 0.763, y: 0.092}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 369, y: 230}
+  m_SizeDelta: {x: 219, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1183016910
 MonoBehaviour:
@@ -1468,20 +1467,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1183016915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1183016908}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxWidthRatio: 2.25
-  maxHeightRatio: 1
 --- !u!114 &1183016916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1494,10 +1479,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493d281e0555fb1439d65e9a763e9cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawWidth: 369
-  rawHeight: 230
-  expectedMin: {x: 0.552, y: 0.034}
-  expectedMax: {x: 0.89, y: 0.15}
+  rawWidth: 219
+  rawHeight: 112
+  expectedMin: {x: 0.53, y: 0.037}
+  expectedMax: {x: 0.996, y: 0.147}
 --- !u!1 &1344745062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,7 +1569,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 85.65
+  m_fontSize: 56.9
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1729,10 +1714,10 @@ RectTransform:
   m_Father: {fileID: 557087524}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.04, y: 0.874}
-  m_AnchorMax: {x: 0.202, y: 0.927}
-  m_AnchoredPosition: {x: 0, y: -0.00024414062}
-  m_SizeDelta: {x: -26, y: -18}
+  m_AnchorMin: {x: 0.09, y: 0.89}
+  m_AnchorMax: {x: 0.09, y: 0.89}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1484162472
 MonoBehaviour:
@@ -1843,7 +1828,6 @@ GameObject:
   - component: {fileID: 1533469487}
   - component: {fileID: 1533469486}
   - component: {fileID: 1533469490}
-  - component: {fileID: 1533469491}
   - component: {fileID: 1533469492}
   m_Layer: 5
   m_Name: Decrease Radius Button
@@ -1861,16 +1845,16 @@ RectTransform:
   m_GameObject: {fileID: 1533469484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 557087524}
   m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.28, y: 0.092}
-  m_AnchorMax: {x: 0.28, y: 0.092}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 365, y: 230}
+  m_AnchorMin: {x: 0.263, y: 0.092}
+  m_AnchorMax: {x: 0.263, y: 0.092}
+  m_AnchoredPosition: {x: 0, y: 0.5}
+  m_SizeDelta: {x: 219, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1533469486
 MonoBehaviour:
@@ -2017,20 +2001,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1533469491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533469484}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxWidthRatio: 2.25
-  maxHeightRatio: 1
 --- !u!114 &1533469492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2043,10 +2013,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493d281e0555fb1439d65e9a763e9cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawWidth: 365
-  rawHeight: 230
-  expectedMin: {x: 0.11, y: 0.034}
-  expectedMax: {x: 0.45, y: 0.15}
+  rawWidth: 219
+  rawHeight: 112
+  expectedMin: {x: 0.03, y: 0.037}
+  expectedMax: {x: 0.496, y: 0.147}
 --- !u!1 &1545745142
 GameObject:
   m_ObjectHideFlags: 0

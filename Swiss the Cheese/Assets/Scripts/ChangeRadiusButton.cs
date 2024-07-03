@@ -75,6 +75,6 @@ public class ChangeRadiusButton : MonoBehaviour
     private bool RadiusTooLarge()
     {
         return Vector2.Distance(holeManager.mouseInstance.GetComponent<RectTransform>().localPosition, Vector2.zero) > 
-            .85f * Vector2.Distance(closestPointObject.GetComponent<RectTransform>().localPosition, Vector2.zero);
+            .8f * Vector2.Distance(closestPointObject.GetComponent<RectTransform>().localPosition, Vector2.zero);
     }
 }

@@ -875,7 +875,6 @@ GameObject:
   - component: {fileID: 1504808616}
   - component: {fileID: 1504808618}
   - component: {fileID: 1504808617}
-  - component: {fileID: 1504808619}
   - component: {fileID: 1504808620}
   m_Layer: 5
   m_Name: RadiusUpImg
@@ -893,16 +892,16 @@ RectTransform:
   m_GameObject: {fileID: 1504808615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 49373203}
   m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.721, y: 0.092}
-  m_AnchorMax: {x: 0.721, y: 0.092}
+  m_AnchorMin: {x: 0.763, y: 0.092}
+  m_AnchorMax: {x: 0.763, y: 0.092}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 369, y: 230}
+  m_SizeDelta: {x: 219, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1504808617
 MonoBehaviour:
@@ -942,20 +941,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504808615}
   m_CullTransparentMesh: 1
---- !u!114 &1504808619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504808615}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxWidthRatio: 2.25
-  maxHeightRatio: 1
 --- !u!114 &1504808620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,10 +953,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493d281e0555fb1439d65e9a763e9cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawWidth: 369
-  rawHeight: 230
-  expectedMin: {x: 0.552, y: 0.034}
-  expectedMax: {x: 0.89, y: 0.15}
+  rawWidth: 219
+  rawHeight: 112
+  expectedMin: {x: 0.53, y: 0.037}
+  expectedMax: {x: 0.996, y: 0.147}
 --- !u!1 &1813766554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,7 +1042,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 39.25
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1143,10 +1128,10 @@ RectTransform:
   m_Father: {fileID: 49373203}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.04, y: 0.874}
-  m_AnchorMax: {x: 0.202, y: 0.927}
-  m_AnchoredPosition: {x: 0, y: -0.00024414062}
-  m_SizeDelta: {x: -26, y: -18}
+  m_AnchorMin: {x: 0.09, y: 0.89}
+  m_AnchorMax: {x: 0.09, y: 0.89}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1857553577
 MonoBehaviour:
@@ -1254,7 +1239,6 @@ GameObject:
   - component: {fileID: 1945171209}
   - component: {fileID: 1945171211}
   - component: {fileID: 1945171210}
-  - component: {fileID: 1945171212}
   - component: {fileID: 1945171213}
   m_Layer: 5
   m_Name: RadiusDownImg
@@ -1272,16 +1256,16 @@ RectTransform:
   m_GameObject: {fileID: 1945171208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 49373203}
   m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.28, y: 0.092}
-  m_AnchorMax: {x: 0.28, y: 0.092}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 365, y: 230}
+  m_AnchorMin: {x: 0.263, y: 0.092}
+  m_AnchorMax: {x: 0.263, y: 0.092}
+  m_AnchoredPosition: {x: 0, y: 0.5}
+  m_SizeDelta: {x: 219, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1945171210
 MonoBehaviour:
@@ -1321,20 +1305,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945171208}
   m_CullTransparentMesh: 1
---- !u!114 &1945171212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1945171208}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681c1068b1e6f0545a37e5f4a04712eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxWidthRatio: 2.25
-  maxHeightRatio: 1
 --- !u!114 &1945171213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1347,7 +1317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493d281e0555fb1439d65e9a763e9cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawWidth: 365
-  rawHeight: 230
-  expectedMin: {x: 0.11, y: 0.034}
-  expectedMax: {x: 0.45, y: 0.15}
+  rawWidth: 219
+  rawHeight: 112
+  expectedMin: {x: 0.03, y: 0.037}
+  expectedMax: {x: 0.496, y: 0.147}
