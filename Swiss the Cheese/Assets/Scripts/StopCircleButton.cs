@@ -29,6 +29,7 @@ public class StopCircleButton : MonoBehaviour
 
         //Cut a new hole out of the big circle
         GameObject newHole = Instantiate(circlePrefab, holeManager.mouseInstance.transform.position, Quaternion.identity, bigCircle.transform);
+        newHole.GetComponent<RectTransform>().localScale = Vector3.zero;
 
         //Set it up as the color of the background
         newHole.GetComponent<Image>().color = background.GetComponent<Image>().color;
