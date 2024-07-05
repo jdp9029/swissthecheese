@@ -33,7 +33,7 @@ public class HoleManager : MonoBehaviour
     [SerializeField] public float radius = 1.0f;
 
     //angle of the swinging circle from the center
-    [HideInInspector] public float angle = 0;
+    [SerializeField] public float angle = 0;
 
     //speed of the rotating circle
     private float rotationSpeed = 4f;
@@ -71,7 +71,8 @@ public class HoleManager : MonoBehaviour
         mouseInstance.GetComponent<Image>().color = Color.white;
 
         //set up the radius
-        radius = 3 * GetRadius(centerOfCircle);
+        //radius = 3 * GetRadius(centerOfCircle);
+        radius = 50;
     }
 
     // Update is called once per frame
@@ -107,7 +108,7 @@ public class HoleManager : MonoBehaviour
         if(centerOfCircle.GetComponent<RectTransform>().rect.width != centerCircleSize.width || centerOfCircle.GetComponent<RectTransform>().rect.height != centerCircleSize.height)
         {
             //reset the radius
-            radius = 3 * GetRadius(centerOfCircle);
+            //radius = 3 * GetRadius(centerOfCircle);
 
             //update the size of the circle
             centerCircleSize = centerOfCircle.GetComponent<RectTransform>().rect;
@@ -118,13 +119,15 @@ public class HoleManager : MonoBehaviour
         ReturnAngleToZero();
 
         //move the circle around accordingly
-        mouseInstance.GetComponent<RectTransform>().position = new Vector3(centerOfCircle.transform.position.x + (radius * Mathf.Cos(angle)), centerOfCircle.transform.position.y + (radius * Mathf.Sin(angle)), 0.0f);
-
-        mouseInstance.GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, (angle * 180 / Mathf.PI) - 180);
-
-        Vector2 pos = (Vector2)mouseInstance.GetComponent<RectTransform>().localPosition;
+        Vector3 pos = centerOfCircle.GetComponent<RectTransform>().localPosition
+            + new Vector3(3 * GetRadius(centerOfCircle) * Mathf.Cos(angle), 3 * GetRadius(centerOfCircle) * Mathf.Sin(angle), 0.0f);
 
         closestPointObject.GetComponent<RectTransform>().localPosition = ClosestPathPoint(pathObject.GetComponent<PolygonCollider2D>().points, pos);
+
+        mouseInstance.GetComponent<RectTransform>().position = centerOfCircle.transform.position +
+            ((radius / 100f) * (closestPointObject.GetComponent<RectTransform>().position - centerOfCircle.transform.position));
+
+        mouseInstance.GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, (angle * 180 / Mathf.PI) - 180);
 
         Physics.SyncTransforms();
     }
@@ -148,7 +151,7 @@ public class HoleManager : MonoBehaviour
         for (int i = 0; i < holesCut.Count; i++)
         {
             GameObject hole = holesCut[i];
-            if(Vector2.Distance(hole.transform.position, newHole.transform.position) <= GameObject.FindObjectOfType<LevelManager>().GetRadius(hole) * 2)
+            if(Vector2.Distance(hole.transform.position, newHole.transform.position) <= GameObject.FindObjectOfType<LevelManager>().GetRadius(hole) * 2.1f)
             {
                 foundIntersection = true;
                 break;

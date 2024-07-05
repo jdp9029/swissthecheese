@@ -24,20 +24,22 @@ public class ChangeRadiusButton : MonoBehaviour
         /* float multiplier = Increase ? bigCircle.GetComponent<RectTransform>(). * Time.deltaTime / 1.25f:
              bigCircle.GetComponent<CircleCollider2D>().radius * Time.deltaTime / -1.25f;*/
 
-        float multiplier = Increase ? bigCircle.localScale.x * bigCircle.rect.width * Time.deltaTime :
-            bigCircle.localScale.x * bigCircle.rect.width * Time.deltaTime * -1;
-
-        //make the circle does not go outside the bounds of the outer circle
-        if ((RadiusTooSmall() && !Increase) || (RadiusTooLarge() && Increase))
-        {
-            holeManager.radius -= multiplier;
-        }
+        float multiplier = Increase ? 20 * Time.deltaTime : -20 * Time.deltaTime;
 
         //if the mouse is being held
-        if (mouseBeingHeld)
+        if (mouseBeingHeld )
         {
             //change the value of the radius by the multiplier
             holeManager.radius += multiplier;
+
+            if (holeManager.radius > 65)
+            {
+                holeManager.radius = 65;
+            }
+            else if (holeManager.radius < 15)
+            {
+                holeManager.radius = 15;
+            }
 
             //update the position of the rotating circle
             Physics.SyncTransforms();

@@ -9,6 +9,7 @@ TagManager:
   - MasterVolSlider
   - FXVolSlider
   - MusicVolSlider
+  - BigCheese
   layers:
   - Default
   - TransparentFX

@@ -29,7 +29,7 @@ public class ZoomManager : MonoBehaviour
     {
         ColorManager = GameObject.FindObjectOfType<CheeseImageManager>();
         justZoomed = true;
-        targetScore = 13;
+        targetScore = 14;
     }
 
     // Update is called once per frame
