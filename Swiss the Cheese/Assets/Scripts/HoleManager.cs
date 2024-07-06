@@ -94,7 +94,7 @@ public class HoleManager : MonoBehaviour
         //set the rotation speed of the mouse
         if (HardModeManager.HardMode)
         {
-            rotationSpeed = 7f  + (.4f * int.Parse(scoreCounter.text));
+            rotationSpeed = 4f  + (.4f * int.Parse(scoreCounter.text));
 
             //set 18 as the max speed
             if(rotationSpeed >= 18f) { rotationSpeed = 18f; }
@@ -124,8 +124,8 @@ public class HoleManager : MonoBehaviour
 
         closestPointObject.GetComponent<RectTransform>().localPosition = ClosestPathPoint(pathObject.GetComponent<PolygonCollider2D>().points, pos);
 
-        mouseInstance.GetComponent<RectTransform>().position = centerOfCircle.transform.position +
-            ((radius / 100f) * (closestPointObject.GetComponent<RectTransform>().position - centerOfCircle.transform.position));
+        mouseInstance.GetComponent<RectTransform>().position = (Vector2)centerOfCircle.transform.position +
+            ((radius / 100f) * Vector2.Distance(closestPointObject.transform.position, centerOfCircle.transform.position) * new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)));
 
         mouseInstance.GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, (angle * 180 / Mathf.PI) - 180);
 

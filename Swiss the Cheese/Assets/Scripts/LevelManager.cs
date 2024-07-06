@@ -44,7 +44,10 @@ public class LevelManager : MonoBehaviour
 
     public void SetCondition()
     {
+        //2 - available slots 
+        //1 - target score
         chosenConditionNumber = HardModeManager.HardMode ? 2 : 1;
+        //chosenConditionNumber = HardModeManager.HardMode ? 1 : 2;
     }
 
     private void SetTestPoints()
