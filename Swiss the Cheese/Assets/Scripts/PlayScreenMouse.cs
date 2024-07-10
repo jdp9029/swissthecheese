@@ -33,12 +33,12 @@ public class PlayScreenMouse : MonoBehaviour
         normalButton.onClick.AddListener(delegate
         {
             HardModeManager.HardMode = false;
-            SceneManager.LoadScene("UpdatedGameplay");
+            SceneManager.LoadScene("PreGameInstructions");
         });
         hardModeButton.onClick.AddListener(delegate
         {
             HardModeManager.HardMode = true;
-            SceneManager.LoadScene("UpdatedGameplay");
+            SceneManager.LoadScene("PreGameInstructions");
         });
     }
 
