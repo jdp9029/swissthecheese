@@ -7,10 +7,10 @@ using UnityEngine;
 public class MouseSkinLoader : MonoBehaviour
 {
     [SerializeField]
-    List<DictItem> Skins;
+    public List<DictItem> Skins;
     
     [SerializeField]
-    List<DictItem> Accessories;
+    public List<DictItem> Accessories;
 
     [HideInInspector]
     int coins;
@@ -41,5 +41,14 @@ public class MouseSkinLoader : MonoBehaviour
         PlayerPrefs.SetInt("Coins", coins);
 	PlayerPrefs.SetString("Skins", String.Join(',', Skins.Where(i => i.IsUnlocked).Select(i => i.Name).ToArray()));
         PlayerPrefs.SetString("Accessories", String.Join(',', Accessories.Where(i => i.IsUnlocked).Select(i => i.Name).ToArray()));
+    }
+
+    public void UnlockItem(string name)
+    {
+        if (Skins.Select(i => i.Name == name).Any())
+        {
+            UnlockItem(Skins.First(i => i.Name == name));
+        }
+        UnlockItem(Accessories.First(i => i.Name == name));
     }
 }
