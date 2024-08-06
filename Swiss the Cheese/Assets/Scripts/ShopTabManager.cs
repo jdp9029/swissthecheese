@@ -75,6 +75,14 @@ public class ShopTabManager : MonoBehaviour
         foreach (var img in topAccessory)
         {
             img.sprite = SelectedTopAccessory.Sprite;
+            if (SelectedTopAccessory == topAccessories[0])
+            {
+                img.color = new Color32((byte)img.color.r, (byte)img.color.g, (byte)img.color.b, 0);
+            }
+            else
+            {
+                img.color = new Color32((byte)img.color.r, (byte)img.color.g, (byte)img.color.b, 255);
+            }
         }
         
         foreach (var img in bottomAccessory)
