@@ -77,11 +77,11 @@ public class ShopTabManager : MonoBehaviour
             img.sprite = SelectedTopAccessory.Sprite;
             if (SelectedTopAccessory == topAccessories[0])
             {
-                img.color = new Color32((byte)img.color.r, (byte)img.color.g, (byte)img.color.b, 0);
+                img.color = new Color32(255, 255, 255, 0);
             }
             else
             {
-                img.color = new Color32((byte)img.color.r, (byte)img.color.g, (byte)img.color.b, 255);
+                img.color = new Color32(255, 255, 255, 255);
             }
         }
         
@@ -90,11 +90,11 @@ public class ShopTabManager : MonoBehaviour
             img.sprite = SelectedBottomAccessory.Sprite;
             if (SelectedBottomAccessory == bottomAccessories[0])
             {
-                img.color = new Color32((byte)img.color.r, (byte)img.color.g, (byte)img.color.b, 0);
+                img.color = new Color32(255,255,255, 0);
             }
             else
             {
-                img.color = new Color32((byte)img.color.r, (byte)img.color.g, (byte)img.color.b, 255);
+                img.color = new Color32(255, 255, 255, 255);
             }
         }
     }

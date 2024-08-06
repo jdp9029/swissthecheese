@@ -39,7 +39,7 @@ public class MouseSkinLoader : MonoBehaviour
         item.IsUnlocked = true;
         coins -= item.ItemCost;
         PlayerPrefs.SetInt("Coins", coins);
-	PlayerPrefs.SetString("Skins", String.Join(',', Skins.Where(i => i.IsUnlocked).Select(i => i.Name).ToArray()));
+	    PlayerPrefs.SetString("Skins", String.Join(',', Skins.Where(i => i.IsUnlocked).Select(i => i.Name).ToArray()));
         PlayerPrefs.SetString("Accessories", String.Join(',', Accessories.Where(i => i.IsUnlocked).Select(i => i.Name).ToArray()));
     }
 

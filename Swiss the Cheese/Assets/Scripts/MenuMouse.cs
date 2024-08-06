@@ -14,6 +14,7 @@ public class MenuMouse : MonoBehaviour
     [SerializeField] Button playButton;
     [SerializeField] Button optionsButton;
     [SerializeField] Button instructionsButton;
+    [SerializeField] Button shopButton;
     [SerializeField] GameObject holePrefab;
     [SerializeField] GameObject soundManager;
     [SerializeField] BitingManager bitingManager;
@@ -54,6 +55,10 @@ public class MenuMouse : MonoBehaviour
         instructionsButton.onClick.AddListener(delegate
         {
             SceneManager.LoadScene("Instructions");
+        });
+        shopButton.onClick.AddListener(delegate
+        {
+            SceneManager.LoadScene("Shop");
         });
     }
 
