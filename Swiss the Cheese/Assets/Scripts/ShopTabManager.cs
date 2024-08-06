@@ -47,6 +47,8 @@ public class ShopTabManager : MonoBehaviour
         msl = FindObjectOfType<MouseSkinLoader>();
         topAccessories = msl.Accessories.Where(i => i.IsHat).ToArray();
         bottomAccessories = msl.Accessories.Where(i => !i.IsHat).ToArray();
+        SelectedTopAccessory = topAccessories[0];
+        SelectedBottomAccessory = bottomAccessories[0];
 
         for(int i = 0; i < transform.childCount; i++)
 	    {
@@ -57,8 +59,7 @@ public class ShopTabManager : MonoBehaviour
 	       });	
 	    }
 	    SelectSkin("Nibbles");
-	    NextTopAccessory();
-	    NextBottomAccessory();
+        transform.GetChild(0).GetChild(0).GetComponent<Button>().onClick.Invoke();
     }
 
     // Update is called once per frame
