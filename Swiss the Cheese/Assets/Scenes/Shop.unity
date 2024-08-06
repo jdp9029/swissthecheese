@@ -757,8 +757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawWidth: 750
   rawHeight: 750
-  expectedMin: {x: 0.4, y: 0.8}
-  expectedMax: {x: 0.6, y: 0.9}
+  expectedMin: {x: 0, y: 0.2}
+  expectedMax: {x: 1, y: 0.9}
 --- !u!1 &624406657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,7 +1293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawWidth: 67
   rawHeight: 56
-  expectedMin: {x: 0.6, y: 0.8}
+  expectedMin: {x: 0.5, y: 0.7}
   expectedMax: {x: 0.7, y: 0.9}
 --- !u!1 &913095441
 GameObject:
@@ -1785,7 +1785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawWidth: 67
   rawHeight: 56
-  expectedMin: {x: 0.6, y: 0.1}
+  expectedMin: {x: 0.5, y: 0}
   expectedMax: {x: 0.7, y: 0.2}
 --- !u!1 &1005672024
 GameObject:
@@ -2604,8 +2604,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawWidth: 750
   rawHeight: 750
-  expectedMin: {x: 0.3, y: 0.3}
-  expectedMax: {x: 0.7, y: 0.7}
+  expectedMin: {x: 0, y: 0.2}
+  expectedMax: {x: 0.8, y: 0.8}
 --- !u!1 &1436887443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2877,8 +2877,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawWidth: 750
   rawHeight: 750
-  expectedMin: {x: 0.4, y: 0.1}
-  expectedMax: {x: 0.6, y: 0.2}
+  expectedMin: {x: 0, y: 0}
+  expectedMax: {x: 0.4, y: 0.4}
 --- !u!1 &1496157551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3450,7 +3450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawWidth: 67
   rawHeight: 56
-  expectedMin: {x: 0.2, y: 0.8}
+  expectedMin: {x: 0.1, y: 0.7}
   expectedMax: {x: 0.3, y: 0.9}
 --- !u!1 &1872580016
 GameObject:
@@ -4224,7 +4224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawWidth: 67
   rawHeight: 56
-  expectedMin: {x: 0.2, y: 0.8}
+  expectedMin: {x: 0.1, y: 0.7}
   expectedMax: {x: 0.3, y: 0.9}
 --- !u!1 &2136862358
 GameObject:

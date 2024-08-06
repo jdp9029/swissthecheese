@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class ShopTabManager : MonoBehaviour
 {
@@ -31,20 +32,33 @@ public class ShopTabManager : MonoBehaviour
     [HideInInspector]
     public DictItem SelectedBottomAccessory;
 
+    [HideInInspector]
+    MouseSkinLoader msl;
+
+    [HideInInspector]
+    DictItem[] topAccessories;
+
+    [HideInInspector]
+    DictItem[] bottomAccessories;
+
     // Start is called before the first frame update
     void Start()
     {
+        msl = FindObjectOfType<MouseSkinLoader>();
+        topAccessories = msl.Accessories.Where(i => i.IsHat).ToArray();
+        bottomAccessories = msl.Accessories.Where(i => !i.IsHat).ToArray();
+
         for(int i = 0; i < transform.childCount; i++)
-	{
-	   var obj = transform.GetChild(i);
-	   obj.Find("Hitbox").GetComponent<Button>().onClick.AddListener(delegate
-	   {
-		obj.SetAsLastSibling();
-	   });	
-	}
-	SelectSkin("Nibbles");
-	NextTopAccessory();
-	NextBottomAccessory();
+	    {
+	       var obj = transform.GetChild(i);
+	       obj.Find("Hitbox").GetComponent<Button>().onClick.AddListener(delegate
+	       {
+               obj.SetAsLastSibling();
+	       });	
+	    }
+	    SelectSkin("Nibbles");
+	    NextTopAccessory();
+	    NextBottomAccessory();
     }
 
     // Update is called once per frame
@@ -76,92 +90,21 @@ public class ShopTabManager : MonoBehaviour
 
     public void NextTopAccessory()
     {
-        var msl = FindObjectOfType<MouseSkinLoader>();
-	Debug.Log(msl.Accessories.Count);
-        
-        if (SelectedTopAccessory == null)
-        {
-            SelectedTopAccessory = msl.Accessories.First(i => i.IsHat);
-        }
-        else
-        {
-            var topAccessories = msl.Accessories.Where(i => i.IsHat).ToArray();
-            for (int i = 0; i < topAccessories.Length; i++)
-            {
-                if (SelectedTopAccessory == topAccessories[i])
-                {
-                    SelectedTopAccessory = topAccessories[(i + 1) % topAccessories.Length];
-                    return;
-                }
-            }
-        }
+        SelectedTopAccessory = topAccessories[(Array.IndexOf(topAccessories, SelectedTopAccessory) + 1) % topAccessories.Length];
     }
     
     public void NextBottomAccessory()
     {
-        var msl = FindObjectOfType<MouseSkinLoader>();
-        
-        if (SelectedBottomAccessory == null)
-        {
-            SelectedBottomAccessory = msl.Accessories.First(i => !i.IsHat);
-        }
-        else
-        {
-            var bottomAccessories = msl.Accessories.Where(i => !i.IsHat).ToArray();
-            for (int i = 0; i < bottomAccessories.Length; i++)
-            {
-                if (SelectedBottomAccessory == bottomAccessories[i])
-                {
-                    SelectedBottomAccessory = bottomAccessories[(i + 1) % bottomAccessories.Length];
-                    return;
-                }
-            }
-        }
+        SelectedBottomAccessory = bottomAccessories[(Array.IndexOf(bottomAccessories, SelectedBottomAccessory) + 1) % bottomAccessories.Length];
     }
-
-
     
     public void PrevTopAccessory()
     {
-        var msl = FindObjectOfType<MouseSkinLoader>();
-        
-        if (SelectedTopAccessory == null)
-        {
-            SelectedTopAccessory = msl.Accessories.First(i => i.IsHat);
-        }
-        else
-        {
-            var topAccessories = msl.Accessories.Where(i => i.IsHat).ToArray();
-            for (int i = 0; i < topAccessories.Length; i++)
-            {
-                if (SelectedTopAccessory == topAccessories[i])
-                {
-                    SelectedTopAccessory = topAccessories[(i + topAccessories.Length - 1) % topAccessories.Length];
-                    return;
-                }
-            }
-        }
+        SelectedTopAccessory = topAccessories[(Array.IndexOf(topAccessories, SelectedTopAccessory) + topAccessories.Length - 1) % topAccessories.Length];
     }
     
     public void PrevBottomAccessory()
     {
-        var msl = FindObjectOfType<MouseSkinLoader>();
-        
-        if (SelectedBottomAccessory == null)
-        {
-            SelectedBottomAccessory = msl.Accessories.First(i => !i.IsHat);
-        }
-        else
-        {
-            var bottomAccessories = msl.Accessories.Where(i => !i.IsHat).ToArray();
-            for (int i = 0; i < bottomAccessories.Length; i++)
-            {
-                if (SelectedBottomAccessory == bottomAccessories[i])
-                {
-                    SelectedBottomAccessory = bottomAccessories[(i + bottomAccessories.Length - 1) % bottomAccessories.Length];
-                    return;
-                }
-            }
-        }
+        SelectedBottomAccessory = bottomAccessories[(Array.IndexOf(bottomAccessories, SelectedBottomAccessory) + bottomAccessories.Length - 1) % bottomAccessories.Length];
     }
 }
