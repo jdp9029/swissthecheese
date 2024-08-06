@@ -103,7 +103,7 @@ public class MenuMouse : MonoBehaviour
         }
 
         //randomly make bites
-        if(Random.Range(0,800) == 1 && !OverlapsCurrentBites())
+        if(Random.Range(0,50) == 1 && !OverlapsCurrentBites())
         {
             GameObject hole = Instantiate(holePrefab, transform.position, Quaternion.identity, transform.parent);
             hole.GetComponent<Image>().color = new Color32(198, 197, 84, 255);

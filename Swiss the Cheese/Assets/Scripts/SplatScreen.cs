@@ -50,6 +50,7 @@ public class SplatScreen : MonoBehaviour
             finalWaitTimer += Time.deltaTime;
             if (finalWaitTimer > 1.5f)
             {
+                //PlayerPrefs.DeleteAll();
                 SceneManager.LoadScene("Menu");
             }
         }
