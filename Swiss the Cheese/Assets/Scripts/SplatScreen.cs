@@ -50,7 +50,12 @@ public class SplatScreen : MonoBehaviour
             finalWaitTimer += Time.deltaTime;
             if (finalWaitTimer > 1.5f)
             {
-                //PlayerPrefs.DeleteAll();
+                if (!PlayerPrefs.HasKey("Skins"))
+                {
+                    PlayerPrefs.SetString("Skins", "Normal,");
+                    PlayerPrefs.SetString("Accessories", "");
+                }
+                
                 SceneManager.LoadScene("Menu");
             }
         }
