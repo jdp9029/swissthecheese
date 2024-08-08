@@ -58,6 +58,9 @@ public class HoleManager : MonoBehaviour
     //the size of the center circle
     [HideInInspector] private Rect centerCircleSize;
 
+    [SerializeField]
+    TextMeshProUGUI CoinsText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,6 +107,8 @@ public class HoleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CoinsText.text = GameObject.FindObjectOfType<MouseSkinLoader>().Coins.ToString();
+
         if(GameObject.FindObjectOfType<ZoomManager>().IsZooming || GameObject.FindObjectOfType<BitingManager>().IsBiting)
         {
             return;

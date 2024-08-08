@@ -38,6 +38,9 @@ public class ShopTabManager : MonoBehaviour
     [SerializeField]
     GameObject BottomAccessoryButton;
 
+    [SerializeField]
+    TextMeshProUGUI Coins;
+
     [HideInInspector]
     public DictItem SelectedSkin;
 
@@ -79,9 +82,44 @@ public class ShopTabManager : MonoBehaviour
 	    SelectSkin("Nibbles");
         transform.GetChild(0).Find("Hitbox").GetComponent<Button>().onClick.Invoke();
 
-        PlayerPrefs.DeleteKey("LastLogin");
         rewardAvailable = PlayerPrefs.GetInt("LastLogin", int.MinValue) != System.DateTime.Now.Day;
         PlayerPrefs.SetInt("LastLogin", System.DateTime.Now.Day);
+
+        SkinButton.GetComponent<Button>().onClick.AddListener(delegate
+        {
+            if (!SelectedSkin.IsUnlocked && msl.Coins >= SelectedSkin.ItemCost)
+            {
+                msl.UnlockItem(SelectedSkin);
+            }
+            else if (SelectedSkin.IsUnlocked)
+            {
+                msl.EquippedSkin = SelectedSkin;
+            }
+        });
+
+        TopAccessoryButton.GetComponent<Button>().onClick.AddListener(delegate
+        {
+            if (!SelectedTopAccessory.IsUnlocked && msl.Coins >= SelectedTopAccessory.ItemCost)
+            {
+                msl.UnlockItem(SelectedTopAccessory);
+            }
+            else if (SelectedTopAccessory.IsUnlocked)
+            {
+                msl.EquippedTopAccessory = SelectedTopAccessory;
+            }
+        });
+
+        BottomAccessoryButton.GetComponent<Button>().onClick.AddListener(delegate
+        {
+            if (!SelectedBottomAccessory.IsUnlocked && msl.Coins >= SelectedBottomAccessory.ItemCost)
+            {
+                msl.UnlockItem(SelectedBottomAccessory);
+            }
+            else if (SelectedBottomAccessory.IsUnlocked)
+            {
+                msl.EquippedBottomAccessory = SelectedBottomAccessory;
+            }
+        });
     }
 
     // Update is called once per frame
@@ -102,6 +140,8 @@ public class ShopTabManager : MonoBehaviour
         UpdateButtonText(SkinButton, SelectedSkin, msl.EquippedSkin);
         UpdateButtonText(TopAccessoryButton, SelectedTopAccessory, msl.EquippedTopAccessory);
         UpdateButtonText(BottomAccessoryButton, SelectedBottomAccessory, msl.EquippedBottomAccessory);
+
+        Coins.text = msl.Coins.ToString();
 
         selectedSkinMouse.sprite = SelectedSkin.Sprite;
         tab2Skin.sprite = msl.EquippedSkin.Sprite;

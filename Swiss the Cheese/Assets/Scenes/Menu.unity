@@ -1423,35 +1423,35 @@ MonoBehaviour:
     IsUnlocked: 0
     Description: the OG mouse
     IsHat: 0
-  - Name: Albino
+  - Name: Jasper
     Sprite: {fileID: 21300000, guid: 1ff1caa0fcaef4112a97d9978040c37b, type: 3}
-    ItemCost: 200
+    ItemCost: 50
     IsUnlocked: 0
     Description: the bright biter
     IsHat: 0
-  - Name: Black
+  - Name: Gir
     Sprite: {fileID: 21300000, guid: 16ce54b45b202483b99543f063532256, type: 3}
-    ItemCost: 200
+    ItemCost: 50
     IsUnlocked: 0
     Description: the dark devourer
     IsHat: 0
-  - Name: Cheese
+  - Name: Peanut
+    Sprite: {fileID: 21300000, guid: 48efcae962fd946b4bbb8a4098a15831, type: 3}
+    ItemCost: 50
+    IsUnlocked: 0
+    Description: the spotted snacker
+    IsHat: 0
+  - Name: Jelly
+    Sprite: {fileID: 21300000, guid: dd3b957c81bd24448a1dc8a95f8d0c22, type: 3}
+    ItemCost: 150
+    IsUnlocked: 0
+    Description: the fruity feaster
+    IsHat: 0
+  - Name: Swisstopher
     Sprite: {fileID: 21300000, guid: 19e96b3f5369942248127ce95d613bd5, type: 3}
     ItemCost: 200
     IsUnlocked: 0
     Description: the camo'd consumer
-    IsHat: 0
-  - Name: Orange
-    Sprite: {fileID: 21300000, guid: 48efcae962fd946b4bbb8a4098a15831, type: 3}
-    ItemCost: 200
-    IsUnlocked: 0
-    Description: the spotted snacker
-    IsHat: 0
-  - Name: Strawberry
-    Sprite: {fileID: 21300000, guid: dd3b957c81bd24448a1dc8a95f8d0c22, type: 3}
-    ItemCost: 200
-    IsUnlocked: 0
-    Description: the fruity feaster
     IsHat: 0
   Accessories:
   - Name: No Top
@@ -1466,93 +1466,93 @@ MonoBehaviour:
     IsUnlocked: 0
     Description: 
     IsHat: 0
+  - Name: Scarf
+    Sprite: {fileID: 21300000, guid: 6e31fb6414d3649e1bf5e6bc711719e2, type: 3}
+    ItemCost: 30
+    IsUnlocked: 0
+    Description: 
+    IsHat: 0
+  - Name: Tube
+    Sprite: {fileID: 21300000, guid: 2a5f1909b6da349298ed82403e75daa9, type: 3}
+    ItemCost: 30
+    IsUnlocked: 0
+    Description: 
+    IsHat: 0
+  - Name: Overalls
+    Sprite: {fileID: 21300000, guid: f2202becfbb12420a9d168f5da32da42, type: 3}
+    ItemCost: 50
+    IsUnlocked: 0
+    Description: 
+    IsHat: 0
+  - Name: Sweater Vest
+    Sprite: {fileID: 21300000, guid: b77a8f3e4bbcd41318fa174cd35f101e, type: 3}
+    ItemCost: 50
+    IsUnlocked: 0
+    Description: 
+    IsHat: 0
+  - Name: Skirt
+    Sprite: {fileID: 21300000, guid: e93586ca0c974455099fc28b82eec3ca, type: 3}
+    ItemCost: 75
+    IsUnlocked: 0
+    Description: 
+    IsHat: 0
+  - Name: Superhero
+    Sprite: {fileID: 21300000, guid: 6815e3461fbf54a9981c5193a451f2dc, type: 3}
+    ItemCost: 100
+    IsUnlocked: 0
+    Description: 
+    IsHat: 0
+  - Name: Party Hat
+    Sprite: {fileID: 21300000, guid: a1faaf8b5e6ef469ab60f9780022b6d0, type: 3}
+    ItemCost: 30
+    IsUnlocked: 0
+    Description: 
+    IsHat: 1
   - Name: Beanie
     Sprite: {fileID: 21300000, guid: 56ab4271a55c749c7af76b13bff11147, type: 3}
+    ItemCost: 30
+    IsUnlocked: 0
+    Description: 
+    IsHat: 1
+  - Name: Propeller Hat
+    Sprite: {fileID: 21300000, guid: 2cac3357a1ad6439ea6183da5dba1579, type: 3}
+    ItemCost: 50
+    IsUnlocked: 0
+    Description: 
+    IsHat: 1
+  - Name: Top Hat
+    Sprite: {fileID: 21300000, guid: e6f025ffec24943a4b48c99d7fcbd836, type: 3}
     ItemCost: 50
     IsUnlocked: 0
     Description: 
     IsHat: 1
   - Name: Crown
     Sprite: {fileID: 21300000, guid: 0ac03b431a3a3421a9abc7e4ad12f7f2, type: 3}
-    ItemCost: 50
+    ItemCost: 75
     IsUnlocked: 0
     Description: 
     IsHat: 1
   - Name: Glasses
     Sprite: {fileID: 21300000, guid: 6c975c178633147ff99bb51f55c2d930, type: 3}
-    ItemCost: 75
+    ItemCost: 30
     IsUnlocked: 0
     Description: 
     IsHat: 1
   - Name: Goggles
     Sprite: {fileID: 21300000, guid: 5256e4f45c6f3457e81ff90a35059239, type: 3}
-    ItemCost: 75
+    ItemCost: 30
     IsUnlocked: 0
     Description: 
     IsHat: 1
-  - Name: Tube
-    Sprite: {fileID: 21300000, guid: 2a5f1909b6da349298ed82403e75daa9, type: 3}
-    ItemCost: 125
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
   - Name: Monocle
     Sprite: {fileID: 21300000, guid: 34c3aed56fd60441f89837ec232d7700, type: 3}
-    ItemCost: 125
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: Overalls
-    Sprite: {fileID: 21300000, guid: f2202becfbb12420a9d168f5da32da42, type: 3}
-    ItemCost: 125
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Party Hat
-    Sprite: {fileID: 21300000, guid: a1faaf8b5e6ef469ab60f9780022b6d0, type: 3}
     ItemCost: 50
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: Propeller Hat
-    Sprite: {fileID: 21300000, guid: 2cac3357a1ad6439ea6183da5dba1579, type: 3}
-    ItemCost: 75
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: Scarf
-    Sprite: {fileID: 21300000, guid: 6e31fb6414d3649e1bf5e6bc711719e2, type: 3}
-    ItemCost: 125
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Skirt
-    Sprite: {fileID: 21300000, guid: e93586ca0c974455099fc28b82eec3ca, type: 3}
-    ItemCost: 175
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Superhero
-    Sprite: {fileID: 21300000, guid: 6815e3461fbf54a9981c5193a451f2dc, type: 3}
-    ItemCost: 175
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Sweater Vest
-    Sprite: {fileID: 21300000, guid: b77a8f3e4bbcd41318fa174cd35f101e, type: 3}
-    ItemCost: 125
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Top Hat
-    Sprite: {fileID: 21300000, guid: e6f025ffec24943a4b48c99d7fcbd836, type: 3}
-    ItemCost: 75
     IsUnlocked: 0
     Description: 
     IsHat: 1
   - Name: Top Hat and Monocle
     Sprite: {fileID: 21300000, guid: ef4c782757b888449bf5a873773c8b61, type: 3}
-    ItemCost: 150
+    ItemCost: 100
     IsUnlocked: 0
     Description: 
     IsHat: 1

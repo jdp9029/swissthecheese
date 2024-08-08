@@ -99,6 +99,8 @@ public class ZoomManager : MonoBehaviour
 
         //play our sound effect
         zoomInstance = GameObject.FindObjectOfType<SoundManager>().PlaySoundFXClip(zoomSound, transform, 1, 0.5f);
+
+        GameObject.FindObjectOfType<MouseSkinLoader>().Coins += 10;
     }
 
     //To end the zoom

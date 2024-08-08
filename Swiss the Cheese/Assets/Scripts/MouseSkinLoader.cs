@@ -40,7 +40,6 @@ public class MouseSkinLoader : MonoBehaviour
     //We want the sound manager to always be preserved over the course of multiple scenes
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
         DontDestroyOnLoad(gameObject);
         
         string[] uSkins = PlayerPrefs.GetString("Skins", string.Empty).Split(',');
@@ -64,7 +63,7 @@ public class MouseSkinLoader : MonoBehaviour
         {
             EquippedSkin = Skins.FirstOrDefault(i => i.Name == PlayerPrefs.GetString("EquippedSkin"));
             EquippedTopAccessory = Accessories.FirstOrDefault(i => i.Name == PlayerPrefs.GetString("EquippedTopAccessory"));
-            EquippedBottomAccessory = Skins.FirstOrDefault(i => i.Name == PlayerPrefs.GetString("EquippedBottomAccessory"));
+            EquippedBottomAccessory = Accessories.FirstOrDefault(i => i.Name == PlayerPrefs.GetString("EquippedBottomAccessory"));
             foreach (var skin in Skins)
             {
                 skin.IsUnlocked = uSkins.Contains(skin.Name);

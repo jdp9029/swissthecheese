@@ -65,7 +65,7 @@ public class MenuMouse : MonoBehaviour
 
         GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
         transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
-        transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
+        transform.GetChild(1).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
 
         if (msl.EquippedTopAccessory == msl.Accessories[0])
         {
@@ -132,7 +132,7 @@ public class MenuMouse : MonoBehaviour
         }
 
         //randomly make bites
-        if(Random.Range(0,50) == 1 && !OverlapsCurrentBites())
+        if(Random.Range(0,800) == 1 && !OverlapsCurrentBites())
         {
             GameObject hole = Instantiate(holePrefab, transform.position, Quaternion.identity, transform.parent);
             hole.GetComponent<Image>().color = new Color32(198, 197, 84, 255);
