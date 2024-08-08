@@ -445,6 +445,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 49373203}
     m_Modifications:
+    - target: {fileID: 895180570698166643, guid: 2d77e76a77409a94388c69b9a5ced47d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 895180570698166643, guid: 2d77e76a77409a94388c69b9a5ced47d, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3646474833576151438, guid: 2d77e76a77409a94388c69b9a5ced47d, type: 3}
       propertyPath: updateAspectRatio
       value: 0
@@ -452,6 +460,14 @@ PrefabInstance:
     - target: {fileID: 3646474833576151438, guid: 2d77e76a77409a94388c69b9a5ced47d, type: 3}
       propertyPath: minimumSizeOfChoice
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882995134149156139, guid: 2d77e76a77409a94388c69b9a5ced47d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882995134149156139, guid: 2d77e76a77409a94388c69b9a5ced47d, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4884846323898318075, guid: 2d77e76a77409a94388c69b9a5ced47d, type: 3}
       propertyPath: m_Enabled
@@ -1401,6 +1417,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Skins:
+  - Name: Nibbles
+    Sprite: {fileID: 21300000, guid: 7b2187d38cac949c28899ba704f53b1e, type: 3}
+    ItemCost: 0
+    IsUnlocked: 0
+    Description: the OG mouse
+    IsHat: 0
   - Name: Albino
     Sprite: {fileID: 21300000, guid: 1ff1caa0fcaef4112a97d9978040c37b, type: 3}
     ItemCost: 200
@@ -1417,13 +1439,7 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 19e96b3f5369942248127ce95d613bd5, type: 3}
     ItemCost: 200
     IsUnlocked: 0
-    Description: the camoflauged consumer
-    IsHat: 0
-  - Name: Nibbles
-    Sprite: {fileID: 21300000, guid: 7b2187d38cac949c28899ba704f53b1e, type: 3}
-    ItemCost: 0
-    IsUnlocked: 0
-    Description: the OG mouse
+    Description: the camo'd consumer
     IsHat: 0
   - Name: Orange
     Sprite: {fileID: 21300000, guid: 48efcae962fd946b4bbb8a4098a15831, type: 3}
@@ -1534,6 +1550,33 @@ MonoBehaviour:
     IsUnlocked: 0
     Description: 
     IsHat: 1
+  - Name: Top Hat and Monocle
+    Sprite: {fileID: 21300000, guid: ef4c782757b888449bf5a873773c8b61, type: 3}
+    ItemCost: 150
+    IsUnlocked: 0
+    Description: 
+    IsHat: 1
+  EquippedSkin:
+    Name: 
+    Sprite: {fileID: 0}
+    ItemCost: 0
+    IsUnlocked: 0
+    Description: 
+    IsHat: 0
+  EquippedTopAccessory:
+    Name: 
+    Sprite: {fileID: 0}
+    ItemCost: 0
+    IsUnlocked: 0
+    Description: 
+    IsHat: 0
+  EquippedBottomAccessory:
+    Name: 
+    Sprite: {fileID: 0}
+    ItemCost: 0
+    IsUnlocked: 0
+    Description: 
+    IsHat: 0
 --- !u!4 &2057933154
 Transform:
   m_ObjectHideFlags: 0

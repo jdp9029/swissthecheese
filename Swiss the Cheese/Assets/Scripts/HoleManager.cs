@@ -70,6 +70,32 @@ public class HoleManager : MonoBehaviour
         //make the color white, for now
         mouseInstance.GetComponent<Image>().color = Color.white;
 
+        var msl = FindObjectOfType<MouseSkinLoader>();
+
+        Debug.Log(msl.EquippedSkin.Name);
+
+        mouseInstance.GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
+        mouseInstance.transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
+        mouseInstance.transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
+
+        if (msl.EquippedTopAccessory == msl.Accessories[0])
+        {
+            mouseInstance.transform.GetChild(0).GetComponent<Image>().color = new Color32(255, 255, 255, 0);
+        }
+        else
+        {
+            mouseInstance.transform.GetChild(0).GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
+
+        if (msl.EquippedBottomAccessory == msl.Accessories[1])
+        {
+            mouseInstance.transform.GetChild(1).GetComponent<Image>().color = new Color32(255, 255, 255, 0);
+        }
+        else
+        {
+            mouseInstance.transform.GetChild(1).GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
+
         //set up the radius
         //radius = 3 * GetRadius(centerOfCircle);
         radius = 50;

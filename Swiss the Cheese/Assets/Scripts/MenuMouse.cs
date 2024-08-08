@@ -60,6 +60,30 @@ public class MenuMouse : MonoBehaviour
         {
             SceneManager.LoadScene("Shop");
         });
+
+        var msl = FindObjectOfType<MouseSkinLoader>();
+
+        GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
+        transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
+        transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
+
+        if (msl.EquippedTopAccessory == msl.Accessories[0])
+        {
+            transform.GetChild(0).GetComponent<Image>().color = new Color32(255, 255, 255, 0);
+        }
+        else
+        {
+            transform.GetChild(0).GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
+
+        if (msl.EquippedBottomAccessory == msl.Accessories[1])
+        {
+            transform.GetChild(1).GetComponent<Image>().color = new Color32(255, 255, 255, 0);
+        }
+        else
+        {
+            transform.GetChild(1).GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
     }
 
     // Update is called once per frame

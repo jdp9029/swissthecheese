@@ -15,13 +15,28 @@ public class ShopTabManager : MonoBehaviour
     TextMeshProUGUI bigMouseDescription;
 
     [SerializeField]
-    List<Image> bigMouse;
+    Image selectedSkinMouse;
+
+    [SerializeField]
+    Image tab2Skin;
 
     [SerializeField]
     List<Image> topAccessory;
 
     [SerializeField]
     List<Image> bottomAccessory;
+
+    [SerializeField]
+    TextMeshProUGUI RewardText;
+
+    [SerializeField]
+    GameObject SkinButton;
+
+    [SerializeField]
+    GameObject TopAccessoryButton;
+
+    [SerializeField]
+    GameObject BottomAccessoryButton;
 
     [HideInInspector]
     public DictItem SelectedSkin;
@@ -41,6 +56,9 @@ public class ShopTabManager : MonoBehaviour
     [HideInInspector]
     DictItem[] bottomAccessories;
 
+    [HideInInspector]
+    bool rewardAvailable;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,10 +74,14 @@ public class ShopTabManager : MonoBehaviour
 	       obj.Find("Hitbox").GetComponent<Button>().onClick.AddListener(delegate
 	       {
                obj.SetAsLastSibling();
-	       });	
+	       });
 	    }
 	    SelectSkin("Nibbles");
-        transform.GetChild(0).GetChild(0).GetComponent<Button>().onClick.Invoke();
+        transform.GetChild(0).Find("Hitbox").GetComponent<Button>().onClick.Invoke();
+
+        PlayerPrefs.DeleteKey("LastLogin");
+        rewardAvailable = PlayerPrefs.GetInt("LastLogin", int.MinValue) != System.DateTime.Now.Day;
+        PlayerPrefs.SetInt("LastLogin", System.DateTime.Now.Day);
     }
 
     // Update is called once per frame
@@ -67,11 +89,22 @@ public class ShopTabManager : MonoBehaviour
     {
         bigMouseName.text = SelectedSkin.Name;
         bigMouseDescription.text = SelectedSkin.Description;
-        
-        foreach (var mouse in bigMouse)
+
+        if (rewardAvailable)
         {
-            mouse.sprite = SelectedSkin.Sprite;
+            RewardText.text = "Claim Reward";
         }
+        else
+        {
+            RewardText.text = "Reward Claimed";
+        }
+
+        UpdateButtonText(SkinButton, SelectedSkin, msl.EquippedSkin);
+        UpdateButtonText(TopAccessoryButton, SelectedTopAccessory, msl.EquippedTopAccessory);
+        UpdateButtonText(BottomAccessoryButton, SelectedBottomAccessory, msl.EquippedBottomAccessory);
+
+        selectedSkinMouse.sprite = SelectedSkin.Sprite;
+        tab2Skin.sprite = msl.EquippedSkin.Sprite;
         
         foreach (var img in topAccessory)
         {
@@ -123,5 +156,32 @@ public class ShopTabManager : MonoBehaviour
     public void PrevBottomAccessory()
     {
         SelectedBottomAccessory = bottomAccessories[(Array.IndexOf(bottomAccessories, SelectedBottomAccessory) + bottomAccessories.Length - 1) % bottomAccessories.Length];
+    }
+
+    public void ClaimReward()
+    {
+        if (rewardAvailable)
+        {
+            rewardAvailable = false;
+            msl.Coins += 25;
+        }
+    }
+
+    private void UpdateButtonText(GameObject button, DictItem item, DictItem mslItem)
+    {
+        if (!item.IsUnlocked)
+        {
+            button.SetActive(true);
+            button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"Buy ({item.ItemCost})";
+        }
+        else if (item != mslItem)
+        {
+            button.SetActive(true);
+            button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Equip";
+        }
+        else
+        {
+            button.SetActive(false);
+        }
     }
 }
