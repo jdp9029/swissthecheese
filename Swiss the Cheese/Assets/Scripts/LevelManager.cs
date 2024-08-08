@@ -40,14 +40,26 @@ public class LevelManager : MonoBehaviour
             ChosenCondition = NoAvailableSlots(testPoints);
             SetTestPoints();
         }
+        else if (chosenConditionNumber == 3)
+        {
+            ChosenCondition = FindObjectOfType<HoleManager>().holesCut.Count % 6 == 0;
+        }
     }
 
     public void SetCondition()
     {
-        //2 - available slots 
-        //1 - target score
-        chosenConditionNumber = HardModeManager.HardMode ? 2 : 1;
-        //chosenConditionNumber = HardModeManager.HardMode ? 1 : 2;
+        switch (HardModeManager.Mode)
+        {
+            case HardModeManager.Modes.HARD:
+                chosenConditionNumber = 2;
+                break;
+            case HardModeManager.Modes.NORMAL:
+                chosenConditionNumber = 1;
+                break;
+            case HardModeManager.Modes.TWICEMICE:
+                chosenConditionNumber = 3;
+                break;
+        }
     }
 
     private void SetTestPoints()

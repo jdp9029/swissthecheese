@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -5,9 +6,26 @@ using UnityEngine;
 
 public class HighScoreKeeper : MonoBehaviour
 {
+    string playerPref;
+
     private void Start()
     {
-        bool highscoreExists = !HardModeManager.HardMode ? PlayerPrefs.HasKey("highscore") : PlayerPrefs.HasKey("hard_highscore");
+        switch (HardModeManager.Mode)
+        {
+            case HardModeManager.Modes.NORMAL:
+                playerPref = "highscore";
+                break;
+            case HardModeManager.Modes.HARD:
+                playerPref = "hard_highscore";
+                break;
+            case HardModeManager.Modes.TWICEMICE:
+                playerPref = "twicemice_highscore";
+                break;
+            default:
+                throw new NotImplementedException();
+        }
+
+        bool highscoreExists = PlayerPrefs.HasKey(playerPref);
 
         if(highscoreExists)
         {
@@ -21,22 +39,13 @@ public class HighScoreKeeper : MonoBehaviour
 
     public void SetHighScore(int highscore)
     {
-        if (HardModeManager.HardMode)
-        {
-            PlayerPrefs.SetInt("hard_highscore", highscore);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("highscore", highscore);
-        }
-
-        PlayerPrefs.Save();
+        PlayerPrefs.SetInt(playerPref, highscore);
         LoadHighScore();
     }
 
     void LoadHighScore()
     {
-        int highscore = !HardModeManager.HardMode ? PlayerPrefs.GetInt("highscore") : PlayerPrefs.GetInt("hard_highscore");
+        int highscore = PlayerPrefs.GetInt(playerPref);
 
         GetComponent<TextMeshProUGUI>().text = highscore.ToString();
     }

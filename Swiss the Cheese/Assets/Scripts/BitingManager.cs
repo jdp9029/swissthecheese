@@ -24,10 +24,24 @@ public class BitingManager : MonoBehaviour
     
     
     [HideInInspector] private GameObject holeBeingEaten;
+    [HideInInspector] private GameObject holeBeingEaten2;
     [SerializeField] private AudioClip[] bitingSoundClips;
     [HideInInspector] private AudioSource bitingSoundPlaying;
 
     [HideInInspector] private GameObject mouseObject;
+    [HideInInspector] private GameObject mouseObject2;
+
+    private void Start()
+    {
+        var mice = GameObject.FindGameObjectsWithTag("Mouse");
+
+        mouseObject = mice[0];
+
+        if (HardModeManager.Mode == HardModeManager.Modes.TWICEMICE && SceneManager.GetActiveScene().name == "UpdatedGameplay")
+        {
+            mouseObject2 = mice[1];
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -46,6 +60,11 @@ public class BitingManager : MonoBehaviour
 
             //set the appropriate fill amount
             holeBeingEaten.GetComponent<Image>().fillAmount = ((float)mouseNumber / (float)mouseSprites.Count);
+
+            if (holeBeingEaten2 != null)
+            {
+                holeBeingEaten2.GetComponent<Image>().fillAmount = ((float)mouseNumber / (float)mouseSprites.Count);
+            }
 
             //Rotate child objects
             float accessoryAngle;
@@ -97,6 +116,12 @@ public class BitingManager : MonoBehaviour
             mouseObject.transform.GetChild(0).GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, accessoryAngle);
             mouseObject.transform.GetChild(1).GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, accessoryAngle);
 
+            if (mouseObject2 != null)
+            {
+                mouseObject2.transform.GetChild(1).GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, accessoryAngle);
+                mouseObject2.transform.GetChild(1).GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, accessoryAngle);
+            }
+
             //end bite when we're ready
             if (mouseNumber >= mouseSprites.Count)
             {
@@ -106,12 +131,17 @@ public class BitingManager : MonoBehaviour
 
             //otherwise, update the frame accordingly
             mouseObject.GetComponent<Image>().sprite = mouseSprites[mouseNumber];
+
+            if (mouseObject2 != null)
+            {
+                mouseObject2.GetComponent<Image>().sprite = mouseSprites[mouseNumber];
+            }
         }
     }
 
     private List<Sprite> GetSpriteSheet()
     {
-        switch(MouseSkinLoader.name)
+        switch(MouseSkinLoader.EquippedSkin.Name)
         {
             case "Nibbles":
                 return NibblesSpriteSheet;
@@ -130,29 +160,36 @@ public class BitingManager : MonoBehaviour
         }
     }
 
-    public void StartBite(GameObject hole)
+    public void StartBite(GameObject hole, bool playSound = true)
     {
-        mouseObject = GameObject.FindGameObjectWithTag("Mouse");
-
         //set isbiting
         IsBiting = true;
 
         //set up the fill amount and angle
         hole.GetComponent<Image>().fillAmount = 0;
         SetFillAngle(hole);
-
-        //apply variables
-        holeBeingEaten = hole;
         timer = 0;
-        mouseObject.transform.localScale *= .75f;
 
-        bitingSoundPlaying = GameObject.FindObjectOfType<SoundManager>().PlayRandomSoundFX(bitingSoundClips, transform, 1, .5f);
-
-        var x = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.x;
-        var y = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.y;
-        var z = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.z;
-        mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(x * 2, y, z);
-        mouseObject.transform.GetChild(1).GetComponent<RectTransform>().localScale = new Vector3(x * 2, y, z);
+        if (playSound)
+        {
+            mouseObject.transform.localScale *= .75f;
+            bitingSoundPlaying = GameObject.FindObjectOfType<SoundManager>().PlayRandomSoundFX(bitingSoundClips, transform, 1, .5f);
+            holeBeingEaten = hole;
+            var x = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.x;
+            var y = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.y;
+            var z = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.z;
+            mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(x * 2, y, z);
+            mouseObject.transform.GetChild(1).GetComponent<RectTransform>().localScale = new Vector3(x * 2, y, z);
+        }
+        else
+        {
+            holeBeingEaten2 = hole;
+            var x2 = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.x;
+            var y2 = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.y;
+            var z2 = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.z;
+            mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(x2 * 2, y2, z2);
+            mouseObject2.transform.GetChild(1).GetComponent<RectTransform>().localScale = new Vector3(x2 * 2, y2, z2);
+        }
     }
 
     public void EndBite()
@@ -180,6 +217,24 @@ public class BitingManager : MonoBehaviour
 
         mouseObject.transform.GetChild(0).GetComponent<RectTransform>().rotation = mouseObject.transform.rotation;
         mouseObject.transform.GetChild(1).GetComponent<RectTransform>().rotation = mouseObject.transform.rotation;
+
+        if (mouseObject2 != null)
+        {
+            x = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.x;
+            y = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.y;
+            z = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.z;
+            mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(x * .5f, y, z);
+            mouseObject2.transform.GetChild(1).GetComponent<RectTransform>().localScale = new Vector3(x * .5f, y, z);
+
+            mouseObject2.transform.localScale /= .75f;
+            mouseObject2.GetComponent<Image>().sprite = FindObjectOfType<MouseSkinLoader>().EquippedSkin.Sprite;
+
+            //check it against the other intersections in hole manager
+            GameObject.FindObjectOfType<HoleManager>().CheckIntersections(holeBeingEaten2);
+
+            mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().rotation = mouseObject2.transform.rotation;
+            mouseObject2.transform.GetChild(1).GetComponent<RectTransform>().rotation = mouseObject2.transform.rotation;
+        }
     }
 
     //gets the correct frame the mouse should be at

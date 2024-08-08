@@ -19,13 +19,17 @@ public class PrePlayInstructions : MonoBehaviour
             SceneManager.LoadScene("UpdatedGameplay");
         });
 
-        if (HardModeManager.HardMode)
+        switch (HardModeManager.Mode)
         {
-            textMeshProUGUI.text = "Fill up the cheese with bites until no more bites can be made to advance to the next cheese.";
-        }
-        else
-        {
-            textMeshProUGUI.text = "Fill up the cheese with 12 bites to advance to the next cheese.";
+            case HardModeManager.Modes.HARD:
+                textMeshProUGUI.text = "Fill up the cheese with bites until no more bites can be made to advance to the next cheese.";
+                break;
+            case HardModeManager.Modes.NORMAL:
+                textMeshProUGUI.text = "Fill up the cheese with 12 bites to advance to the next cheese.";
+                break;
+            case HardModeManager.Modes.TWICEMICE:
+                textMeshProUGUI.text = "Two mice will be going at different speeds but bite at the same time. Fill up the cheese with 6 bites to advance to the next cheese.";
+                break;
         }
     }
 }

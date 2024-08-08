@@ -37,5 +37,16 @@ public class StopCircleButton : MonoBehaviour
         holeManager.mouseInstance.transform.SetAsLastSibling();
 
         GameObject.FindObjectOfType<BitingManager>().StartBite(newHole);
+
+        if (HardModeManager.Mode == HardModeManager.Modes.TWICEMICE)
+        {
+            GameObject otherNewHole = Instantiate(circlePrefab, holeManager.mouseInstance2.transform.position, Quaternion.identity, bigCircle.transform);
+            otherNewHole.GetComponent<RectTransform>().localScale = Vector3.zero;
+            otherNewHole.GetComponent<Image>().color = background.GetComponent<Image>().color;
+
+            holeManager.mouseInstance2.transform.SetAsLastSibling();
+
+            GameObject.FindObjectOfType<BitingManager>().StartBite(otherNewHole, false);
+        }
     }
 }

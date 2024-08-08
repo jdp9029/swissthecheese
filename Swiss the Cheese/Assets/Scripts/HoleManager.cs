@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
 using System.Linq;
+using System;
 
 public class HoleManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class HoleManager : MonoBehaviour
 
     //the instance of the swinging circle
     [SerializeField] public GameObject mouseInstance;
+
+    [SerializeField] public GameObject mouseInstance2;
 
     //center of the big circle
     [SerializeField] public GameObject centerOfCircle;
@@ -34,6 +37,7 @@ public class HoleManager : MonoBehaviour
 
     //angle of the swinging circle from the center
     [SerializeField] public float angle = 0;
+    [SerializeField] public float angle2 = 0;
 
     //speed of the rotating circle
     private float rotationSpeed = 4f;
@@ -70,15 +74,13 @@ public class HoleManager : MonoBehaviour
         //set up the circling circle
         mouseInstance = Instantiate(mousePrefab, Vector3.zero, Quaternion.identity, biggerCircle.transform);
 
-        //make the color white, for now
-        mouseInstance.GetComponent<Image>().color = Color.white;
-
         var msl = FindObjectOfType<MouseSkinLoader>();
 
+        //make the color white, for now
+        mouseInstance.GetComponent<Image>().color = Color.white;
         mouseInstance.GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
         mouseInstance.transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
         mouseInstance.transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
-
         if (msl.EquippedTopAccessory == msl.Accessories[0])
         {
             mouseInstance.transform.GetChild(0).GetComponent<Image>().color = new Color32(255, 255, 255, 0);
@@ -97,8 +99,35 @@ public class HoleManager : MonoBehaviour
             mouseInstance.transform.GetChild(1).GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         }
 
-        //set up the radius
-        //radius = 3 * GetRadius(centerOfCircle);
+        if (HardModeManager.Mode == HardModeManager.Modes.TWICEMICE)
+        {
+            mouseInstance2 = Instantiate(mousePrefab, Vector3.zero, Quaternion.identity, biggerCircle.transform);
+            //make the color white, for now
+            mouseInstance2.GetComponent<Image>().color = Color.white;
+            mouseInstance2.GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
+            mouseInstance2.transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
+            mouseInstance2.transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
+            if (msl.EquippedTopAccessory == msl.Accessories[0])
+            {
+                mouseInstance2.transform.GetChild(0).GetComponent<Image>().color = new Color32(255, 255, 255, 0);
+            }
+            else
+            {
+                mouseInstance2.transform.GetChild(0).GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            }
+
+            if (msl.EquippedBottomAccessory == msl.Accessories[1])
+            {
+                mouseInstance2.transform.GetChild(1).GetComponent<Image>().color = new Color32(255, 255, 255, 0);
+            }
+            else
+            {
+                mouseInstance2.transform.GetChild(1).GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            }
+        }
+
+
+
         radius = 50;
     }
 
@@ -121,7 +150,7 @@ public class HoleManager : MonoBehaviour
         }*/
 
         //set the rotation speed of the mouse
-        if (HardModeManager.HardMode)
+        if (HardModeManager.Mode == HardModeManager.Modes.HARD)
         {
             rotationSpeed = 4f  + (.4f * int.Parse(scoreCounter.text));
 
@@ -145,6 +174,7 @@ public class HoleManager : MonoBehaviour
 
         //iterate the angle
         angle += Time.deltaTime * rotationSpeed;
+        angle2 += Time.deltaTime * (rotationSpeed / 2);
         ReturnAngleToZero();
 
         //move the circle around accordingly
@@ -158,6 +188,20 @@ public class HoleManager : MonoBehaviour
 
         mouseInstance.GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, (angle * 180 / Mathf.PI) - 180);
 
+        if (HardModeManager.Mode == HardModeManager.Modes.TWICEMICE)
+        {
+            //move the circle around accordingly
+            pos = centerOfCircle.GetComponent<RectTransform>().localPosition
+                + new Vector3(3 * GetRadius(centerOfCircle) * Mathf.Cos(angle2), 3 * GetRadius(centerOfCircle) * Mathf.Sin(angle2), 0.0f);
+
+            closestPointObject.GetComponent<RectTransform>().localPosition = ClosestPathPoint(pathObject.GetComponent<PolygonCollider2D>().points, pos);
+
+            mouseInstance2.GetComponent<RectTransform>().position = (Vector2)centerOfCircle.transform.position +
+                ((radius / 100f) * Vector2.Distance(closestPointObject.transform.position, centerOfCircle.transform.position) * new Vector2(Mathf.Cos(angle2), Mathf.Sin(angle2)));
+
+            mouseInstance2.GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, (angle2 * 180 / Mathf.PI) - 180);
+        }
+
         Physics.SyncTransforms();
     }
 
@@ -167,6 +211,10 @@ public class HoleManager : MonoBehaviour
         if(angle >= 2 * Mathf.PI)
         {
             angle -= 2 * Mathf.PI;
+        }
+        if (angle2 >= 2 * Mathf.PI)
+        {
+            angle2 -= 2 * Mathf.PI;
         }
     }
 
@@ -207,7 +255,7 @@ public class HoleManager : MonoBehaviour
             GameObject.FindObjectOfType<ZoomManager>().justZoomed = true;
 
             //70% chance of the quiet fail clip, 30% chance of the loud
-            clipIndex = Random.Range(0, 10) > 6 ? 0 : 1;
+            clipIndex = UnityEngine.Random.Range(0, 10) > 6 ? 0 : 1;
 
             AudioClip failClip = failClips[clipIndex];
             failSource = GameObject.FindObjectOfType<SoundManager>().PlaySoundFXClip(failClip, transform, .8f);
@@ -234,7 +282,22 @@ public class HoleManager : MonoBehaviour
             GameObject.FindObjectOfType<ZoomManager>().justZoomed = false;
 
             //set up high score
-            string highScore = !HardModeManager.HardMode ? "highscore" : "hard_highscore";
+            string highScore;
+
+            switch (HardModeManager.Mode)
+            {
+                case HardModeManager.Modes.NORMAL:
+                    highScore = "highscore";
+                    break;
+                case HardModeManager.Modes.HARD:
+                    highScore = "hard_highscore";
+                    break;
+                case HardModeManager.Modes.TWICEMICE:
+                    highScore = "twicemice_highscore";
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
 
             if (PlayerPrefs.GetInt(highScore) < int.Parse(scoreCounter.text))
             {

@@ -85,7 +85,10 @@ public class ZoomManager : MonoBehaviour
         circleInstance.GetComponent<Image>().sprite = ColorManager.NextCheese();
 
         //make the spinning object deactivated
-        OuterCircle.transform.GetChild(OuterCircle.transform.childCount - 1).gameObject.SetActive(false);
+        foreach (var mouse in GameObject.FindGameObjectsWithTag("Mouse"))
+        {
+            mouse.gameObject.SetActive(false);
+        }
 
         //make the center transparent
         ColorManager.CircleCenter.color = new Color32((byte)ColorManager.CircleCenter.color.r, (byte)ColorManager.CircleCenter.color.g, (byte)ColorManager.CircleCenter.color.b, 0);
@@ -122,9 +125,11 @@ public class ZoomManager : MonoBehaviour
         GameObject.Destroy(circleInstance);
 
         //make the spinning object active
-        OuterCircle.transform.GetChild(OuterCircle.transform.childCount - 1).gameObject.SetActive(true);
-        GameObject.FindObjectOfType<HoleManager>().mouseInstance = OuterCircle.transform.GetChild(OuterCircle.transform.childCount - 1).gameObject;
-        GameObject.FindObjectOfType<HoleManager>().mouseInstance.GetComponent<Image>().color = Color.white;
+        foreach (var mouse in GameObject.FindGameObjectsWithTag("Mouse"))
+        {
+            mouse.SetActive(true);
+            mouse.GetComponent<Image>().color = Color.white;
+        }
         GameObject.FindObjectOfType<HoleManager>().holesCut.Clear();
 
         //destroy any former holes that were cut

@@ -13,6 +13,7 @@ public class PlayScreenMouse : MonoBehaviour
     private bool beenInViewRecently = false;
     [SerializeField] Button normalButton;
     [SerializeField] Button hardModeButton;
+    [SerializeField] Button ltmButton;
     [SerializeField] GameObject holePrefab;
     [SerializeField] BitingManager bitingManager;
     private List<GameObject> bitesMade;
@@ -32,12 +33,17 @@ public class PlayScreenMouse : MonoBehaviour
         //set up the play button and options button
         normalButton.onClick.AddListener(delegate
         {
-            HardModeManager.HardMode = false;
+            HardModeManager.Mode = HardModeManager.Modes.NORMAL;
             SceneManager.LoadScene("PreGameInstructions");
         });
         hardModeButton.onClick.AddListener(delegate
         {
-            HardModeManager.HardMode = true;
+            HardModeManager.Mode = HardModeManager.Modes.HARD;
+            SceneManager.LoadScene("PreGameInstructions");
+        });
+        ltmButton.onClick.AddListener(delegate
+        {
+            HardModeManager.Mode = HardModeManager.Modes.TWICEMICE;
             SceneManager.LoadScene("PreGameInstructions");
         });
     }
