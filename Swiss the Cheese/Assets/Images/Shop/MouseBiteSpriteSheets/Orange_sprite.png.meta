@@ -1,0 +1,581 @@
+fileFormatVersion: 2
+guid: 16cba65ba0cf6504bb31fe1415380bf3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Orange_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 1229
+        width: 393
+        height: 742
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a585d86bf30e94b4c9980374ee1f7248
+      internalID: -421007937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 1250
+        width: 404
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14eec736693a16442a2db0825530a908
+      internalID: 1253238348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 2296
+        y: 1253
+        width: 413
+        height: 737
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 008e0c94382a4e74486d9989784fd90a
+      internalID: -771043520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 3281
+        y: 1219
+        width: 433
+        height: 725
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9464af7bb6f6b64897796abc53508fa
+      internalID: 1967798353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 6154
+        y: 1120
+        width: 581
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2316059915f77cf4da30f94a7477d0ac
+      internalID: 474009549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_21
+      rect:
+        serializedVersion: 2
+        x: 5009
+        y: 1287
+        width: 759
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7d63623f7e95f4da40dfa99faa30c4
+      internalID: -1088996441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_23
+      rect:
+        serializedVersion: 2
+        x: 3998
+        y: 1280
+        width: 720
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6201622fd25974298b353178f73908
+      internalID: -96537354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_61
+      rect:
+        serializedVersion: 2
+        x: 5279
+        y: 231
+        width: 414
+        height: 714
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 919682a1e56d0be4aba6b5dcfd0832ea
+      internalID: 1485576958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_63
+      rect:
+        serializedVersion: 2
+        x: 6294
+        y: 228
+        width: 413
+        height: 745
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2443557b4f89b154ba42b5f2fd15c438
+      internalID: 45361414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_67
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 2
+        width: 421
+        height: 752
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 606d4814d18c7104f8cc086e8ff8cedd
+      internalID: 268449312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_69
+      rect:
+        serializedVersion: 2
+        x: 2234
+        y: 115
+        width: 618
+        height: 632
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1e8a9aa3a59764d9aadcf020e40a6a
+      internalID: 336558706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_72
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 5
+        width: 407
+        height: 733
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6594c71a41f844a44ba746c66bc1a5cc
+      internalID: 932325192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_75
+      rect:
+        serializedVersion: 2
+        x: 4240
+        y: 265
+        width: 721
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3c0f366f25c6694b93993c89160991e
+      internalID: 2040417426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orange_sprite_77
+      rect:
+        serializedVersion: 2
+        x: 3247
+        y: 296
+        width: 733
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efcd98f3dd9bd20448d16b75279de283
+      internalID: 1866776141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Orange_sprite_0: 1790767644
+      Orange_sprite_1: -827384431
+      Orange_sprite_10: 948055378
+      Orange_sprite_100: -1076414597
+      Orange_sprite_101: -1091802176
+      Orange_sprite_102: 1786908263
+      Orange_sprite_103: -2002276342
+      Orange_sprite_104: -1440699480
+      Orange_sprite_105: 1963520370
+      Orange_sprite_106: 933937789
+      Orange_sprite_107: -1221266245
+      Orange_sprite_108: -2035741604
+      Orange_sprite_109: 1338827470
+      Orange_sprite_11: -1248153692
+      Orange_sprite_110: -176002895
+      Orange_sprite_111: -100738481
+      Orange_sprite_112: -725932266
+      Orange_sprite_113: 1124880089
+      Orange_sprite_114: -623565561
+      Orange_sprite_115: 25982835
+      Orange_sprite_116: 10941914
+      Orange_sprite_117: -987366524
+      Orange_sprite_118: 1679931240
+      Orange_sprite_119: 710071482
+      Orange_sprite_12: -89943108
+      Orange_sprite_120: -138735486
+      Orange_sprite_13: -611468466
+      Orange_sprite_14: 474009549
+      Orange_sprite_15: -459995651
+      Orange_sprite_16: -1721771411
+      Orange_sprite_17: -140980343
+      Orange_sprite_18: 1142452900
+      Orange_sprite_19: -503871715
+      Orange_sprite_2: -320675252
+      Orange_sprite_20: 460245453
+      Orange_sprite_21: -1088996441
+      Orange_sprite_22: -122979082
+      Orange_sprite_23: -96537354
+      Orange_sprite_24: -838654758
+      Orange_sprite_25: -1728628970
+      Orange_sprite_26: 1871629435
+      Orange_sprite_27: 71697975
+      Orange_sprite_28: 1546566029
+      Orange_sprite_29: 5252417
+      Orange_sprite_3: -421007937
+      Orange_sprite_30: -1971565179
+      Orange_sprite_31: -1146978867
+      Orange_sprite_32: -693686989
+      Orange_sprite_33: 91397612
+      Orange_sprite_34: 792436186
+      Orange_sprite_35: -611767410
+      Orange_sprite_36: -493957076
+      Orange_sprite_37: 1783912522
+      Orange_sprite_38: -133890486
+      Orange_sprite_39: -340737123
+      Orange_sprite_4: -1935011773
+      Orange_sprite_40: -805438321
+      Orange_sprite_41: 112484867
+      Orange_sprite_42: 931804835
+      Orange_sprite_43: 330789581
+      Orange_sprite_44: -1195867055
+      Orange_sprite_45: 482186820
+      Orange_sprite_46: 2094169935
+      Orange_sprite_47: -1695454599
+      Orange_sprite_48: 1572437911
+      Orange_sprite_49: 1681258683
+      Orange_sprite_5: 1253238348
+      Orange_sprite_50: 941562708
+      Orange_sprite_51: -1364946179
+      Orange_sprite_52: 1533058782
+      Orange_sprite_53: 619698647
+      Orange_sprite_54: 202578017
+      Orange_sprite_55: -469961580
+      Orange_sprite_56: 191688188
+      Orange_sprite_57: 305595826
+      Orange_sprite_58: 1469399813
+      Orange_sprite_59: -806751099
+      Orange_sprite_6: -1896405927
+      Orange_sprite_60: 1898425523
+      Orange_sprite_61: 1485576958
+      Orange_sprite_62: 1376079932
+      Orange_sprite_63: 45361414
+      Orange_sprite_64: 1409983692
+      Orange_sprite_65: 431758487
+      Orange_sprite_66: 1406717590
+      Orange_sprite_67: 268449312
+      Orange_sprite_68: -528053410
+      Orange_sprite_69: 336558706
+      Orange_sprite_7: -771043520
+      Orange_sprite_70: -619282681
+      Orange_sprite_71: 2121708449
+      Orange_sprite_72: 932325192
+      Orange_sprite_73: -565972777
+      Orange_sprite_74: -1495382364
+      Orange_sprite_75: 2040417426
+      Orange_sprite_76: 1036883700
+      Orange_sprite_77: 1866776141
+      Orange_sprite_78: 662384950
+      Orange_sprite_79: 619512141
+      Orange_sprite_8: 1967798353
+      Orange_sprite_80: -1804392912
+      Orange_sprite_81: 1007765087
+      Orange_sprite_82: -1363420995
+      Orange_sprite_83: 756121112
+      Orange_sprite_84: -59899404
+      Orange_sprite_85: -1511281793
+      Orange_sprite_86: 204737687
+      Orange_sprite_87: -1236999966
+      Orange_sprite_88: 920280173
+      Orange_sprite_89: 1629384523
+      Orange_sprite_9: 1676037884
+      Orange_sprite_90: 1434832446
+      Orange_sprite_91: 95384714
+      Orange_sprite_92: -539444476
+      Orange_sprite_93: 612163390
+      Orange_sprite_94: -1721555038
+      Orange_sprite_95: -612629358
+      Orange_sprite_96: -1579012744
+      Orange_sprite_97: 368691639
+      Orange_sprite_98: -531990620
+      Orange_sprite_99: -1504966082
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

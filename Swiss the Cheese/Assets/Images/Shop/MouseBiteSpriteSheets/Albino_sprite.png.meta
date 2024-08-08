@@ -1,0 +1,582 @@
+fileFormatVersion: 2
+guid: 0c53ea898e2d9c646ad47bcfe0c9680c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Albino_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 1229
+        width: 393
+        height: 742
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49756b56543780647801ba291e4f9de0
+      internalID: 923879331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 1253
+        width: 414
+        height: 721
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13117ca5c3b03b84895168d4e9f8707f
+      internalID: -1621685553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 2277
+        y: 1250
+        width: 421
+        height: 721
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a2de0568749bd4abdecb98dfeb6758
+      internalID: -553203454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 3245
+        y: 1216
+        width: 487
+        height: 700
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f73d1cc6d89a9f4aaa4671bdf9d59b3
+      internalID: 1751447121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 6142
+        y: 1087
+        width: 583
+        height: 678
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29e17b07a27a6974c90bbc5f948e3394
+      internalID: -59188379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_16
+      rect:
+        serializedVersion: 2
+        x: 5026
+        y: 1270
+        width: 738
+        height: 453
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be190e002139174c88f913898fb6871
+      internalID: -195802529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_17
+      rect:
+        serializedVersion: 2
+        x: 4008
+        y: 1277
+        width: 704
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083ff8003cf8fdf4899fa5ead26170a6
+      internalID: 682449630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_65
+      rect:
+        serializedVersion: 2
+        x: 6298
+        y: 228
+        width: 409
+        height: 745
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ce6ac2f6931b94488d0410d4c14f26
+      internalID: 157198354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_66
+      rect:
+        serializedVersion: 2
+        x: 5289
+        y: 234
+        width: 434
+        height: 718
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01af4044334f6c4a80aa090edf1b973
+      internalID: 1654718458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_74
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 30
+        width: 473
+        height: 718
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93e54081c5deaf46aa490be61db500d
+      internalID: -1222839797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_76
+      rect:
+        serializedVersion: 2
+        x: 2247
+        y: 152
+        width: 653
+        height: 588
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d46772b0bbb025d479863da44ae1d3c8
+      internalID: -1920672963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_79
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 19
+        width: 407
+        height: 701
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ed9784cec67a94bb19bd8d7f99458e
+      internalID: -360731148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_85
+      rect:
+        serializedVersion: 2
+        x: 4247
+        y: 266
+        width: 711
+        height: 467
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f217577a471c2d545b5b3fe3404e4285
+      internalID: -928219134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Albino_sprite_90
+      rect:
+        serializedVersion: 2
+        x: 3280
+        y: 296
+        width: 707
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e3b246289c557849bbeb8df6844b114
+      internalID: -927935850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Albino_sprite_0: 2036855662
+      Albino_sprite_1: 923879331
+      Albino_sprite_10: -59188379
+      Albino_sprite_100: -1480637273
+      Albino_sprite_101: 2009931895
+      Albino_sprite_102: 682485876
+      Albino_sprite_103: 163702308
+      Albino_sprite_104: -1686125927
+      Albino_sprite_105: -1115347157
+      Albino_sprite_106: 712945293
+      Albino_sprite_107: 1020213210
+      Albino_sprite_108: -413779312
+      Albino_sprite_109: -848702228
+      Albino_sprite_11: 1018048631
+      Albino_sprite_110: 977282210
+      Albino_sprite_111: 1823494554
+      Albino_sprite_112: -1322818308
+      Albino_sprite_113: 1284044856
+      Albino_sprite_114: -109884016
+      Albino_sprite_115: 1367546997
+      Albino_sprite_116: -1263187157
+      Albino_sprite_117: 1065483917
+      Albino_sprite_118: 1527457674
+      Albino_sprite_119: -245259538
+      Albino_sprite_12: -577908795
+      Albino_sprite_120: -542507464
+      Albino_sprite_121: -761593905
+      Albino_sprite_13: -381682105
+      Albino_sprite_14: 1555295641
+      Albino_sprite_15: 813705135
+      Albino_sprite_16: -195802529
+      Albino_sprite_17: 682449630
+      Albino_sprite_18: 872491910
+      Albino_sprite_19: 773960862
+      Albino_sprite_2: 687623366
+      Albino_sprite_20: 1413089751
+      Albino_sprite_21: -1082817856
+      Albino_sprite_22: 938388099
+      Albino_sprite_23: -1419598418
+      Albino_sprite_24: 1406788776
+      Albino_sprite_25: 1497119563
+      Albino_sprite_26: 918566352
+      Albino_sprite_27: 1034229367
+      Albino_sprite_28: 1127568189
+      Albino_sprite_29: -330655445
+      Albino_sprite_3: -1621685553
+      Albino_sprite_30: -885701260
+      Albino_sprite_31: 1427876015
+      Albino_sprite_32: -1353767431
+      Albino_sprite_33: -1144319122
+      Albino_sprite_34: -1624960171
+      Albino_sprite_35: -772085525
+      Albino_sprite_36: 976918803
+      Albino_sprite_37: -213090827
+      Albino_sprite_38: -1406785288
+      Albino_sprite_39: 1780550717
+      Albino_sprite_4: -179647941
+      Albino_sprite_40: 325855484
+      Albino_sprite_41: -1090268092
+      Albino_sprite_42: 986934757
+      Albino_sprite_43: -865320063
+      Albino_sprite_44: 1561077925
+      Albino_sprite_45: 484333411
+      Albino_sprite_46: 983610643
+      Albino_sprite_47: -979650192
+      Albino_sprite_48: -964228175
+      Albino_sprite_49: -1727530137
+      Albino_sprite_5: -1577547637
+      Albino_sprite_50: -568060423
+      Albino_sprite_51: 1597673349
+      Albino_sprite_52: -337952840
+      Albino_sprite_53: -406340047
+      Albino_sprite_54: -1890006901
+      Albino_sprite_55: 1632153112
+      Albino_sprite_56: -1593241170
+      Albino_sprite_57: 1318298816
+      Albino_sprite_58: 1891914828
+      Albino_sprite_59: 306575276
+      Albino_sprite_6: -553203454
+      Albino_sprite_60: -178212728
+      Albino_sprite_61: -621386843
+      Albino_sprite_62: -850681328
+      Albino_sprite_63: -1014514914
+      Albino_sprite_64: -2005210329
+      Albino_sprite_65: 157198354
+      Albino_sprite_66: 1654718458
+      Albino_sprite_67: 2042567331
+      Albino_sprite_68: -1930566310
+      Albino_sprite_69: -1298301030
+      Albino_sprite_7: 377852347
+      Albino_sprite_70: -1770247745
+      Albino_sprite_71: 21229172
+      Albino_sprite_72: -111139486
+      Albino_sprite_73: 1635236719
+      Albino_sprite_74: -1222839797
+      Albino_sprite_75: 825417334
+      Albino_sprite_76: -1920672963
+      Albino_sprite_77: -1534349542
+      Albino_sprite_78: -883882340
+      Albino_sprite_79: -360731148
+      Albino_sprite_8: 1428872324
+      Albino_sprite_80: -995057635
+      Albino_sprite_81: -588568874
+      Albino_sprite_82: 678496988
+      Albino_sprite_83: -1480241693
+      Albino_sprite_84: 1102912487
+      Albino_sprite_85: -928219134
+      Albino_sprite_86: 42460716
+      Albino_sprite_87: 302608409
+      Albino_sprite_88: 1099774444
+      Albino_sprite_89: 947428414
+      Albino_sprite_9: 1751447121
+      Albino_sprite_90: -927935850
+      Albino_sprite_91: 346090450
+      Albino_sprite_92: -516607984
+      Albino_sprite_93: 1119175569
+      Albino_sprite_94: -1394042639
+      Albino_sprite_95: 1126326878
+      Albino_sprite_96: 1816356675
+      Albino_sprite_97: -2010048860
+      Albino_sprite_98: -29835319
+      Albino_sprite_99: 709171185
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

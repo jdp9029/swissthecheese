@@ -188,7 +188,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 159.1
+  m_fontSize: 132.3
   m_fontSizeBase: 225
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -436,8 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBiting: 0
-  normalMouseSprite: {fileID: 21300000, guid: e8986bbe75f75714d8f5bdbd12353f3d, type: 3}
-  mouseSprites:
+  NibblesSpriteSheet:
   - {fileID: 1639497109, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
   - {fileID: 688825162, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
   - {fileID: 1065464543, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
@@ -452,6 +451,81 @@ MonoBehaviour:
   - {fileID: 501702934, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
   - {fileID: 1208444684, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
   - {fileID: 1281652854, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
+  AlbinoSpriteSheet:
+  - {fileID: 923879331, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -1621685553, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -553203454, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: 1751447121, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: 682449630, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -195802529, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -59188379, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -360731148, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -1222839797, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -1920672963, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -927935850, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -928219134, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: 1654718458, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: 157198354, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  BlackSpriteSheet:
+  - {fileID: -191943588, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 1054909945, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 1028193653, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 281817112, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 1142668284, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 914053642, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 1469574575, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: -1521748642, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 439121800, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 2033594684, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: -1499319439, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: -1810323329, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 1084407226, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: -311254032, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  OrangeSpriteSheet:
+  - {fileID: -421007937, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 1253238348, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: -771043520, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 1967798353, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: -96537354, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: -1088996441, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 474009549, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 932325192, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 268449312, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 336558706, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 1866776141, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 2040417426, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 1485576958, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 45361414, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  StrawberrySpriteSheet:
+  - {fileID: -1863438080, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -1858297659, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -849104536, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -871979588, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -619115396, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -1150369235, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: 625239238, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: 1528624549, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -956754000, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: 54292334, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: 1584772636, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -1989260148, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -107457208, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -174626684, guid: 553354d164273c949bae57de2652470e, type: 3}
+  CheeseSpriteSheet:
+  - {fileID: 734547919, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 549751300, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: -644154467, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: -901420598, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: -221037902, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: -1798403157, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 1346823937, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 651496099, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 1913413035, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 1651356710, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 98271136, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 367313161, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: -1135661979, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 842341893, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
   bitingSoundClips:
   - {fileID: 8300000, guid: 784b04928cf023147924d759b3fd80bf, type: 3}
 --- !u!4 &134661567
@@ -1935,7 +2009,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.8
+  m_fontSize: 55.55
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1

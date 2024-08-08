@@ -235,8 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsBiting: 0
-  normalMouseSprite: {fileID: 21300000, guid: e8986bbe75f75714d8f5bdbd12353f3d, type: 3}
-  mouseSprites:
+  NibblesSpriteSheet:
   - {fileID: 1639497109, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
   - {fileID: 688825162, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
   - {fileID: 1065464543, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
@@ -251,6 +250,81 @@ MonoBehaviour:
   - {fileID: 501702934, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
   - {fileID: 1208444684, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
   - {fileID: 1281652854, guid: c9347c292c6f41444b7751b09312fc06, type: 3}
+  AlbinoSpriteSheet:
+  - {fileID: 923879331, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -1621685553, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -553203454, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: 1751447121, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: 682449630, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -195802529, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -59188379, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -360731148, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -1222839797, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -1920672963, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -927935850, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: -928219134, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: 1654718458, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  - {fileID: 157198354, guid: 0c53ea898e2d9c646ad47bcfe0c9680c, type: 3}
+  BlackSpriteSheet:
+  - {fileID: -191943588, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 1054909945, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 1028193653, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 281817112, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 1142668284, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 914053642, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 1469574575, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: -1521748642, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 439121800, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 2033594684, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: -1499319439, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: -1810323329, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: 1084407226, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  - {fileID: -311254032, guid: 4fca8e3dc978f4347b5e943b9a788f2b, type: 3}
+  OrangeSpriteSheet:
+  - {fileID: -421007937, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 1253238348, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: -771043520, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 1967798353, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: -96537354, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: -1088996441, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 474009549, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 932325192, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 268449312, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 336558706, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 1866776141, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 2040417426, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 1485576958, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  - {fileID: 45361414, guid: 16cba65ba0cf6504bb31fe1415380bf3, type: 3}
+  StrawberrySpriteSheet:
+  - {fileID: -1863438080, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -1858297659, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -849104536, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -871979588, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -619115396, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -1150369235, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: 625239238, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: 1528624549, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -956754000, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: 54292334, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: 1584772636, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -1989260148, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -107457208, guid: 553354d164273c949bae57de2652470e, type: 3}
+  - {fileID: -174626684, guid: 553354d164273c949bae57de2652470e, type: 3}
+  CheeseSpriteSheet:
+  - {fileID: 734547919, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 549751300, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: -644154467, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: -901420598, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: -221037902, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: -1798403157, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 1346823937, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 651496099, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 1913413035, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 1651356710, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 98271136, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 367313161, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: -1135661979, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
+  - {fileID: 842341893, guid: 188984cbe4cf9ea4baa7d375e48dfe0e, type: 3}
   bitingSoundClips:
   - {fileID: 8300000, guid: 784b04928cf023147924d759b3fd80bf, type: 3}
 --- !u!4 &71026102
@@ -297,8 +371,8 @@ RectTransform:
   m_GameObject: {fileID: 102534074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 49373203}
   m_RootOrder: -2
@@ -437,6 +511,7 @@ MonoBehaviour:
   soundManager: {fileID: 2167918614853556716, guid: 8dd3964dc3b0d1d40b15be3c3caa6092, type: 3}
   bitingManager: {fileID: 71026101}
   hardModeManager: {fileID: 3923475051784402081, guid: beabba9e29e9eba458fbf2a33b3e7b73, type: 3}
+  mouseSkinLoader: {fileID: 5662176751447228460, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
 --- !u!1001 &594087768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -670,7 +745,7 @@ RectTransform:
   m_GameObject: {fileID: 990372851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 2}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 49373203}
@@ -808,7 +883,7 @@ RectTransform:
   m_GameObject: {fileID: 992949630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 2}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 49373203}
@@ -946,7 +1021,7 @@ RectTransform:
   m_GameObject: {fileID: 1266396501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 49373203}
@@ -1083,7 +1158,7 @@ RectTransform:
   m_GameObject: {fileID: 1345274249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 49373203}
@@ -1190,7 +1265,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1437765108
 GameObject:
@@ -1386,209 +1461,4 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2057933152
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2057933154}
-  - component: {fileID: 2057933153}
-  m_Layer: 0
-  m_Name: MouseSkinLoader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2057933153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057933152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09169658346e147598d98aa98b4828dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Skins:
-  - Name: Nibbles
-    Sprite: {fileID: 21300000, guid: 7b2187d38cac949c28899ba704f53b1e, type: 3}
-    ItemCost: 0
-    IsUnlocked: 0
-    Description: the OG mouse
-    IsHat: 0
-  - Name: Jasper
-    Sprite: {fileID: 21300000, guid: 1ff1caa0fcaef4112a97d9978040c37b, type: 3}
-    ItemCost: 50
-    IsUnlocked: 0
-    Description: the bright biter
-    IsHat: 0
-  - Name: Gir
-    Sprite: {fileID: 21300000, guid: 16ce54b45b202483b99543f063532256, type: 3}
-    ItemCost: 50
-    IsUnlocked: 0
-    Description: the dark devourer
-    IsHat: 0
-  - Name: Peanut
-    Sprite: {fileID: 21300000, guid: 48efcae962fd946b4bbb8a4098a15831, type: 3}
-    ItemCost: 50
-    IsUnlocked: 0
-    Description: the spotted snacker
-    IsHat: 0
-  - Name: Jelly
-    Sprite: {fileID: 21300000, guid: dd3b957c81bd24448a1dc8a95f8d0c22, type: 3}
-    ItemCost: 150
-    IsUnlocked: 0
-    Description: the fruity feaster
-    IsHat: 0
-  - Name: Swisstopher
-    Sprite: {fileID: 21300000, guid: 19e96b3f5369942248127ce95d613bd5, type: 3}
-    ItemCost: 200
-    IsUnlocked: 0
-    Description: the camo'd consumer
-    IsHat: 0
-  Accessories:
-  - Name: No Top
-    Sprite: {fileID: 0}
-    ItemCost: 0
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: No Bottom
-    Sprite: {fileID: 0}
-    ItemCost: 0
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Scarf
-    Sprite: {fileID: 21300000, guid: 6e31fb6414d3649e1bf5e6bc711719e2, type: 3}
-    ItemCost: 30
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Tube
-    Sprite: {fileID: 21300000, guid: 2a5f1909b6da349298ed82403e75daa9, type: 3}
-    ItemCost: 30
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Overalls
-    Sprite: {fileID: 21300000, guid: f2202becfbb12420a9d168f5da32da42, type: 3}
-    ItemCost: 50
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Sweater Vest
-    Sprite: {fileID: 21300000, guid: b77a8f3e4bbcd41318fa174cd35f101e, type: 3}
-    ItemCost: 50
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Skirt
-    Sprite: {fileID: 21300000, guid: e93586ca0c974455099fc28b82eec3ca, type: 3}
-    ItemCost: 75
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Superhero
-    Sprite: {fileID: 21300000, guid: 6815e3461fbf54a9981c5193a451f2dc, type: 3}
-    ItemCost: 100
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  - Name: Party Hat
-    Sprite: {fileID: 21300000, guid: a1faaf8b5e6ef469ab60f9780022b6d0, type: 3}
-    ItemCost: 30
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: Beanie
-    Sprite: {fileID: 21300000, guid: 56ab4271a55c749c7af76b13bff11147, type: 3}
-    ItemCost: 30
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: Propeller Hat
-    Sprite: {fileID: 21300000, guid: 2cac3357a1ad6439ea6183da5dba1579, type: 3}
-    ItemCost: 50
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: Top Hat
-    Sprite: {fileID: 21300000, guid: e6f025ffec24943a4b48c99d7fcbd836, type: 3}
-    ItemCost: 50
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: Crown
-    Sprite: {fileID: 21300000, guid: 0ac03b431a3a3421a9abc7e4ad12f7f2, type: 3}
-    ItemCost: 75
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: Glasses
-    Sprite: {fileID: 21300000, guid: 6c975c178633147ff99bb51f55c2d930, type: 3}
-    ItemCost: 30
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: Goggles
-    Sprite: {fileID: 21300000, guid: 5256e4f45c6f3457e81ff90a35059239, type: 3}
-    ItemCost: 30
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: Monocle
-    Sprite: {fileID: 21300000, guid: 34c3aed56fd60441f89837ec232d7700, type: 3}
-    ItemCost: 50
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  - Name: Top Hat and Monocle
-    Sprite: {fileID: 21300000, guid: ef4c782757b888449bf5a873773c8b61, type: 3}
-    ItemCost: 100
-    IsUnlocked: 0
-    Description: 
-    IsHat: 1
-  EquippedSkin:
-    Name: 
-    Sprite: {fileID: 0}
-    ItemCost: 0
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  EquippedTopAccessory:
-    Name: 
-    Sprite: {fileID: 0}
-    ItemCost: 0
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
-  EquippedBottomAccessory:
-    Name: 
-    Sprite: {fileID: 0}
-    ItemCost: 0
-    IsUnlocked: 0
-    Description: 
-    IsHat: 0
---- !u!4 &2057933154
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057933152}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 253.4483, y: 223.91364, z: -2.9489949}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -75,8 +75,6 @@ public class HoleManager : MonoBehaviour
 
         var msl = FindObjectOfType<MouseSkinLoader>();
 
-        Debug.Log(msl.EquippedSkin.Name);
-
         mouseInstance.GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
         mouseInstance.transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
         mouseInstance.transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;

@@ -68,8 +68,8 @@ public class ShopTabManager : MonoBehaviour
         msl = FindObjectOfType<MouseSkinLoader>();
         topAccessories = msl.Accessories.Where(i => i.IsHat).ToArray();
         bottomAccessories = msl.Accessories.Where(i => !i.IsHat).ToArray();
-        SelectedTopAccessory = topAccessories[0];
-        SelectedBottomAccessory = bottomAccessories[0];
+        SelectedTopAccessory = msl.EquippedTopAccessory;
+        SelectedBottomAccessory = msl.EquippedBottomAccessory;
 
         for(int i = 0; i < transform.childCount; i++)
 	    {
@@ -94,6 +94,7 @@ public class ShopTabManager : MonoBehaviour
             else if (SelectedSkin.IsUnlocked)
             {
                 msl.EquippedSkin = SelectedSkin;
+                PlayerPrefs.SetString("EquippedSkin", SelectedSkin.Name);
             }
         });
 
@@ -106,6 +107,7 @@ public class ShopTabManager : MonoBehaviour
             else if (SelectedTopAccessory.IsUnlocked)
             {
                 msl.EquippedTopAccessory = SelectedTopAccessory;
+                PlayerPrefs.SetString("EquippedTopAccessory", SelectedTopAccessory.Name);
             }
         });
 
@@ -118,6 +120,8 @@ public class ShopTabManager : MonoBehaviour
             else if (SelectedBottomAccessory.IsUnlocked)
             {
                 msl.EquippedBottomAccessory = SelectedBottomAccessory;
+
+                PlayerPrefs.SetString("EquippedBottomAccessory", SelectedBottomAccessory.Name);
             }
         });
     }

@@ -1,0 +1,605 @@
+fileFormatVersion: 2
+guid: 188984cbe4cf9ea4baa7d375e48dfe0e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cheese_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 1229
+        width: 526
+        height: 771
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420dec72625c84548b7dc74758a4edde
+      internalID: 734547919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 1229
+        width: 555
+        height: 762
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ffe7641dfec2c242bb1738f45edda93
+      internalID: 549751300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 2237
+        y: 1229
+        width: 555
+        height: 762
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee101b963e0cf5a4da6f27f6132844f6
+      internalID: -644154467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 3246
+        y: 1212
+        width: 529
+        height: 738
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d99a4042c010784c93ebc993c430a02
+      internalID: -901420598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 3998
+        y: 1229
+        width: 761
+        height: 559
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f139f668d8e7e914d97c561dde3b2dc4
+      internalID: -221037902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 5043
+        y: 1207
+        width: 721
+        height: 581
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88489a34fdf8b394da8c2a29505790e9
+      internalID: -1798403157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 6212
+        y: 1065
+        width: 577
+        height: 721
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa214a62e40097046b0a82ce2f1ebcf5
+      internalID: 1346823937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_76
+      rect:
+        serializedVersion: 2
+        x: 5228
+        y: 224
+        width: 599
+        height: 762
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bdc7111648119d48a21177418b400c9
+      internalID: -1135661979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_78
+      rect:
+        serializedVersion: 2
+        x: 6211
+        y: 225
+        width: 558
+        height: 761
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1488a273cb56edd46a5fef3ba5375451
+      internalID: 842341893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_92
+      rect:
+        serializedVersion: 2
+        x: 2234
+        y: 224
+        width: 721
+        height: 557
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fbf231fba4ee9f428de9595055ab662
+      internalID: 1651356710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_97
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 532
+        height: 761
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e95f200e7ef46764e844fed5420cfe40
+      internalID: 651496099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_99
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 60
+        width: 600
+        height: 701
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321a8abcaf3fd3e42b51658f4843f31d
+      internalID: 1913413035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_101
+      rect:
+        serializedVersion: 2
+        x: 3239
+        y: 181
+        width: 762
+        height: 580
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d3be26b61c56e4e95d794dc69c8298
+      internalID: 98271136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cheese_sprite_103
+      rect:
+        serializedVersion: 2
+        x: 4183
+        y: 205
+        width: 761
+        height: 556
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54ef8ace5901d34e9e341963d18778c
+      internalID: 367313161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Cheese_sprite_0: 734547919
+      Cheese_sprite_1: 549751300
+      Cheese_sprite_10: -221037902
+      Cheese_sprite_100: 433138468
+      Cheese_sprite_101: 98271136
+      Cheese_sprite_102: 910772533
+      Cheese_sprite_103: 367313161
+      Cheese_sprite_104: 918615828
+      Cheese_sprite_105: 472253116
+      Cheese_sprite_106: 1227757696
+      Cheese_sprite_107: 288311169
+      Cheese_sprite_108: 226298797
+      Cheese_sprite_109: 791688489
+      Cheese_sprite_11: -1798403157
+      Cheese_sprite_110: -14650884
+      Cheese_sprite_111: -1528605997
+      Cheese_sprite_112: -1917561661
+      Cheese_sprite_113: 1168465501
+      Cheese_sprite_114: 1490316182
+      Cheese_sprite_115: 1443446402
+      Cheese_sprite_116: 1753089680
+      Cheese_sprite_117: -2145665104
+      Cheese_sprite_118: -1513141448
+      Cheese_sprite_119: -2007559925
+      Cheese_sprite_12: 223520122
+      Cheese_sprite_120: -2034802870
+      Cheese_sprite_121: 1736375794
+      Cheese_sprite_122: 686397993
+      Cheese_sprite_123: -948814042
+      Cheese_sprite_124: 2144320860
+      Cheese_sprite_125: 850856989
+      Cheese_sprite_126: -437706878
+      Cheese_sprite_127: -504407265
+      Cheese_sprite_128: 293466324
+      Cheese_sprite_129: 392343163
+      Cheese_sprite_13: 1346823937
+      Cheese_sprite_130: -779775863
+      Cheese_sprite_131: -1379628523
+      Cheese_sprite_132: 210827579
+      Cheese_sprite_133: -1044271981
+      Cheese_sprite_134: -812814606
+      Cheese_sprite_135: -495511094
+      Cheese_sprite_136: -1699259881
+      Cheese_sprite_137: -255535499
+      Cheese_sprite_138: -332255614
+      Cheese_sprite_139: -531444301
+      Cheese_sprite_14: -1059480568
+      Cheese_sprite_140: -1353207587
+      Cheese_sprite_141: -1618439547
+      Cheese_sprite_142: -1050640515
+      Cheese_sprite_143: -2131395429
+      Cheese_sprite_144: -1697084282
+      Cheese_sprite_15: -1386544773
+      Cheese_sprite_16: -1677281761
+      Cheese_sprite_17: 1359104568
+      Cheese_sprite_18: 607142248
+      Cheese_sprite_19: -811913065
+      Cheese_sprite_2: -644154467
+      Cheese_sprite_20: 642429090
+      Cheese_sprite_21: -691017937
+      Cheese_sprite_22: 1878290169
+      Cheese_sprite_23: 457994530
+      Cheese_sprite_24: 563373779
+      Cheese_sprite_25: -2010237492
+      Cheese_sprite_26: -1713930243
+      Cheese_sprite_27: 1592857105
+      Cheese_sprite_28: 2073816484
+      Cheese_sprite_29: -1766147105
+      Cheese_sprite_3: -901420598
+      Cheese_sprite_30: -66480693
+      Cheese_sprite_31: -1419082337
+      Cheese_sprite_32: -968215252
+      Cheese_sprite_33: 93242418
+      Cheese_sprite_34: 467330554
+      Cheese_sprite_35: 512997380
+      Cheese_sprite_36: -2040937072
+      Cheese_sprite_37: -399794864
+      Cheese_sprite_38: 1350813836
+      Cheese_sprite_39: 1674799141
+      Cheese_sprite_4: -314537883
+      Cheese_sprite_40: -565803485
+      Cheese_sprite_41: 1330553722
+      Cheese_sprite_42: -1042450330
+      Cheese_sprite_43: -588947652
+      Cheese_sprite_44: 1310512763
+      Cheese_sprite_45: -2049844040
+      Cheese_sprite_46: 1615781503
+      Cheese_sprite_47: 186735734
+      Cheese_sprite_48: -1519634227
+      Cheese_sprite_49: 2043559019
+      Cheese_sprite_5: -920827059
+      Cheese_sprite_50: -881084025
+      Cheese_sprite_51: 1136341906
+      Cheese_sprite_52: 1204859770
+      Cheese_sprite_53: -693561645
+      Cheese_sprite_54: -1395171486
+      Cheese_sprite_55: -1630890982
+      Cheese_sprite_56: 1996293147
+      Cheese_sprite_57: 31771140
+      Cheese_sprite_58: -899767221
+      Cheese_sprite_59: -656835822
+      Cheese_sprite_6: -1407489023
+      Cheese_sprite_60: 1933540126
+      Cheese_sprite_61: 1968986682
+      Cheese_sprite_62: 205004537
+      Cheese_sprite_63: -326140724
+      Cheese_sprite_64: -1733632138
+      Cheese_sprite_65: 444268364
+      Cheese_sprite_66: 998889226
+      Cheese_sprite_67: -1008811246
+      Cheese_sprite_68: 560635277
+      Cheese_sprite_69: -235858478
+      Cheese_sprite_7: 414666216
+      Cheese_sprite_70: 53755328
+      Cheese_sprite_71: 880417010
+      Cheese_sprite_72: 1352257380
+      Cheese_sprite_73: 1910213437
+      Cheese_sprite_74: 866266654
+      Cheese_sprite_75: -1641955336
+      Cheese_sprite_76: -1135661979
+      Cheese_sprite_77: 1892271332
+      Cheese_sprite_78: 842341893
+      Cheese_sprite_79: -302007515
+      Cheese_sprite_8: 1724495243
+      Cheese_sprite_80: -999481058
+      Cheese_sprite_81: 1866393285
+      Cheese_sprite_82: 1227231119
+      Cheese_sprite_83: 1357163118
+      Cheese_sprite_84: -1275483210
+      Cheese_sprite_85: -1419434333
+      Cheese_sprite_86: 1288043584
+      Cheese_sprite_87: 69314498
+      Cheese_sprite_88: 1962017563
+      Cheese_sprite_89: -2142500268
+      Cheese_sprite_9: 1904705042
+      Cheese_sprite_90: 810676112
+      Cheese_sprite_91: 1979160719
+      Cheese_sprite_92: 1651356710
+      Cheese_sprite_93: 1398747506
+      Cheese_sprite_94: 1339266901
+      Cheese_sprite_95: -158101107
+      Cheese_sprite_96: -65844730
+      Cheese_sprite_97: 651496099
+      Cheese_sprite_98: 2083833461
+      Cheese_sprite_99: 1913413035
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

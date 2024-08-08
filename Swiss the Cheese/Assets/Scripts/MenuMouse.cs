@@ -19,6 +19,7 @@ public class MenuMouse : MonoBehaviour
     [SerializeField] GameObject soundManager;
     [SerializeField] BitingManager bitingManager;
     [SerializeField] HardModeManager hardModeManager;
+    [SerializeField] MouseSkinLoader mouseSkinLoader;
     private List<GameObject> bitesMade;
 
     private Rect canvasRect;
@@ -41,6 +42,10 @@ public class MenuMouse : MonoBehaviour
         if (GameObject.FindObjectsOfType<HardModeManager>().Length == 0)
         {
             Instantiate(hardModeManager);
+        }
+        if (GameObject.FindObjectsOfType<MouseSkinLoader>().Length == 0)
+        {
+            Instantiate(mouseSkinLoader);
         }
 
         //set up the play button and options button
