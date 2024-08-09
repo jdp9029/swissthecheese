@@ -34,6 +34,8 @@ public class MenuMouse : MonoBehaviour
         beenInViewRecently = false;
         bitesMade = new List<GameObject>();
 
+        MouseSkinLoader msl;
+
         //set up the sound and hard mode managers
         if (GameObject.FindObjectsOfType<SoundManager>().Length == 0)
         {
@@ -43,10 +45,19 @@ public class MenuMouse : MonoBehaviour
         {
             Instantiate(hardModeManager);
         }
-        /*if (GameObject.FindObjectsOfType<MouseSkinLoader>().Length == 0)
+        if (GameObject.FindObjectsOfType<MouseSkinLoader>().Length == 0)
         {
-            Instantiate(mouseSkinLoader);
-        }*/
+            msl = Instantiate(mouseSkinLoader);
+            msl.Load();
+        }
+        else
+        {
+            msl = GameObject.FindObjectOfType<MouseSkinLoader>();
+        }
+
+        GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
+        transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
+        transform.GetChild(1).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
 
         //set up the play button and options button
         playButton.onClick.AddListener(delegate
@@ -65,17 +76,6 @@ public class MenuMouse : MonoBehaviour
         {
             SceneManager.LoadScene("Shop");
         });
-
-        var msl = FindObjectOfType<MouseSkinLoader>();
-        if (msl.EquippedSkin == null)
-        {
-            msl.EquippedSkin = msl.Skins[0];
-            msl.EquippedTopAccessory = msl.Accessories[0];
-            msl.EquippedBottomAccessory = msl.Accessories[1];
-        }
-        GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
-        transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
-        transform.GetChild(1).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
 
         if (msl.EquippedTopAccessory == msl.Accessories[0])
         {

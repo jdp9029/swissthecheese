@@ -987,63 +987,6 @@ MonoBehaviour:
   rawHeight: 116
   expectedMin: {x: 0.267, y: 0.55}
   expectedMax: {x: 0.735, y: 0.65}
---- !u!1001 &1012983896
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2336813794203293870, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 253.4483
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336813794203293870, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 223.91364
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336813794203293870, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.9489949
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336813794203293870, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336813794203293870, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336813794203293870, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336813794203293870, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336813794203293870, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336813794203293870, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2336813794203293870, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5647422321658941721, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
-      propertyPath: m_Name
-      value: MouseSkinLoader
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cb953435519a9b946823cd5bd3c61da4, type: 3}
 --- !u!1 &1266396501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,5 +1462,4 @@ SceneRoots:
   - {fileID: 624406660}
   - {fileID: 1496157554}
   - {fileID: 71026102}
-  - {fileID: 1012983896}
   - {fileID: 1370591636}

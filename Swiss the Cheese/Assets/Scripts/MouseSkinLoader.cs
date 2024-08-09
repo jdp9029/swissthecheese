@@ -38,14 +38,8 @@ public class MouseSkinLoader : MonoBehaviour
     public DictItem EquippedBottomAccessory;
 
     //We want the sound manager to always be preserved over the course of multiple scenes
-    private void Awake()
+    public void Load()
     {
-        if (GameObject.FindObjectsOfType<MouseSkinLoader>().Count() > 1)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         DontDestroyOnLoad(gameObject);
         
         string[] uSkins = PlayerPrefs.GetString("Skins", string.Empty).Split(',');

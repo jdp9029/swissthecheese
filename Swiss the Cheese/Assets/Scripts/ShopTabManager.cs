@@ -82,6 +82,7 @@ public class ShopTabManager : MonoBehaviour
 	    SelectSkin("Nibbles");
         transform.GetChild(0).Find("Hitbox").GetComponent<Button>().onClick.Invoke();
 
+        Debug.Log(System.DateTime.Now.Day);
         rewardAvailable = PlayerPrefs.GetInt("LastLogin", int.MinValue) != System.DateTime.Now.Day;
         PlayerPrefs.SetInt("LastLogin", System.DateTime.Now.Day);
 
