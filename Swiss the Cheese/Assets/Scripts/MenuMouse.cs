@@ -43,10 +43,10 @@ public class MenuMouse : MonoBehaviour
         {
             Instantiate(hardModeManager);
         }
-        if (GameObject.FindObjectsOfType<MouseSkinLoader>().Length == 0)
+        /*if (GameObject.FindObjectsOfType<MouseSkinLoader>().Length == 0)
         {
             Instantiate(mouseSkinLoader);
-        }
+        }*/
 
         //set up the play button and options button
         playButton.onClick.AddListener(delegate
