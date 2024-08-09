@@ -55,6 +55,7 @@ public class MenuMouse : MonoBehaviour
             msl = GameObject.FindObjectOfType<MouseSkinLoader>();
         }
 
+        Debug.Log(msl.EquippedSkin.Name);
         GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
         transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
         transform.GetChild(1).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
