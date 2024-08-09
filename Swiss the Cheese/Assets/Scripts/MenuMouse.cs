@@ -27,7 +27,6 @@ public class MenuMouse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.DeleteAll();
         //set up the necessary variables
         angle = 0f;
         speed = 1f;
