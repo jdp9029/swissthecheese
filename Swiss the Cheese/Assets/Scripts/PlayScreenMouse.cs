@@ -46,6 +46,13 @@ public class PlayScreenMouse : MonoBehaviour
             HardModeManager.Mode = HardModeManager.Modes.TWICEMICE;
             SceneManager.LoadScene("PreGameInstructions");
         });
+
+        var msl = FindObjectOfType<MouseSkinLoader>();
+
+        GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
+        transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
+        transform.GetChild(1).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
+
     }
 
     // Update is called once per frame
