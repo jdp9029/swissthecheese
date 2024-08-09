@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (chosenConditionNumber == 3)
         {
-            ChosenCondition = FindObjectOfType<HoleManager>().holesCut.Count % 6 == 0;
+            ChosenCondition = FindObjectOfType<HoleManager>().holesCut.Count % 8 == 0;
         }
     }
 

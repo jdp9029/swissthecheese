@@ -28,7 +28,7 @@ public class PrePlayInstructions : MonoBehaviour
                 textMeshProUGUI.text = "Fill up the cheese with 12 bites to advance to the next cheese.";
                 break;
             case HardModeManager.Modes.TWICEMICE:
-                textMeshProUGUI.text = "Two mice will be going at different speeds but bite at the same time. Fill up the cheese with 6 bites to advance to the next cheese.";
+                textMeshProUGUI.text = "Two mice will be going at different speeds but bite at the same time. Fill up the cheese with 8 bites to advance to the next cheese.";
                 break;
         }
     }

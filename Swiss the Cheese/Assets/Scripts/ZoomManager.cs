@@ -125,15 +125,23 @@ public class ZoomManager : MonoBehaviour
         GameObject.Destroy(circleInstance);
 
         //make the spinning object active
-        foreach (var mouse in GameObject.FindGameObjectsWithTag("Mouse"))
+        var hm = GameObject.FindObjectOfType<HoleManager>();
+        int miceExisting = 1;
+
+        hm.mouseInstance.SetActive(true);
+        hm.mouseInstance.GetComponent<Image>().color = Color.white;
+
+        if (hm.mouseInstance2 != null)
         {
-            mouse.SetActive(true);
-            mouse.GetComponent<Image>().color = Color.white;
+            hm.mouseInstance2.SetActive(true);
+            hm.mouseInstance2.GetComponent<Image>().color = Color.white;
+            miceExisting = 2;
         }
-        GameObject.FindObjectOfType<HoleManager>().holesCut.Clear();
+
+        hm.holesCut.Clear();
 
         //destroy any former holes that were cut
-        for (int i = 2; i < OuterCircle.transform.childCount - 1; i++)
+        for (int i = 2; i < OuterCircle.transform.childCount - miceExisting; i++)
         {
             GameObject.Destroy(OuterCircle.transform.GetChild(i).gameObject);
         }

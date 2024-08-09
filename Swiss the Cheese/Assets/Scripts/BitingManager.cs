@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -31,21 +32,21 @@ public class BitingManager : MonoBehaviour
     [HideInInspector] private GameObject mouseObject;
     [HideInInspector] private GameObject mouseObject2;
 
-    private void Start()
-    {
-        var mice = GameObject.FindGameObjectsWithTag("Mouse");
-
-        mouseObject = mice[0];
-
-        if (HardModeManager.Mode == HardModeManager.Modes.TWICEMICE && SceneManager.GetActiveScene().name == "UpdatedGameplay")
-        {
-            mouseObject2 = mice[1];
-        }
-    }
-
     // Update is called once per frame
     void Update()
     {
+        if (mouseObject == null)
+        {
+            var mice = GameObject.FindGameObjectsWithTag("Mouse");
+
+            mouseObject = mice[0];
+
+            if (HardModeManager.Mode == HardModeManager.Modes.TWICEMICE && SceneManager.GetActiveScene().name == "UpdatedGameplay")
+            {
+                mouseObject2 = mice[1];
+            }
+        }
+
         if (IsBiting)
         {
             List<Sprite> mouseSprites = GetSpriteSheet();
@@ -118,7 +119,7 @@ public class BitingManager : MonoBehaviour
 
             if (mouseObject2 != null)
             {
-                mouseObject2.transform.GetChild(1).GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, accessoryAngle);
+                mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, accessoryAngle);
                 mouseObject2.transform.GetChild(1).GetComponent<RectTransform>().rotation = Quaternion.Euler(0.0f, 0.0f, accessoryAngle);
             }
 
@@ -126,6 +127,12 @@ public class BitingManager : MonoBehaviour
             if (mouseNumber >= mouseSprites.Count)
             {
                 EndBite();
+
+                if (mouseObject2 != null)
+                {
+                    EndBite(false);
+                }
+
                 return;
             }
 
@@ -183,6 +190,7 @@ public class BitingManager : MonoBehaviour
         }
         else
         {
+            mouseObject2.transform.localScale *= .75f;
             holeBeingEaten2 = hole;
             var x2 = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.x;
             var y2 = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.y;
@@ -192,37 +200,39 @@ public class BitingManager : MonoBehaviour
         }
     }
 
-    public void EndBite()
+    public void EndBite(bool playSound = true)
     {
-        var x = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.x;
-        var y = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.y;
-        var z = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.z;
-        mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(x * .5f, y, z);
-        mouseObject.transform.GetChild(1).GetComponent<RectTransform>().localScale = new Vector3(x * .5f, y, z);
-
-        //reset variables
-        IsBiting = false;
-        timer = 0;
-        mouseObject.transform.localScale /= .75f;
-        mouseObject.GetComponent<Image>().sprite = FindObjectOfType<MouseSkinLoader>().EquippedSkin.Sprite;
-
-        //destroy the audio source
-        Destroy(bitingSoundPlaying.gameObject);
-
-        //if this bite is in the menu, we don't need to check it against other holes
-        if(SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "PlayScreen") { return; }
-
-        //check it against the other intersections in hole manager
-        GameObject.FindObjectOfType<HoleManager>().CheckIntersections(holeBeingEaten);
-
-        mouseObject.transform.GetChild(0).GetComponent<RectTransform>().rotation = mouseObject.transform.rotation;
-        mouseObject.transform.GetChild(1).GetComponent<RectTransform>().rotation = mouseObject.transform.rotation;
-
-        if (mouseObject2 != null)
+        if (playSound)
         {
-            x = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.x;
-            y = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.y;
-            z = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.z;
+            var x = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.x;
+            var y = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.y;
+            var z = mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale.z;
+            mouseObject.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(x * .5f, y, z);
+            mouseObject.transform.GetChild(1).GetComponent<RectTransform>().localScale = new Vector3(x * .5f, y, z);
+
+            //reset variables
+            IsBiting = false;
+            timer = 0;
+            mouseObject.transform.localScale /= .75f;
+            mouseObject.GetComponent<Image>().sprite = FindObjectOfType<MouseSkinLoader>().EquippedSkin.Sprite;
+
+            //destroy the audio source
+            Destroy(bitingSoundPlaying.gameObject);
+
+            //if this bite is in the menu, we don't need to check it against other holes
+            if (SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "PlayScreen") { return; }
+
+            //check it against the other intersections in hole manager
+            GameObject.FindObjectOfType<HoleManager>().CheckIntersections(holeBeingEaten);
+
+            mouseObject.transform.GetChild(0).GetComponent<RectTransform>().rotation = mouseObject.transform.rotation;
+            mouseObject.transform.GetChild(1).GetComponent<RectTransform>().rotation = mouseObject.transform.rotation;
+        }
+        else
+        {
+            var x = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.x;
+            var y = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.y;
+            var z = mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale.z;
             mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(x * .5f, y, z);
             mouseObject2.transform.GetChild(1).GetComponent<RectTransform>().localScale = new Vector3(x * .5f, y, z);
 
@@ -230,7 +240,14 @@ public class BitingManager : MonoBehaviour
             mouseObject2.GetComponent<Image>().sprite = FindObjectOfType<MouseSkinLoader>().EquippedSkin.Sprite;
 
             //check it against the other intersections in hole manager
-            GameObject.FindObjectOfType<HoleManager>().CheckIntersections(holeBeingEaten2);
+            if (GameObject.FindObjectOfType<HoleManager>().holesCut.Any())
+            {
+                GameObject.FindObjectOfType<HoleManager>().CheckIntersections(holeBeingEaten2);
+            }
+            else
+            {
+                Destroy(holeBeingEaten2.gameObject);
+            }
 
             mouseObject2.transform.GetChild(0).GetComponent<RectTransform>().rotation = mouseObject2.transform.rotation;
             mouseObject2.transform.GetChild(1).GetComponent<RectTransform>().rotation = mouseObject2.transform.rotation;

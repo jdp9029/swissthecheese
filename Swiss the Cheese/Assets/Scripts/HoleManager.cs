@@ -174,7 +174,7 @@ public class HoleManager : MonoBehaviour
 
         //iterate the angle
         angle += Time.deltaTime * rotationSpeed;
-        angle2 += Time.deltaTime * (rotationSpeed / 2);
+        angle2 += Time.deltaTime * (rotationSpeed / 2.5f);
         ReturnAngleToZero();
 
         //move the circle around accordingly

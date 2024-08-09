@@ -39,6 +39,11 @@ public class HighScoreKeeper : MonoBehaviour
 
     public void SetHighScore(int highscore)
     {
+        if (highscore % 2 == 1 && HardModeManager.Mode == HardModeManager.Modes.TWICEMICE)
+        {
+            return;
+        }
+
         PlayerPrefs.SetInt(playerPref, highscore);
         LoadHighScore();
     }
