@@ -50,8 +50,17 @@ public class PlayScreenMouse : MonoBehaviour
         var msl = FindObjectOfType<MouseSkinLoader>();
 
         GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
-        transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
-        transform.GetChild(1).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
+        
+        
+
+        if (msl.EquippedTopAccessory != msl.Accessories[0])
+        {
+            transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
+        }
+        if (msl.EquippedBottomAccessory != msl.Accessories[1])
+        {
+            transform.GetChild(1).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
+        }
 
     }
 
