@@ -42,11 +42,9 @@ public class MouseSkinLoader : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         
-        string[] uSkins = PlayerPrefs.GetString("Skins", string.Empty).Split(',');
-        string[] uAccessories = PlayerPrefs.GetString("Accessories", string.Empty).Split(',');
         coins = PlayerPrefs.GetInt("Coins", 0);
 
-        if (uSkins.Length == 1 && uAccessories.Length == 1 && string.IsNullOrWhiteSpace(uSkins[0]) && string.IsNullOrWhiteSpace(uAccessories[0]))
+        if (!PlayerPrefs.HasKey("EquippedSkin"))
         {
             UnlockItem("Nibbles");
             UnlockItem("No Top");
@@ -62,9 +60,11 @@ public class MouseSkinLoader : MonoBehaviour
         }
         else
         {
-            EquippedSkin = Skins.FirstOrDefault(i => i.Name == PlayerPrefs.GetString("EquippedSkin"));
-            EquippedTopAccessory = Accessories.FirstOrDefault(i => i.Name == PlayerPrefs.GetString("EquippedTopAccessory"));
-            EquippedBottomAccessory = Accessories.FirstOrDefault(i => i.Name == PlayerPrefs.GetString("EquippedBottomAccessory"));
+            string[] uSkins = PlayerPrefs.GetString("Skins", string.Empty).Split(',');
+            string[] uAccessories = PlayerPrefs.GetString("Accessories", string.Empty).Split(',');
+            EquippedSkin = Skins.First(i => i.Name == PlayerPrefs.GetString("EquippedSkin"));
+            EquippedTopAccessory = Accessories.First(i => i.Name == PlayerPrefs.GetString("EquippedTopAccessory"));
+            EquippedBottomAccessory = Accessories.First(i => i.Name == PlayerPrefs.GetString("EquippedBottomAccessory"));
             foreach (var skin in Skins)
             {
                 skin.IsUnlocked = uSkins.Contains(skin.Name);
