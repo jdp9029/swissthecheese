@@ -48,6 +48,7 @@ public class MenuMouse : MonoBehaviour
         if (GameObject.FindObjectsOfType<MouseSkinLoader>().Length == 0)
         {
             msl = Instantiate(mouseSkinLoader);
+            Debug.Log("Loaded mouse skin loader");
             msl.Load();
         }
         else

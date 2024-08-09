@@ -58,6 +58,7 @@ public class MouseSkinLoader : MonoBehaviour
             PlayerPrefs.SetString("EquippedSkin", "Nibbles");
             PlayerPrefs.SetString("EquippedTopAccessory", "No Top");
             PlayerPrefs.SetString("EquippedBottomAccessory", "No Bottom");
+            Debug.Log("Loaded skins");
         }
         else
         {
