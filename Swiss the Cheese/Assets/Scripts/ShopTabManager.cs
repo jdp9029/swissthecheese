@@ -84,7 +84,7 @@ public class ShopTabManager : MonoBehaviour
 
         Debug.Log(System.DateTime.Now.Day);
         rewardAvailable = PlayerPrefs.GetInt("LastLogin", int.MinValue) != System.DateTime.Now.Day;
-        PlayerPrefs.SetInt("LastLogin", System.DateTime.Now.Day);
+        
 
         SkinButton.GetComponent<Button>().onClick.AddListener(delegate
         {
@@ -209,6 +209,7 @@ public class ShopTabManager : MonoBehaviour
         {
             rewardAvailable = false;
             msl.Coins += 25;
+            PlayerPrefs.SetInt("LastLogin", System.DateTime.Now.Day);
         }
     }
 
