@@ -67,7 +67,12 @@ public class MenuMouse : MonoBehaviour
         });
 
         var msl = FindObjectOfType<MouseSkinLoader>();
-
+        if (msl.EquippedSkin == null)
+        {
+            msl.EquippedSkin = msl.Skins[0];
+            msl.EquippedTopAccessory = msl.Accessories[0];
+            msl.EquippedBottomAccessory = msl.Accessories[1];
+        }
         GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
         transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
         transform.GetChild(1).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
