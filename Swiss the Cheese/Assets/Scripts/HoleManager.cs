@@ -106,7 +106,7 @@ public class HoleManager : MonoBehaviour
             mouseInstance2.GetComponent<Image>().color = Color.white;
             mouseInstance2.GetComponent<Image>().sprite = msl.EquippedSkin.Sprite;
             mouseInstance2.transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedTopAccessory.Sprite;
-            mouseInstance2.transform.GetChild(0).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
+            mouseInstance2.transform.GetChild(1).GetComponent<Image>().sprite = msl.EquippedBottomAccessory.Sprite;
             if (msl.EquippedTopAccessory == msl.Accessories[0])
             {
                 mouseInstance2.transform.GetChild(0).GetComponent<Image>().color = new Color32(255, 255, 255, 0);

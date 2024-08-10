@@ -28,13 +28,13 @@ public class MouseSkinLoader : MonoBehaviour
         }
     }
 
-    [HideInInspector]
+    [SerializeField]
     public DictItem EquippedSkin;
 
-    [HideInInspector]
+    [SerializeField]
     public DictItem EquippedTopAccessory;
 
-    [HideInInspector]
+    [SerializeField]
     public DictItem EquippedBottomAccessory;
 
     //We want the sound manager to always be preserved over the course of multiple scenes
